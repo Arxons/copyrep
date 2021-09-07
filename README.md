@@ -1,2 +1,2 @@
-# arxons-JSFE2021Q3
+# rsschool-cv
 Private repository for @arxons
