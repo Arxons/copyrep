@@ -1,0 +1,69 @@
+body{
+    background-color: #030303;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container{
+    margin: 0 auto;
+    width: 1440px;
+    height: 150px;
+
+    background-color: #030303;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    width: 200px;
+    height: 35px;
+
+    background-image: url("../images/logo.svg");
+    background-repeat: no-repeat;
+}
+
+.logo p{
+    font-family: 'Forum', sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 5px;
+
+    margin-left: 75px;
+}
+
+.nav__menu{
+    width: 775px;
+    height: 25px;
+}
+
+.nav__menu ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__link{
+    text-decoration: none;
+    color: #ffffff;
+    font-family: "Roboto", sans-serif;
+    font-size: 22px;
+    font-weight: 200;
+    letter-spacing: 2px;
+}
+
+section{
+    margin: 0 auto;
+}
+
+.welcome{
+    width: 1440px;
+    height: 810px;
+}
