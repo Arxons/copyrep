@@ -28,10 +28,11 @@ header {
     background-repeat: no-repeat;
 }
 
-.logo p{
+.logo a{
     font-family: 'Forum', sans-serif;
     font-size: 28px;
     font-weight: 400;
+    text-decoration: none;
     text-transform: uppercase;
     color: #fff;
     letter-spacing: 5px;
@@ -66,4 +67,82 @@ section{
 .welcome{
     width: 1440px;
     height: 810px;
+
+    display: flex;
+    position: relative;
+}
+
+.title-welcome{
+    width: 600px;
+    height: 390px;
+
+    margin-top: 150px;
+    margin-bottom: 270px;
+    position: absolute;
+}
+
+.title-welcome h1{
+    font-family: 'Forum', sans-serif;
+    font-size: 80px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 5px;
+    line-height: 90px;
+}
+
+.title-welcome p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: 2px;
+
+    padding-top: 25px;
+    margin-bottom: 75px;
+}
+
+.welcome-slider{
+    width: 1000px;
+    height: 750px;
+
+    position: absolute;
+    margin-left: 440px;
+
+    background-image: url(../images/welcomeslider/1.jpg);
+
+    box-shadow: inset 130px 0px 160px 0px #000
+}
+
+.button-pan{
+    width: 360px;
+    height: 75px;
+
+    border-radius: 10px;
+
+    background-color: #710707;
+}
+
+.button-text{
+    width: 360px;
+    height: 75px;
+
+    border-radius: 10px;
+
+    background-color: #710707;
+
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: 2px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.button-text:hover{
+    background-color: #9D8665;
 }
