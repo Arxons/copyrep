@@ -334,3 +334,115 @@ section {
 .wrapper-explore span {
     color: #CAAA7D;
 }
+
+.video {
+    width: 1920px;
+    height: 1400px;
+
+    background-color: #fff;
+    position: relative;
+}
+
+.wrapper-video {
+    width: 1440px;
+    height: 1250px;
+
+    margin: 75px 240px 75px 240px;
+    position: absolute;
+}
+
+.video-title{
+    display: flex;
+    gap: 115px;
+    margin-bottom: 75px;
+}
+
+.video-title h2 {
+    font-family: 'Forum', sans-serif;
+    font-size: 80px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #9D8665;
+    letter-spacing: 5px;
+}
+
+.video-title p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 38px;
+    color: #030303;
+}
+
+.progress {
+    width: 1440px;
+    height: 85px;
+
+    background-color: #030303;   
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon-play {
+    width: 25px;
+    height: 30px;
+    background-image: url(../images/video/play.svg);
+    background-repeat: no-repeat;
+    margin-left: 30px;
+}
+
+.icon-volume {
+    border: none; outline: none;
+    width: 40px;
+    height: 30px;
+    
+    background-color: #030303;
+    background-image: url(../images/video/volume.svg), url(../images/video/volume1.svg), url(../images/video/volume2.svg);
+    background-position: left, 24px, 27px;
+    background-repeat: no-repeat;
+}
+
+.progress-bar {
+    background: linear-gradient(to right, #710707 0%, #710707 40%, #fff 40%, #fff 100%);
+    border: solid 2px #710707;
+    border-radius: 8px;
+    width: 930px;
+    height: 8px;    
+    outline: none;
+    transition: 450ms ease-in;
+    -webkit-appearance: none;
+  }
+  
+  .progress-bar::-webkit-slider-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    -webkit-appearance: none;
+    cursor: ew-resize;
+    background: #fff;
+  }
+
+  .progress-bar-vol {
+    background: linear-gradient(to right, #710707 0%, #710707 40%, #fff 40%, #fff 100%);
+    border: solid 2px #710707;
+    border-radius: 8px;
+    width: 155px;
+    height: 8px;    
+    outline: none;
+    /* transition: 450ms ease-in; */
+    -webkit-appearance: none;
+  }
+  
+  .progress-bar-vol::-webkit-slider-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    -webkit-appearance: none;
+    /* transition: 450ms ease-in; */
+    cursor: ew-resize;
+    background: #fff;
+  }
+
+  
