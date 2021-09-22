@@ -31,10 +31,10 @@
                         <a href="#explore" class="nav__link">Explore</a>
                     </li>
                     <li>
-                        <a href="/#" class="nav__link">Video</a>
+                        <a href="#video" class="nav__link">Video</a>
                     </li>
                     <li>
-                        <a href="/#" class="nav__link">Gallery</a>
+                        <a href="#gallery" class="nav__link">Gallery</a>
                     </li>
                     <li>
                         <a href="/#" class="nav__link">Tickets</a>
@@ -157,20 +157,94 @@
                 </div>
                 <img src="images/video/poster1.jpg" alt="poster" width="1440" height="650">
                 <div class="progress">
-                    <div class="icon-play"></div>
+                    <button class="icon-play" id="play"></button>
                     <input type="range" value="40" min="0" max="100" step="1" class="progress-bar">
                     <button class="icon-volume" id="icon-vol" onclick="volumeOnOff()"></button>
                     <input type="range" value="40" min="0" max="100" step="1" class="progress-bar-vol" id="progress">
+                    <button class="icon-fullscreen"></button>
+                </div>
+                <div class="video-changer">
+                    <img src="images/video/poster2.jpg" alt="poster">
+                    <img src="images/video/poster3.jpg" alt="poster">
+                    <img src="images/video/poster4.jpg" alt="poster">
+                </div>
+                <div class="control-pannel"></div>
+            </div>
+        </section>
+        <section class="gallery" id="gallery">
+            <div class="wrapper-gallery">
+                <h2>art gallery</h2>
+                <div class="gallery-scroll">
+                    <div class="left-column">
+                        <img src="images/gallery/galery2.jpg" alt="photo" width="455" height="570">
+                        <img src="images/gallery/galery9.jpg" alt="photo" width="455" height="570">
+                        <img src="images/gallery/galery4.jpg" alt="photo" width="455" height="456">
+                        <img src="images/gallery/galery6.jpg" alt="photo" width="455" height="570">
+                        <img src="images/gallery/galery13.jpg" alt="photo" width="455" height="456">
+                    </div>
+                    <div class="middle-column">
+                        <img src="images/gallery/galery1.jpg" alt="photo" width="455" height="456">
+                        <img src="images/gallery/galery8.jpg" alt="photo" width="455" height="570">
+                        <img src="images/gallery/galery3.jpg" alt="photo" width="455" height="570">
+                        <img src="images/gallery/galery5.jpg" alt="photo" width="455" height="456">
+                        <img src="images/gallery/galery11.jpg" alt="photo" width="455" height="456">
+                    </div>
+                    <div class="right-column">
+                        <img src="images/gallery/galery7.jpg" alt="photo" width="455" height="570">
+                        <img src="images/gallery/galery10.jpg" alt="photo" width="455" height="456">
+                        <img src="images/gallery/galery15.jpg" alt="photo" width="455" height="456">
+                        <img src="images/gallery/galery12.jpg" alt="photo" width="455" height="456">
+                        <img src="images/gallery/galery14.jpg" alt="photo" width="455" height="570">
+                    </div>
+                    <div class="shadow-box"></div>
                 </div>
             </div>
         </section>
-        <section>
-
+        <section class="tickets" id="tickets">
+            <div class="wrapper-tickets">
+                <h2>buy tickets</h2>
+                <div class="underline"></div>
+                <div class="tickets-content">
+                    <img src="images/tickets/tickets.jpg" alt="photo" width="720" height="550">
+                    <div class="ticket-type">
+                        <h3>Ticket Type</h3>
+                        <label class="changer">
+                            <input type="radio" checked="checked" name="radio">
+                            Permanent exhibition
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="changer">
+                            <input type="radio" checked="checked" name="radio">
+                            Temporary exhibition
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="changer">
+                            <input type="radio" checked="checked" name="radio">
+                            Combined Admission
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="amount">
+                        <h3>Amount</h3>
+                        <h4>Basic 18+</h4>
+                        <div class="button-amount">
+                            <button type="button" onclick="this.nextElementSibling.stepDown()">&#8722</button>
+                            <input type="number" min="0" max="20" value="1" readonly class="input-counter">
+                            <button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+                        </div>
+                        <h4>Senior</h4>
+                        <div class="button-amount">
+                            <button type="button" onclick="this.nextElementSibling.stepDown()">&#8722</button>
+                            <input type="number" min="0" max="20" value="1" readonly class="input-counter">
+                            <button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+                        </div>
+                        <h3>Total €220</h3>
+                        <button class="buy-now">Buy now</button>
+                    </div>
+                </div>
+            </div>
         </section>
-        <section>
-
-        </section>
-        <script src="main.js"></script>
+        <script src="js/main.js"></script>
 
     </main>
     <footer>
