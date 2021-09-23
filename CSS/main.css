@@ -748,3 +748,209 @@ section {
     background-size: cover;
     background-attachment: fixed;
 }
+
+.contacts {
+    width: 1920px;
+    height: 965px;
+    background-color: #fff;
+    position: relative;
+}
+
+.wrapper-contacts {    
+    width: 1440px;
+    height: 815px;
+    position: absolute;
+    margin: 75px 240px 75px 240px;
+}
+
+.wrapper-contacts h2 {
+    font-family: 'Forum', sans-serif;
+    font-size: 80px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #9D8665;
+    letter-spacing: 5px;
+
+    margin-bottom: 25px;
+}
+
+.underline-c {
+    width: 1440px;
+    height: 3px;
+    margin-bottom: 75px;
+
+    background-color: #710707;
+}
+
+.contacts-info {
+    display: flex;
+    gap: 200px;
+}
+
+.contacts-li h3{
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: #000000;
+    line-height: 33px;
+
+}
+
+.contacts-li ul {
+    margin-top: 50px;    
+}
+
+.contacts-li ul li {
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: #000000;
+
+    margin-bottom: 25px;
+}
+
+footer {
+    width: 1920px;
+    height: 400px;
+    background-color: #030303;
+    margin: 0 auto;
+}
+
+.wrapper-nav {
+    width: 1440px;
+    height: 265px;
+
+    margin: 0 auto;
+    display: flex;
+}
+
+.logo-footer {
+    width: 195px;
+    height: 50px;
+    margin-top: 75px;
+
+    background-image: url("../images/logo.svg");
+    background-repeat: no-repeat;
+}
+
+.logo-footer a {
+    font-family: 'Forum', sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 5px;
+
+    margin-left: 75px;
+}
+
+.footer-nav {
+    width: 365px;
+    height: 130px;
+    margin-top: 75px;
+    margin-left: 165px;
+    display: flex;
+    gap: 150px;  
+}
+
+.footer-nav li {
+    margin-bottom: 25px;
+}
+
+.footer-icons {
+    width: 340px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 400px;
+    margin-top: 150px;
+}
+
+.youtube {
+    width: 48px;
+    height: 48px;
+    border: 2px solid #666;
+    border-radius: 50%;
+    background-image: url(../images/footer/youtube.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: linear 0.1s;    
+}
+
+.instagram {
+    width: 48px;
+    height: 48px;
+    border: 2px solid #666;
+    border-radius: 50%;
+    background-image: url(../images/footer/instagram.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: linear 0.1s;    
+}
+
+.facebook {
+    width: 48px;
+    height: 48px;
+    border: 2px solid #666;
+    border-radius: 50%;
+    background-image: url(../images/footer/facebook.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: linear 0.1s;    
+}
+
+.twitter {
+    width: 48px;
+    height: 48px;
+    border: 2px solid #666;
+    border-radius: 50%;
+    background-image: url(../images/footer/twitter.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: linear 0.1s;    
+}
+
+.pinterest {
+    width: 48px;
+    height: 48px;
+    border: 2px solid #666;
+    border-radius: 50%;
+    background-image: url(../images/footer/pinterest.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: linear 0.1s;    
+}
+
+.youtube:hover, .instagram:hover, .facebook:hover, .twitter:hover, .pinterest:hover{
+    filter: invert(62%) sepia(4%) saturate(3149%) hue-rotate(356deg) brightness(87%) contrast(77%);
+}
+
+.underline-footer {
+    width: 1920px;
+    height: 3px;
+    background-color: #666;
+}
+
+.footer-links {
+    width: 1440px;
+    height: 125px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-links h3, a{
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    font-weight: 200;
+    text-decoration: none;
+    color: #fff;
+    transition: linear 0.2s;
+}
+
+.footer-links a:hover {
+    color: #9D8665;
+}
