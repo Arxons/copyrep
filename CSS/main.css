@@ -464,6 +464,9 @@ section {
 }
 
 .button-play {
+    width: 240px;
+    height: 240px;
+    opacity: 0;
     border: none;
     outline: none;
     background-color: black;
@@ -879,6 +882,8 @@ section {
 }
 
 .buy-now {
+    position: absolute; 
+    box-sizing: border-box;   
     width: 175px;
     height: 50px;
     border: none;
@@ -891,6 +896,8 @@ section {
     font-weight: 300;
     letter-spacing: 2px;
     color: #fff;
+    text-align: center;
+    padding-top: 13px;
 
     background-color: #030303;
 

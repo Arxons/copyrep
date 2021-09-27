@@ -66,12 +66,14 @@
                             <div class="square"></div>
                         </div>
                         <div class="arrows-slider">
-                            <button class="left">
-                                <div class="ar-left"></div>
-                            </button>
-                            <button class="right">
-                                <div class="ar-right"></div>
-                            </button>
+                            <div class="ar-left">
+                                <button class="left">
+                                </button>
+                            </div>
+                            <div class="ar-right">
+                                <button class="right">
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <!-- <img class="welcome-slider" src="images/welcomeslider/1.jpg" alt="" width="1000" height="750"> -->
@@ -174,9 +176,10 @@
                 </div>
                 <div class="main-poster">
                     <img src="images/video/poster1.jpg" alt="poster" width="1440" height="650">
-                    <button class="button-play">
-                        <div class="main-play"></div>
-                    </button>
+                    <div class="main-play">
+                        <button class="button-play">
+                        </button>
+                    </div>
                 </div>
                 <div class="progress">
                     <button class="icon-play" id="play"></button>
@@ -191,17 +194,17 @@
                     <img src="images/video/poster4.jpg" alt="poster">
                 </div>
                 <div class="control-pannel">
-                    <button class="arrows">
-                        <div class="arrow-left"></div>
-                    </button>
+                    <div class="arrow-left">
+                        <button class="arrows"></button>
+                    </div>
                     <div class="dots"></div>
                     <div class="dots"></div>
                     <div class="dots"></div>
                     <div class="dots"></div>
                     <div class="dots"></div>
-                    <button class="arrows">
-                        <div class="arrow-right"></div>
-                    </button>
+                    <div class="arrow-right">
+                        <button class="arrows"></button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -259,7 +262,7 @@
                             <button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
                         </div>
                         <h4>Total €220</h4>
-                        <a href="#popup"><button class="buy-now">Buy Now</button></a>
+                        <a class="buy-now" href="#popup">Buy Now</a>
                     </div>
                 </div>
             </div>
@@ -411,18 +414,18 @@
                             <form action="#" class="card__form">
                                 <img src="images/popup/visa.png" alt="" width="55" height="16" class="visa">
                                 <img src="images/popup/Mastercard.png" alt="" width="53" height="32" class="mastercard">
-                                <label for="#card__number">Card number<br></label>
+                                <label>Card number<br></label>
                                 <input type="text" maxlength="16" id="card__number"><br>
-                                <label for="#card__month">Expiration date<br></label>
+                                <label>Expiration date<br></label>
                                 <input type="number" min="1" max="12" id="card__month">
                                 <input type="number" min="2021" max="2040" step="1" id="card__year"><br>
-                                <label for="#card__name">Cardholder name<br></label>
+                                <label>Cardholder name<br></label>
                                 <input type="text" maxlength="50" id="card__name">
                             </form>
                         </div>
                         <div class="card__back">
                             <div class="blackline"></div>
-                            <label for="">CVC/CVV<br></label>
+                            <label>CVC/CVV<br></label>
                             <input type="text" maxlength="4" id="cvc">
                             <p>The last<br>3 or 4 digits<br>on back<br>of the card</p>
                         </div>
