@@ -1189,6 +1189,8 @@ footer {
 .right__col {
     width: 530px;
     height: 663px;
+    box-sizing: border-box;
+    border: 1px solid #030303;
 }
 
 .popup__title {
@@ -1224,7 +1226,7 @@ footer {
     
 }
 
-form {
+.form__selector {
     width: 400px;
     height: 460px;
     margin-top: 55px;      
@@ -1233,39 +1235,428 @@ form {
 .date__time {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 20px;    
 }
 
+
 .form__date {
-    width: 190px;
-    height: 45px;    
+    width: 150px;
+    height: 43px;    
+    background-image: url(../images/popup/date.svg), url(../images/popup/arrow.svg);
+    background-repeat: no-repeat;
+    background-position: 15px, 158px;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    border: 1px solid #030303;
+    
+    padding-left: 40px;
+}
+.form__date::-webkit-calendar-picker-indicator{
+    opacity: 0;
 }
 
 .form__time {
-    width: 190px;
-    height: 45px;
+    width: 150px;
+    height: 43px;
+    background-image: url(../images/popup/time.svg), url(../images/popup/arrow.svg);
+    background-repeat: no-repeat;
+    background-position: 15px, 158px;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    border: 1px solid #030303;
+
+    padding-left: 40px;
+}
+
+.form__time::-webkit-calendar-picker-indicator{
+    opacity: 0;
 }
 
 .form__text {
-    width: 393px;
-    height: 40px;
+    width: 351px;
+    height: 41px;
     margin-top: 20px;
+    background-image: url(../images/popup/name.svg);
+    background-repeat: no-repeat;
+    background-position: 15px;
+    padding-left: 45px;
+    border: 1px solid #030303;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
 }
 
 .form__email {
-    width: 393px;
-    height: 40px;
+    width: 351px;
+    height: 41px;
     margin-top: 20px;
+    background-image: url(../images/popup/email.svg);
+    background-repeat: no-repeat;
+    background-position: 15px;
+    padding-left: 45px;
+    border: 1px solid #030303;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
 }
 
 .form__tel {
-    width: 393px;
-    height: 40px;
+    width: 351px;
+    height: 41px;
     margin-top: 20px;
+    background-image: url(../images/popup/tel.svg);
+    background-repeat: no-repeat;
+    background-position: 15px;
+    padding-left: 45px;
+    border: 1px solid #030303;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
 }
 
 .ticket__type {
     width: 400px;
     height: 45px;
-    margin-top: 20px;  
+    margin-top: 20px;
+    background-image: url(../images/popup/ticket.svg), url(../images/popup/arrow.svg);
+    background-repeat: no-repeat;
+    background-position: 15px, 368px;
+    padding-left: 45px;
+    border: 1px solid #030303;
+    appearance: none;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.ticket__entry {
+    width: 398px;
+    height: 138px;
+    border: 1px solid #030303;
+    margin-top: 20px;
+}
+
+.wrapper {
+    width: 370px;
+    height: 110px;
+    margin: 10px 15px 15px 15px;
+}
+
+.wrapper h3 {
+    font-family: 'Forum', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    text-transform: capitalize;
+    color: #9D8665;
+    margin-bottom: 5px;
+}
+
+.under__entry {
+    width: 370px;
+    height: 2px;
+    background-color: #740c11;
+    margin-bottom: 15px;
+}
+
+.basic {
+    display: flex;    
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    margin-bottom: 20px;  
+}
+
+.basic h4 {
+    margin-right: 133px;
+}
+
+.basic input {
+    width: 35px;
+    height: 25px;
+    border: 1px solid #030303;
+    box-sizing: border-box;           
+}
+
+.basic button {
+    width: 35px;
+    height: 25px;
+    background-color: #030303;
+    border: none;
+    outline: none;
+    color: #fff;
+}
+
+.senior {
+    display: flex;    
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;  
+}
+
+.senior h4 {
+    margin-right: 126px;
+}
+
+.senior input {
+    width: 35px;
+    height: 25px;
+    border: 1px solid #030303;
+    box-sizing: border-box;           
+}
+
+.senior button {
+    width: 35px;
+    height: 25px;
+    background-color: #030303;
+    border: none;
+    outline: none;
+    color: #fff;
+}
+
+.overview {
+    width: 470px;
+    height: 151px;
+    margin: 25px 30px 22px 30px;
+    position: relative;
+}
+
+.overview h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+    color: #030303;
+    margin-bottom: 2px;    
+}
+
+.overview h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    color: #740c11;
+    margin-bottom: 10px;    
+}
+
+.overview li {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #030303;
+    margin-bottom: 5px;
+    padding-left: 30px;
+}
+
+.overview .date {
+    background-image: url(../images/popup/date.svg);
+    background-repeat: no-repeat;
+}
+
+.overview .time {
+    background-image: url(../images/popup/time.svg);
+    background-repeat: no-repeat;
+}
+
+.overview .kindof {
+    background-image: url(../images/popup/ok.svg);
+    background-repeat: no-repeat;
+}
+
+.overview img {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.prices {
+    width: 470px;
+    height: 117px;
+    margin: 0 auto 10px;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+.prices .count {
+    width: 32px;
+    height: 20px;
+    background-color: #030303;
+    color: #a4a4a3;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding-left: 11px;
+    font-size: 18px;
+    padding-top: 3px;
+    margin-left: 0;
+}
+
+.prices h3 {
+    font-size: 22px;
+    margin-left: 10px;
+    margin-right: 267px;
+    margin-bottom: 5px;
+}
+
+.prices h4 {
+    font-size: 22px;
+}
+
+.prices .sen {
+    margin-right: 259px;
+}
+
+.prices .under {
+    width: 470px;
+    height: 2px;
+    margin-bottom: 10px;
+}
+
+.prices h2 {
+    font-size: 32px;
+    margin-right: 327px;
+    font-weight: 500;
+}
+
+.prices h5 {
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.card__front {
+    width: 360px;
+    height: 211px;
+    background-color: #bcbcbc;
+    border-radius: 5px;
+    margin-left: 30px;
+    position: absolute;
+    z-index: 1;
+}
+
+.card__form {
+    margin: 15px 20px 15px 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.card__form label {
+    margin-bottom: 5px;
+}
+
+#card__number {
+    width: 215px;
+    height: 35px;
+    box-sizing: border-box;
+    border: 0.5px solid #a4a4a4;
+    margin-bottom: 10px;
+}
+
+#card__month {
+    width: 100px;
+    height: 35px;
+    margin-right: 15px;
+    box-sizing: border-box;
+    padding-left: 10px;
+    margin-bottom: 10px;     
+}
+
+#card__year {
+    width: 100px;
+    height: 35px;
+    box-sizing: border-box;
+    padding-left: 10px;
+    margin-bottom: 10px;  
+}
+
+#card__month::-webkit-inner-spin-button, #card__year::-webkit-inner-spin-button {
+    width: 28px;
+    height: 35px;
+    border: 1px solid #a4a4a4;
+}
+
+#card__name {
+    width: 320px;
+    height: 35px;
+}
+
+.visa {
+    top: 34px;
+    right: 20px;
+    position: absolute;
+}
+
+.mastercard {
+    top: 65px;
+    right: 20px;
+    position: absolute;
+}
+
+.card__back {
+    width: 360px;
+    height: 211px;
+    background-color: #939393;
+    border-radius: 5px;    
+    position: relative;
+    margin-left: 140px;
+    margin-top: 40px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.blackline{
+    width: 360px;
+    height: 45px;    
+    background-color:#161615;    
+    position: absolute;
+    margin-top: 20px;
+}
+
+.card__back label {
+    position: absolute;
+    margin-left: 274px;    
+    margin-top: 85px;
+    line-height: 14px;
+}
+
+#cvc {
+    width: 75px;
+    height: 35px;
+    position: absolute;
+    margin-left: 265px;    
+    margin-top: 105px;
+    box-sizing: border-box;
+    padding-left: 23px;  
+}
+
+.card__back p {
+    position: absolute;
+    font-size: 10px;
+    line-height: 12px;
+    margin-left: 275px;
+    margin-top: 146px;
+}
+
+.book {
+    width: 220px;
+    height: 45px;
+    background-color: #710707;
+    color: #fff;
+    font-family: 'Robot', sans-serif;
+    font-weight: 400;
+    font-size: 22px;        
+    border: none;
+    border-radius: 2px;
+    margin-top: 26px;
+    margin-left: 280px;
+    position: relative;
+    display: inline-block;
 }

@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" href="images/favicon.ico">
     <title>Museum</title>
 </head>
 
@@ -332,8 +333,6 @@
             <a href="https://github.com/Arxons" target="_blank">Arxons</a>
         </div>
     </footer>
-    <script src="js/progress-bar.js"></script>
-    <script src="js/gallery.js"></script>
     <div class="popup" id="popup">
 
         <div class="popup__body">
@@ -348,14 +347,14 @@
                             <p>Toure to Louvre</p>
                             <div class="under"></div>
                         </div>
-                        <form action="">
+                        <form action="#" class="form__selector">
                             <div class="date__time">
-                                <input type="date" name="date" class="form__date">
-                                <input type="time" name="time" class="form__time">
+                                <input type="date" name="date" class="form__date" id='date'>
+                                <input type="time" name="time" class="form__time" id='time'>
                             </div>
-                            <input type="text" name="text" class="form__text" value="Name">
-                            <input type="email" name="email" class="form__email" value="E-mail">
-                            <input type="tel" name="tel" class="form__tel" value="Phone">
+                            <input placeholder="Name" type="text" name="text" class="form__text" value="">
+                            <input placeholder="E-mail" type="email" name="email" class="form__email" value="">
+                            <input placeholder="Phone" type="tel" name="tel" class="form__tel" value="">
 
                             <select name="ticket__type" class="ticket__type">
                                 <option value="">Ticket Type</option>
@@ -363,9 +362,72 @@
                                 <option>Temporary exhibition</option>
                                 <option>Combined Admission</option>
                             </select>
+                            <div class="ticket__entry">
+                                <div class="wrapper">
+                                    <h3>Entry Ticket</h3>
+                                    <div class="under__entry"></div>
+                                    <div class="basic">
+                                        <h4>Basic 18+ (20 €)</h4>
+                                        <button type="button"
+                                            onclick="this.nextElementSibling.stepDown()">&#8722;</button>
+                                        <input type="number" min="0" max="20" readonly value="1">
+                                        <button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+                                    </div>
+                                    <div class="senior">
+                                        <h4>Senior 65+ (10 €)</h4>
+                                        <button type="button"
+                                            onclick="this.nextElementSibling.stepDown()">&#8722;</button>
+                                        <input type="number" min="0" max="20" readonly value="1">
+                                        <button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+                                    </div>
+                                </div>
+                            </div>
                         </form>
                     </div>
-                    <div class="right__col"></div>
+                    <div class="right__col">
+                        <div class="overview">
+                            <h2>Overview</h2>
+                            <h3>Tour to Louvre</h3>
+                            <img src="images/popup/louvre.jpg" alt="louvre" width="150" height="120">
+                            <ul>
+                                <li class="date">Friday, August 19</li>
+                                <li class="time">16 : 30</li>
+                                <li class="kindof">Temporary exhibition</li>
+                            </ul>
+
+                        </div>
+                        <div class="prices">
+                            <div class="count">2</div>
+                            <h3>Basic (20 €)</h3>
+                            <h4>40 €</h4>
+                            <div class="count">2</div>
+                            <h3 class="sen">Senior (10 €)</h3>
+                            <h4>20 €</h4>
+                            <div class="under"></div>
+                            <h2>Total:</h2>
+                            <h5>60 €</h5>
+                        </div>
+                        <div class="card__front">
+                            <form action="#" class="card__form">
+                                <img src="images/popup/visa.png" alt="" width="55" height="16" class="visa">
+                                <img src="images/popup/Mastercard.png" alt="" width="53" height="32" class="mastercard">
+                                <label for="#card__number">Card number<br></label>
+                                <input type="text" maxlength="16" id="card__number"><br>
+                                <label for="#card__month">Expiration date<br></label>
+                                <input type="number" min="1" max="12" id="card__month">
+                                <input type="number" min="2021" max="2040" step="1" id="card__year"><br>
+                                <label for="#card__name">Cardholder name<br></label>
+                                <input type="text" maxlength="50" id="card__name">
+                            </form>
+                        </div>
+                        <div class="card__back">
+                            <div class="blackline"></div>
+                            <label for="">CVC/CVV<br></label>
+                            <input type="text" maxlength="4" id="cvc">
+                            <p>The last<br>3 or 4 digits<br>on back<br>of the card</p>
+                        </div>
+                        <button class="book">Book</button>
+                    </div>
                 </div>
 
 
@@ -374,6 +436,8 @@
 
         </div>
     </div>
+    <script src="js/progress-bar.js"></script>
+    <script src="js/gallery.js"></script>
 </body>
 
 </html>
