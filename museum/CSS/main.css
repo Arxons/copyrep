@@ -7,11 +7,16 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #030303;
-    margin: 0 auto;
+    background-color: #030303;    
 }
 
 .container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1440px; 
+}
+
+.header {
     margin: 0 auto;
     width: 1440px;
     height: 150px;
@@ -89,6 +94,7 @@ section {
     width: 100%;
     height: 810px;
     background-color: #030303;
+    
 }
 
 .title-welcome {
@@ -110,7 +116,7 @@ section {
     line-height: 90px;
 }
 
-.title-welcome h2 {
+.title-welcome h3 {
     font-family: 'Roboto', sans-serif;
     font-size: 28px;
     font-weight: 300;
@@ -119,6 +125,10 @@ section {
 
     padding-top: 25px;
     margin-bottom: 75px;
+}
+
+.flex {
+    display: flex;
 }
 
 .welcome-slider {
@@ -134,13 +144,16 @@ section {
 }
 
 .slider-pannel {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
     width: 600px;
     height: 120px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-top: 690px;
-    margin-left: 400px;
+    justify-content: space-between;    
+    /* margin-top: 690px;
+    margin-left: 400px; */
     background-color: #030303;
 }
 
@@ -263,7 +276,7 @@ section {
     margin: 0 auto;
 }
 
-.wrapper-visiting h2 {
+.container h2 {
     font-family: 'Forum', sans-serif;
     font-size: 80px;
     font-weight: 400;
@@ -276,29 +289,32 @@ section {
 }
 
 .underline {
-    width: 1440px;
+    width: 100%;
     height: 3px;
 
     background-color: #710707;
 }
 
 .cards {
-    width: 1440px;
-    height: 1115px;
+    width: 100%;
+    /* height: 1115px; */
 
-    display: flex;
+    display: flex;    
     flex-wrap: wrap;
-    gap: 0px 60px;
-    /* grid-template-columns: 440px 440px 440px;
-    grid-template-rows: 420px 420px;
+    gap: 75px 60px;
+    /* display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 33% 33%;
     gap: 60px; */
 
     padding-top: 75px;
 }
 
-.each-card {
-    width: 440px;
-    height: 425px;
+.each-card {    
+    width: 100%;
+    height: 100%;
+    max-width: 440px;
+    max-height: 425px;
 }
 
 .each-card h3 {
@@ -381,7 +397,7 @@ section {
     display: flex;  
 }
 
-.wrapper-explore h2 {
+.explore-info h3 {
     font-family: 'Forum', sans-serif;
     font-size: 80px;
     font-weight: 400; 
@@ -402,7 +418,7 @@ section {
     background-color: #710707;
 }
 
-.wrapper-explore p {
+.explore-info p {
     font-family: 'Roboto', sans-serif;
     font-size: 22px;
     font-weight: 300;
@@ -412,7 +428,7 @@ section {
     margin-bottom: 25px;
 }
 
-.wrapper-explore img {
+.explore__img {
     margin-top: 90px;
     margin-left: 60px;
 }
@@ -423,7 +439,7 @@ section {
 
 .video {
     width: 100%;
-    height: 1325px;
+    height: 1400px;
 
     background-color: #fff;
 }
@@ -441,13 +457,14 @@ section {
     margin-bottom: 75px;
 }
 
-.video-title h2 {
+.video-title h3 {
     font-family: 'Forum', sans-serif;
     font-size: 80px;
     font-weight: 400;
     text-transform: uppercase;
     color: #9D8665;
     letter-spacing: 5px;
+    padding-top: 75px;
 }
 
 .video-title p {
@@ -456,6 +473,7 @@ section {
     font-weight: 300;
     line-height: 38px;
     color: #030303;
+    padding-top: 75px;
 }
 
 .main-poster{
@@ -585,12 +603,13 @@ section {
 
 .control-pannel {
     width: 200px;
-    height: 12px;
+    height: 12px;    
 
-    margin: 0 auto;
+    margin: 0 auto 75px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 }
 
 .control-pannel button{
@@ -645,15 +664,8 @@ section {
     background-color: #030303;
     margin: 0 auto;
 }
-  
-.wrapper-gallery {
-    width: 1440px;
-    height: 2125px;
-    margin: 75px auto;
-      
-}
 
-.wrapper-gallery h2{
+.gallery h3{
     font-family: 'Forum', sans-serif;
     font-size: 80px;
     font-weight: 400;
@@ -681,8 +693,7 @@ section {
   
 .gallery-scroll {
     position: relative;
-    width: 1440px;
-    height: 1850px;
+    width: 100%;
     display: flex;
     gap: 35px;
     margin: 165px auto;    
@@ -727,7 +738,7 @@ section {
 
 .shadow-box {
     position: absolute;
-    width: 1440px;
+    width: 100%;
     height: 360px;
     left: 0px;
     top: 1520px;
@@ -737,20 +748,13 @@ section {
 
 .tickets {
     width: 100%;
-    height: 820px;
+    height: 895px;
     /* position: relative; */
     margin: 0 auto;
     background-color: #fff;    
 }
 
-.wrapper-tickets {
-    width: 1440px;
-    height: 745px;
-    /* position: absolute; */
-    margin: 75px auto;
-}
-
-.wrapper-tickets h2 {
+.tickets h3 {
     font-family: 'Forum', sans-serif;
     font-size: 80px;
     font-weight: 400;
@@ -758,8 +762,9 @@ section {
     color: #9D8665;
     letter-spacing: 5px;
     margin-bottom: 25px;
+    padding-top: 75px;
 }
-.wrapper-tickets img {
+.tickets img {
     margin-top: 75px;
 }
 
@@ -858,7 +863,8 @@ section {
     width: 150px;
     height: 50px;
     border: 3px solid #030303;
-    text-align: center;    
+    text-align: center;
+    box-sizing: border-box;    
 }
 
 .button-amount button {
@@ -910,8 +916,11 @@ section {
 }
 
 .parallax {
+    display: flex;
     width: 100%;
     height: 400px;
+
+    margin: 0 auto;
 
     background-image: url(../images/parallax/parallax.jpg);
     background-size: cover;
@@ -925,26 +934,20 @@ section {
     /* position: relative; */
 }
 
-.wrapper-contacts {    
-    width: 1440px;
-    height: 815px;
-    /* position: absolute; */
-    margin: 75px auto;
-}
-
-.wrapper-contacts h2 {
+.contacts h3 {
     font-family: 'Forum', sans-serif;
     font-size: 80px;
     font-weight: 400;
     text-transform: uppercase;
     color: #9D8665;
     letter-spacing: 5px;
-
+    
+    padding-top: 75px;
     margin-bottom: 25px;
 }
 
 .underline-c {
-    width: 1440px;
+    width: 100%;
     height: 3px;
     margin-bottom: 75px;
 
@@ -1100,7 +1103,7 @@ footer {
 }
 
 .underline-footer {
-    width: 1920px;
+    width: 100%;
     height: 3px;
     background-color: #666;
     margin: 0 auto;
@@ -1666,4 +1669,508 @@ footer {
     margin-left: 280px;
     position: relative;
     display: inline-block;
+}
+
+@media (max-width: 1920px) {
+    .gallery-scroll img {
+        width: 456px;
+    }
+}
+
+@media (max-width: 1460px) {
+    .header {
+        width: 984px;
+    }
+
+    .container {
+        max-width: 984px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .welcome {
+        height: 585px;
+    }
+
+    .title-welcome {                
+        margin-top: 50px;
+        margin-bottom: 0;
+    }
+
+    .title-welcome h1 {
+        font-size: 50px;
+        height: 180px;
+        letter-spacing: 5px;               
+    }
+
+    .title-welcome h3 {
+        font-size: 24px;        
+    }
+
+    .button-text {
+        width: 300px;
+        height: 60px;
+        font-size: 20px;
+    }
+
+    .welcome-slider {
+        width: 700px;
+        height: 525px;
+        background-image: url(../images/welcomeslider1024/mona.jpg);
+        margin-left: 284px;
+    }
+
+    .slider-pannel {
+        width: 700px;
+        height: 120px;
+        margin-top: 465px;
+        margin-left: 0px;
+    }
+
+    .visiting {
+        height: 1525px;
+    }
+    
+    .cards {
+        gap: 60px, 60px;        
+    }
+
+    .each-card {
+        width: 330px;
+        height: 345px;
+        margin: 0 auto;
+    }        
+
+    .each-card img {
+        width: 330px;
+        height: 215px;
+    }
+
+    .each-card h3 {
+        font-size: 28px;
+        letter-spacing: 3px;
+    }
+
+    .each-card h4 {
+        font-size: 20px;
+    }
+
+    .each-card p {
+        font-size: 16px;
+    }
+
+    .underline-cards {
+        width: 150px;
+        height: 2px;
+        transition: linear 0.3s;
+    }
+
+    .each-card:hover .underline-cards {
+        width: 330px;
+    }
+
+    .explore {
+        margin-top: 0px;
+        height: 1149px;
+    }
+
+    .explore-info {
+        width: 984px;
+        position: absolute;
+        margin: 60px 20px;
+    }
+    
+    .explore-info h3 {
+        font-size: 50px;
+        line-height: 75px;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+    .underline-explore {
+        width: 984px;
+        margin-bottom: 60px;
+    }
+
+    .explore-info p {
+        font-size: 20px;
+        line-height: 38px;
+        margin-bottom: 0;        
+    }
+    .tohide {
+        display: none;
+    }
+
+    .explore__img {
+        margin: 389px 132px 60px 132px;
+    }
+
+    .video {
+        height: 1001px;
+    }
+
+    .video-title {
+        display: inline;
+    }
+
+    .video-title h3{
+        font-size: 50px;
+        line-height: 75px;  
+        margin-bottom: 40px;      
+    }
+
+    .video-title p {
+        display: none;
+    }
+
+    .main-poster {
+        height: 444px;               
+    }
+
+    .main-poster img {
+        width: 100%;
+        height: 444px;
+    }
+
+    .main-play {
+        width: 152px;
+        height: 152px;
+        background-image: url(../images/video1024/mainplay.svg);
+        border: 6px solid #fff;
+    }
+
+    .button-play {
+        width: 152px;
+        height: 152px;        
+    }
+
+    .progress {
+        width: 100%;
+        height: 60px;
+    }
+
+    .progress-bar {
+        width: 564px;
+        height: 5px;
+    }
+
+    .progress-bar-vol {
+        width: 143px;
+        height: 5px;
+    }
+
+    .video-changer {
+        width: 100%;
+        height: 170px;
+    }
+
+    .gallery {
+        height: 1460px;
+    }
+
+    /* .gallery-scroll {
+        display: none;
+    } */
+
+    .gallery-scroll {
+        position: relative;
+        width: 100%;        
+        display: flex;
+        gap: 35px;
+        margin: 60px auto; 
+    }
+
+    .gallery-scroll img {
+        width: 304px;
+    }
+
+    .left-column, .middle-column, .right-column {
+        height: 1190px;
+    }
+
+    .shadow-box {
+        top: 883px;
+    }
+    
+    .tickets {
+        height: 720px;
+    }
+
+    .tickets h3 {
+        font-size: 50px;
+        line-height: 75px;
+        margin-bottom: 20px;
+    }
+
+    .tickets-content img {
+        width: 700px;
+        height: 440px;
+        margin-top: 60px;
+    }
+
+    .ticket-type {
+        display: none;
+    }
+
+    .amount {
+        width: 175px;
+        height: 321px;
+        margin-left: 80px;
+        margin-top: 35px;
+    }
+
+    .amount h4 {
+        text-align: left;
+        margin-top: 25px;
+    }
+
+    .amount h5 {
+        margin-left: 0;        
+    }
+
+    .button-amount {
+        margin-left: 0;
+        margin-bottom: 25px;
+        width: 175px;
+    }
+
+    .buy-now {
+        margin-left: 0;
+        margin-top: 60px;
+    }
+
+    .parallax {
+        width: 100%
+    }
+}
+
+@media (max-width: 1024px) {   
+
+    .container {
+        width: 984px;
+        height: 130px;
+    }
+
+    .welcome {
+        height: 585px;
+    }
+
+    .wrapper-welcome {
+        width: 984px;
+        height: 585px;
+    }
+
+    .title-welcome {                
+        margin-top: 50px;
+        margin-bottom: 0;
+    }
+
+    .title-welcome h1 {
+        font-size: 50px;
+        height: 180px;
+        letter-spacing: 5px;               
+    }
+
+    .title-welcome h2 {
+        font-size: 24px;        
+    }
+
+    .button-text {
+        width: 300px;
+        height: 60px;
+        font-size: 20px;
+    }
+
+    .welcome-slider {
+        width: 700px;
+        height: 525px;
+        background-image: url(../images/welcomeslider1024/mona.jpg);
+        margin-left: 284px;
+    }
+
+    .slider-pannel {
+        width: 700px;
+        height: 120px;
+        margin-top: 465px;
+        margin-left: 0px;
+    }
+
+    .visiting {
+        height: 1433px;
+    }
+
+    .wrapper-visiting {
+        width: 963px;
+        height: 1373px;
+    }
+
+    .wrapper-visiting h2 {
+        font-size: 50px;
+        padding-top: 60px;
+        line-height: 75px;
+        margin-bottom: 20px;
+    }
+
+    .underline {
+        width: 963px
+    }
+
+    .cards {
+        width: 963px;
+        gap: 60px 108px;
+        justify-content: center;
+        padding-top: 60px;        
+    }
+
+    .each-card {
+        width: 330px;
+        height: 345px;
+    }
+
+    .each-card img {
+        width: 330px;
+        height: 215px;
+    }
+
+    .each-card h3 {
+        font-size: 28px;
+        letter-spacing: 3px;
+    }
+
+    .each-card h4 {
+        font-size: 20px;
+    }
+
+    .each-card p {
+        font-size: 16px;
+    }
+
+    .underline-cards {
+        width: 150px;
+        height: 2px;
+        transition: linear 0.3s;
+    }
+
+    .each-card:hover .underline-cards {
+        width: 330px;
+    }
+
+    .explore {
+        margin-top: 0px;
+        height: 1149px;
+    }
+
+    .wrapper-explore {
+        width: 984px;
+        height: 1149px;
+        display: block;        
+    }
+
+    .explore-info {
+        width: 984px;
+        position: absolute;
+        margin: 60px 20px;
+    }
+    
+    .explore-info h2 {
+        font-size: 50px;
+        line-height: 75px;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+    .underline-explore {
+        width: 984px;
+        margin-bottom: 60px;
+    }
+
+    .explore-info p {
+        font-size: 20px;
+        line-height: 38px;
+        margin-bottom: 0;        
+    }
+    .tohide {
+        display: none;
+    }
+
+    .wrapper-explore img {
+        margin: 389px 132px 60px 132px;
+    }
+
+    .video {
+        height: 881px;
+    }
+
+    .wrapper-video {
+        width: 984px;
+        height: 881px;
+        margin: 60px auto;
+    }
+
+    .video-title {
+        display: inline;
+    }
+
+    .video-title h2{
+        font-size: 50px;
+        line-height: 75px;  
+        margin-bottom: 40px;      
+    }
+
+    .video-title p {
+        display: none;
+    }
+
+    .main-poster {
+        height: 444px;               
+    }
+
+    .main-poster img {
+        width: 984px;
+        height: 444px;
+    }
+
+    .main-play {
+        width: 152px;
+        height: 152px;
+        background-image: url(../images/video1024/mainplay.svg);
+        border: 6px solid #fff;
+    }
+
+    .button-play {
+        width: 152px;
+        height: 152px;        
+    }
+
+    .progress {
+        width: 984px;
+        height: 60px;
+    }
+
+    .progress-bar {
+        width: 564px;
+        height: 5px;
+    }
+
+    .progress-bar-vol {
+        width: 143px;
+        height: 5px;
+    }
+
+    .video-changer {
+        width: 984px;
+        height: 170px;
+    }
+
+    .gallery {
+        height: 1460px;
+    }
+
+    .wrapper-gallery {
+        width: 984px;
+    }
+
+    .gallery-scroll {
+        width: 984px;
+    }
 }

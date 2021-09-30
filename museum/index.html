@@ -11,15 +11,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/reset.css">
-    <link rel="stylesheet" href="CSS/main.css">
+    <link rel="stylesheet" href="./CSS/reset.css">
+    <link rel="stylesheet" href="./CSS/main.css">
     <link rel="shortcut icon" href="images/favicon.ico">
     <title>Museum</title>
 </head>
 
 <body>
     <header>
-        <div class="container">
+        <div class="header">
             <div class="logo">
                 <a href="#welcome">louvre</a>
             </div>
@@ -50,45 +50,47 @@
     <main>
 
         <section class="welcome" id="#welcome">
-            <div class="wrapper-welcome">
-                <div class="welcome-slider">
-                    <div class="slider-pannel">
-                        <div class="count">
-                            <h5>01</h5>
-                            <h5>|</h5>
-                            <h5>05</h5>
-                        </div>
-                        <div class="squares">
-                            <div class="square"></div>
-                            <div class="square"></div>
-                            <div class="square"></div>
-                            <div class="square"></div>
-                            <div class="square"></div>
-                        </div>
-                        <div class="arrows-slider">
-                            <div class="ar-left">
-                                <button class="left">
-                                </button>
+            <div class="container">
+                <div class="flex">
+                    <div class="welcome-slider">
+                        <div class="slider-pannel">
+                            <div class="count">
+                                <h5>01</h5>
+                                <h5>|</h5>
+                                <h5>05</h5>
                             </div>
-                            <div class="ar-right">
-                                <button class="right">
-                                </button>
+                            <div class="squares">
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                            </div>
+                            <div class="arrows-slider">
+                                <div class="ar-left">
+                                    <button class="left">
+                                    </button>
+                                </div>
+                                <div class="ar-right">
+                                    <button class="right">
+                                    </button>
+                                </div>
                             </div>
                         </div>
+                        <!-- <img class="welcome-slider" src="images/welcomeslider/1.jpg" alt="" width="1000" height="750"> -->
                     </div>
-                    <!-- <img class="welcome-slider" src="images/welcomeslider/1.jpg" alt="" width="1000" height="750"> -->
-                </div>
-                <div class="title-welcome">
-                    <h1>welcome<br> to the louvre</h1>
-                    <h2>From the castle to the museum</h2>
-                    <a class="button-text" href="tours/tour1.html" target="_blank">
-                        Discover the Louvre
-                    </a>
+                    <div class="title-welcome">
+                        <h1>welcome<br> to the louvre</h1>
+                        <h3>From the castle to the museum</h3>
+                        <a class="button-text" href="tours/tour1.html" target="_blank">
+                            Discover the Louvre
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
         <section class="visiting" id="visiting">
-            <div class="wrapper-visiting">
+            <div class="container">
                 <h2>Virtual Tour</h2>
                 <div class="underline"></div>
                 <div class="cards">
@@ -150,28 +152,38 @@
             </div>
         </section>
         <section class="explore" id="explore">
-            <div class="wrapper-explore">
-                <div class="explore-info">
-                    <h2>Picture Explore</h2>
-                    <div class="underline-explore"></div>
-                    <p>Las Meninas is a 1656 painting by Diego Velázquez, the leading<br> artist of the Spanish Golden
-                        Age.
-                    </p>
-                    <p>It was cleaned in 1984 to remove a <span>"yellow veil"</span> of dust that had<br> gathered since
-                        the previous
-                        restoration in the 19th century.</p>
-                    <p>The cleaning provoked furious protests, not because the picture had<br> been damaged in any way,
-                        but
-                        because it looked different.</p>
+            <div class="container">
+                <div class="flex">
+                    <div class="explore-info">
+                        <h3>Picture Explore</h3>
+                        <div class="underline-explore"></div>
+                        <p>Las Meninas is a 1656 painting by Diego Velázquez, the leading<br class="tohide"> artist
+                            of
+                            the
+                            Spanish Golden
+                            Age.
+                        </p>
+                        <p>It was cleaned in 1984 to remove a <span>"yellow veil"</span> of dust that had<br
+                                class="tohide">
+                            gathered since
+                            the previous
+                            restoration in the 19th century.</p>
+                        <p class="tohide">The cleaning provoked furious protests, not because the picture had<br>
+                            been
+                            damaged in any way,
+                            but
+                            because it looked different.</p>
+                    </div>
+                    <img class="explore__img" src="images/explore/before.jpg" alt="before" width="720" height="700">
                 </div>
-                <img src="images/explore/before.jpg" alt="before" width="720" height="700">
             </div>
         </section>
         <section class="video" id="video">
-            <div class="wrapper-video">
+            <div class="container">
                 <div class="video-title">
-                    <h2>Video Journey</h2>
-                    <p>Enter and visit one of the most famous museums in the world and enjoy<br> masterpieces such as
+                    <h3>Video Journey</h3>
+                    <p>Enter and visit one of the most famous museums in the world and enjoy<br> masterpieces such
+                        as
                         Mona Lisa or Hammurabi's Code</p>
                 </div>
                 <div class="main-poster">
@@ -209,8 +221,8 @@
             </div>
         </section>
         <section class="gallery" id="gallery">
-            <div class="wrapper-gallery">
-                <h2>art gallery</h2>
+            <div class="container">
+                <h3>art gallery</h3>
                 <div class="gallery-scroll">
                     <div class="left-column">
                     </div>
@@ -220,12 +232,11 @@
                     </div>
                     <div class="shadow-box"></div>
                 </div>
-
             </div>
         </section>
         <section class="tickets" id="tickets">
-            <div class="wrapper-tickets">
-                <h2>buy tickets</h2>
+            <div class="container">
+                <h3>buy tickets</h3>
                 <div class="underline"></div>
                 <div class="tickets-content">
                     <img src="images/tickets/tickets.jpg" alt="photo" width="720" height="550">
@@ -269,8 +280,8 @@
         </section>
         <div class="parallax"></div>
         <section class="contacts" id="contacts">
-            <div class="wrapper-contacts">
-                <h2>Contacts</h2>
+            <div class="container">
+                <h3>Contacts</h3>
                 <div class="underline-c"></div>
                 <div class="contacts-info">
                     <div class="contacts-li">
@@ -288,45 +299,47 @@
         </section>
     </main>
     <footer>
-        <div class="wrapper-nav">
-            <div class="logo-footer">
-                <a href="/#">louvre</a>
-            </div>
-            <nav class="footer-nav">
-                <div class="left-column-nav">
-                    <ul>
-                        <li>
-                            <a href="#visiting" class="nav__link">Visiting</a>
-                        </li>
-                        <li>
-                            <a href="#explore" class="nav__link">Explore</a>
-                        </li>
-                        <li>
-                            <a href="#video" class="nav__link">Video</a>
-                        </li>
-                    </ul>
+        <div class="container">
+            <div class="flex">
+                <div class="logo-footer">
+                    <a href="/#">louvre</a>
                 </div>
-                <div class="right-column-nav">
-                    <ul>
-                        <li>
-                            <a href="#gallery" class="nav__link">Gallery</a>
-                        </li>
-                        <li>
-                            <a href="#tickets" class="nav__link">Tickets</a>
-                        </li>
-                        <li>
-                            <a href="#contacts" class="nav__link">Contacts</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <div class="footer-icons">
-                <a class="youtube" href="https://www.youtube.com/user/louvre" target="_blank"></a>
-                <a class="instagram" href="https://www.instagram.com/museelouvre/" target="_blank"></a>
-                <a class="facebook" href="https://www.facebook.com/museedulouvre" target="_blank"></a>
-                <a class="twitter" href="http://twitter.com/museelouvre" target="_blank"></a>
-                <a class="pinterest" href="https://www.pinterest.fr/museedulouvre/" target="_blank"></a>
+                <nav class="footer-nav">
+                    <div class="left-column-nav">
+                        <ul>
+                            <li>
+                                <a href="#visiting" class="nav__link">Visiting</a>
+                            </li>
+                            <li>
+                                <a href="#explore" class="nav__link">Explore</a>
+                            </li>
+                            <li>
+                                <a href="#video" class="nav__link">Video</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="right-column-nav">
+                        <ul>
+                            <li>
+                                <a href="#gallery" class="nav__link">Gallery</a>
+                            </li>
+                            <li>
+                                <a href="#tickets" class="nav__link">Tickets</a>
+                            </li>
+                            <li>
+                                <a href="#contacts" class="nav__link">Contacts</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="footer-icons">
+                    <a class="youtube" href="https://www.youtube.com/user/louvre" target="_blank"></a>
+                    <a class="instagram" href="https://www.instagram.com/museelouvre/" target="_blank"></a>
+                    <a class="facebook" href="https://www.facebook.com/museedulouvre" target="_blank"></a>
+                    <a class="twitter" href="http://twitter.com/museelouvre" target="_blank"></a>
+                    <a class="pinterest" href="https://www.pinterest.fr/museedulouvre/" target="_blank"></a>
 
+                </div>
             </div>
         </div>
         <div class="underline-footer"></div>
@@ -442,6 +455,7 @@
     <script src="js/progress-bar.js"></script>
     <script src="js/gallery.js"></script>
     <script src='js/console.js'></script>
+    <script src='js/gallerysecond.js'></script>
 </body>
 
 </html>
