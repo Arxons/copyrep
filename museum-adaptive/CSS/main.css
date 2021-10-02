@@ -104,6 +104,7 @@ section {
     margin-top: 150px;
     margin-bottom: 270px;
     position: absolute;
+    transition: all 0.3s;
 }
 
 .title-welcome h1 {
@@ -114,6 +115,7 @@ section {
     color: #fff;
     letter-spacing: 5px;
     line-height: 90px;
+    transition: all 0.3s;
 }
 
 .title-welcome h3 {
@@ -125,6 +127,7 @@ section {
 
     padding-top: 25px;
     margin-bottom: 75px;
+    transition: all 0.6s;
 }
 
 .flex {
@@ -258,7 +261,7 @@ section {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    transition: linear 0.2s;
+    transition: all 0.8s;
 }
 
 .button-text:hover {
@@ -1695,6 +1698,8 @@ footer {
 .close {
     display: block;
     position: relative;
+    width: 32px;
+    height: 32px;
 }
 
 .open .top-span, .open .mid-span, .open .bot-span {
@@ -1703,7 +1708,7 @@ footer {
     margin-bottom: 6px;    
     width: 32px;
     height: 2px;
-    transition: all 0.6s ease 0s;    
+    transition: all 0.3s ease 0s;    
 }
 
 .close .mid-span {    
@@ -1721,7 +1726,7 @@ footer {
     background-color: #fff;    
     width: 33px;
     height: 2px;
-    transition: all 0.6s ease 0s;
+    transition: all 0.3s ease 0s;
     transform: rotate(45deg);
 }
 
@@ -1731,7 +1736,7 @@ footer {
     background-color: #fff;    
     width: 33px;
     height: 2px;
-    transition: all 0.6s ease 0s;
+    transition: all 0.3s ease 0s;
     transform: rotate(-45deg);
 }
 
@@ -2130,11 +2135,172 @@ footer {
     .burger__button {
         display: block;
     }
+
+    .title-welcome__hide {
+        opacity: 0;
+        visibility: hidden; 
+        position: absolute;        
+        transition: all 0.3s;
+    }
+
+    .title-welcome__hide h1 {         
+        transition: all 0.3s;
+    }
+
+    .title-welcome__hide h3 {
+        transition: all 0.5s;
+    }
+
+    .title-welcome__hide .button-text {
+        transition: all 0.8s;
+    }
 }
 
 
 
 
-@media (max-width: 1024px) {   
 
+@media (max-width: 1010px) {
+    .header {
+        width: 728px;
+        height: 110px;        
+    }
+    
+    .container {
+        width: 728px;
+    }
+
+    .welcome {
+        height: 861px;
+    }
+
+    .welcome .flex {
+        display: block;
+    }
+
+    .welcome-slider {
+        width: 728px;
+        height: 546px;
+        box-shadow: none;
+        background-image: url(../images/welcomeslider768/mona.jpg);        
+        background-repeat: no-repeat;
+        top: 215px;
+        margin-left: 0;             
+    }
+
+    .title-welcome {
+        width: 328px;
+        height: 165px;
+        position: absolute;
+        top: 0;
+        margin-top: 110px;
+        margin-left: 219px;        
+    }
+
+    .title-welcome h1 {
+        display: flex;
+        text-align: center;
+        font-size: 39px;
+        line-height: 60px;
+        height: 120px;        
+    }
+
+    .title-welcome h3 {        
+        font-size: 19px;
+        line-height: 23px;
+        letter-spacing: 2px;
+        margin-bottom: 0;        
+    }          
+
+    .button-text {
+        display: none;
+    }
+
+    .slider-pannel {
+        width: 401px;
+        height: 40px;
+        margin-top: 0;
+        top: 576px;
+        right: 183px;
+    }
+
+    .slider-pannel .count {
+        margin-left: 0;
+    }
+
+    .arrows-slider {
+        margin-right: 0;
+    }
+
+    .square {
+        width: 12px;
+        height: 12px;
+    }
+
+    .visiting {
+        height: 1266px;
+    }
+
+    .container h2 {
+        font-size: 40px;
+        line-height: 60px;
+        padding-top: 40px;
+    }
+
+    .cards {
+        padding-top: 40px;
+    }
+
+    .each-card {
+        width: 280px;
+        height: 301px;        
+    }
+
+    .each-card img {
+        width: 280px;
+        height: 180px;
+    }
+
+    .each-card:hover .underline-cards {
+        width: 100%;
+    }
+    
+    .each-card h3 {
+        font-size: 22px;
+        line-height: 23px;
+        letter-spacing: 3px;
+    }
+
+    .each-card h4 {
+        font-size: 18px;
+        line-height: 21px;
+    }
+
+    .explore {
+        height: 908px;
+    }
+
+    .explore-info {
+        margin: 40px 0px;
+    }
+
+    .explore-info h3 {
+        font-size: 40px;
+        line-height: 60px;
+    }
+
+    .underline-explore {
+        width: 728px
+    }
+
+    .explore-info p {
+        display: none;
+    }
+
+    .explore img {
+        width: 728px;
+        height: 705px;
+        margin: 0;
+        margin-top: 163px;
+    }
 }
