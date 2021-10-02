@@ -550,8 +550,7 @@ section {
 }
 
 .progress-bar {
-    background: linear-gradient(to right, #710707 0%, #710707 40%, #fff 40%, #fff 100%);
-    border: solid 2px #710707;
+    background: linear-gradient(to right, #710707 0%, #710707 40%, #fff 40%, #fff 100%);    
     border-radius: 8px;
     width: 930px;
     height: 8px;    
@@ -571,7 +570,6 @@ section {
 
 .progress-bar-vol {
     background: linear-gradient(to right, #710707 0%, #710707 40%, #fff 40%, #fff 100%);
-    border: solid 2px #710707;
     border-radius: 8px;
     width: 155px;
     height: 8px;    
@@ -1000,12 +998,15 @@ footer {
 }
 
 .logo-footer {
+    display: flex;    
+    align-items: center;
     width: 195px;
     height: 50px;
     margin-top: 75px;
 
     background-image: url("../images/logo.svg");
     background-repeat: no-repeat;
+    background-position-y: center;
 }
 
 .logo-footer a {
@@ -1022,9 +1023,10 @@ footer {
 
 .footer-nav {
     width: 365px;
-    height: 130px;
-    margin-top: 75px;
+    height: 130px;    
     margin-left: 165px;
+    margin-bottom: 50px;
+    margin-top: 87px;
     display: flex;
     gap: 150px;  
 }
@@ -1040,7 +1042,7 @@ footer {
     align-items: center;
     justify-content: space-between;
     margin-left: 400px;
-    margin-top: 150px;
+    margin-top: 162px;
 }
 
 .youtube {
@@ -1110,10 +1112,9 @@ footer {
 }
 
 .footer-links {
-    width: 1440px;
+    width: 100%;
     height: 125px;
-    margin: 0 auto;
-    display: flex;
+    margin: 0 auto;    
     align-items: center;
     justify-content: space-between;
 }
@@ -1125,6 +1126,14 @@ footer {
     text-decoration: none;
     color: #fff;
     transition: linear 0.2s;
+}
+
+.footer-links .container .flex {
+    width: 100%;
+    height: 125px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .footer-links a:hover {
@@ -1671,6 +1680,94 @@ footer {
     display: inline-block;
 }
 
+/* burger menu */
+
+.burger__button {
+    width: 32px;
+    height: 25px;
+}
+
+.open {
+    display: block;
+    position: relative;
+}
+
+.close {
+    display: block;
+    position: relative;
+}
+
+.open .top-span, .open .mid-span, .open .bot-span {
+    display: block;
+    background-color: #fff;
+    margin-bottom: 6px;    
+    width: 32px;
+    height: 2px;
+    transition: all 0.6s ease 0s;    
+}
+
+.close .mid-span {    
+    opacity: 0;
+    position: absolute;
+    width: 25px;
+    height: 2px;
+    display: block;   
+}
+
+.close .top-span {
+    display: block;
+    position: absolute;
+    /* top: 56px; */        
+    background-color: #fff;    
+    width: 33px;
+    height: 2px;
+    transition: all 0.6s ease 0s;
+    transform: rotate(45deg);
+}
+
+.close .bot-span {
+    display: block;
+    position: absolute;    
+    background-color: #fff;    
+    width: 33px;
+    height: 2px;
+    transition: all 0.6s ease 0s;
+    transform: rotate(-45deg);
+}
+
+.burger {
+    z-index: 1000;
+    position: absolute;
+    width: 297px;
+    height: 585px;
+    top: 0;
+    left: 0;
+    background-color: #030303;
+    transform: translate(-100%, 0px);
+    transition: all 0.6s ease 0s;
+    
+}
+
+.burger:target {
+    top: 130px;
+    transform: translate(0px, 0px);
+}
+
+.burger ul {    
+    width: 122px;
+    height: 263px;   
+    margin: 35px 120px
+}
+
+.burger ul li {
+    margin-bottom: 25px;
+    background: url(../images/burger/burgerarrows.svg) no-repeat right;
+}
+
+.burger__button {
+    display: none;
+}
+
 @media (max-width: 1920px) {
     .gallery-scroll img {
         width: 456px;
@@ -1680,6 +1777,11 @@ footer {
 @media (max-width: 1460px) {
     .header {
         width: 984px;
+        height: 130px;
+    }
+
+    .nav__link {
+        font-size: 20px;
     }
 
     .container {
@@ -1727,18 +1829,26 @@ footer {
         margin-left: 0px;
     }
 
+    .count {
+        font-size: 20px;
+    }
+
     .visiting {
         height: 1525px;
     }
+
+    .container h2 {
+        font-size: 50px;
+    }
     
     .cards {
+        justify-content: center;
         gap: 60px, 60px;        
     }
 
     .each-card {
         width: 330px;
-        height: 345px;
-        margin: 0 auto;
+        height: 345px;        
     }        
 
     .each-card img {
@@ -1774,8 +1884,7 @@ footer {
         height: 1149px;
     }
 
-    .explore-info {
-        width: 984px;
+    .explore-info {       
         position: absolute;
         margin: 60px 20px;
     }
@@ -1788,7 +1897,7 @@ footer {
     }
 
     .underline-explore {
-        width: 984px;
+        width: 100%;
         margin-bottom: 60px;
     }
 
@@ -1872,6 +1981,11 @@ footer {
         display: none;
     } */
 
+    .gallery h3{
+        font-size: 50px;
+        line-height: 75px;
+    }
+
     .gallery-scroll {
         position: relative;
         width: 100%;        
@@ -1940,237 +2054,87 @@ footer {
     }
 
     .parallax {
-        width: 100%
+        width: 100%;
+        background-position: center;        
+    }
+
+    .contacts {
+        height: 724px;
+    }
+
+    .contacts h3 {
+        font-size: 50px;
+        line-height: 75px;
+        padding-top: 60px;
+    }
+
+    .underline-c {
+        margin-bottom: 60px;
+    }
+    
+    .contacts-li h4 {
+        font-size: 24px;
+
+    }
+
+    .contacts-li ul {
+        margin-top: 35px;
+    }
+
+    .contacts-li ul li {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .contacts-info {
+        gap: 15px
+    }
+
+    .contacts-info img {
+        width: 694px;
+        height: 454px;
+    }
+
+    footer {
+        height: 368px;
+    }
+
+    .logo-footer {
+        margin-top: 60px;
+        height: 33px;
+    }
+
+    .footer-nav {
+        margin-top: 65px;
+        margin-left: 45px;
+    }
+
+    .footer-icons {
+        margin-top: 142px;
+        margin-left: 92px;
+    }
+
+    .popup__wrapper {
+        width: 1030px;
+        height: 768px;
+    }
+
+    .popup__content {
+        margin: 75px auto;
+    }
+
+    .nav__menu {
+        display: none;
+    }
+
+    .burger__button {
+        display: block;
     }
 }
 
+
+
+
 @media (max-width: 1024px) {   
 
-    .container {
-        width: 984px;
-        height: 130px;
-    }
-
-    .welcome {
-        height: 585px;
-    }
-
-    .wrapper-welcome {
-        width: 984px;
-        height: 585px;
-    }
-
-    .title-welcome {                
-        margin-top: 50px;
-        margin-bottom: 0;
-    }
-
-    .title-welcome h1 {
-        font-size: 50px;
-        height: 180px;
-        letter-spacing: 5px;               
-    }
-
-    .title-welcome h2 {
-        font-size: 24px;        
-    }
-
-    .button-text {
-        width: 300px;
-        height: 60px;
-        font-size: 20px;
-    }
-
-    .welcome-slider {
-        width: 700px;
-        height: 525px;
-        background-image: url(../images/welcomeslider1024/mona.jpg);
-        margin-left: 284px;
-    }
-
-    .slider-pannel {
-        width: 700px;
-        height: 120px;
-        margin-top: 465px;
-        margin-left: 0px;
-    }
-
-    .visiting {
-        height: 1433px;
-    }
-
-    .wrapper-visiting {
-        width: 963px;
-        height: 1373px;
-    }
-
-    .wrapper-visiting h2 {
-        font-size: 50px;
-        padding-top: 60px;
-        line-height: 75px;
-        margin-bottom: 20px;
-    }
-
-    .underline {
-        width: 963px
-    }
-
-    .cards {
-        width: 963px;
-        gap: 60px 108px;
-        justify-content: center;
-        padding-top: 60px;        
-    }
-
-    .each-card {
-        width: 330px;
-        height: 345px;
-    }
-
-    .each-card img {
-        width: 330px;
-        height: 215px;
-    }
-
-    .each-card h3 {
-        font-size: 28px;
-        letter-spacing: 3px;
-    }
-
-    .each-card h4 {
-        font-size: 20px;
-    }
-
-    .each-card p {
-        font-size: 16px;
-    }
-
-    .underline-cards {
-        width: 150px;
-        height: 2px;
-        transition: linear 0.3s;
-    }
-
-    .each-card:hover .underline-cards {
-        width: 330px;
-    }
-
-    .explore {
-        margin-top: 0px;
-        height: 1149px;
-    }
-
-    .wrapper-explore {
-        width: 984px;
-        height: 1149px;
-        display: block;        
-    }
-
-    .explore-info {
-        width: 984px;
-        position: absolute;
-        margin: 60px 20px;
-    }
-    
-    .explore-info h2 {
-        font-size: 50px;
-        line-height: 75px;
-        margin-top: 0;
-        margin-bottom: 20px;
-    }
-
-    .underline-explore {
-        width: 984px;
-        margin-bottom: 60px;
-    }
-
-    .explore-info p {
-        font-size: 20px;
-        line-height: 38px;
-        margin-bottom: 0;        
-    }
-    .tohide {
-        display: none;
-    }
-
-    .wrapper-explore img {
-        margin: 389px 132px 60px 132px;
-    }
-
-    .video {
-        height: 881px;
-    }
-
-    .wrapper-video {
-        width: 984px;
-        height: 881px;
-        margin: 60px auto;
-    }
-
-    .video-title {
-        display: inline;
-    }
-
-    .video-title h2{
-        font-size: 50px;
-        line-height: 75px;  
-        margin-bottom: 40px;      
-    }
-
-    .video-title p {
-        display: none;
-    }
-
-    .main-poster {
-        height: 444px;               
-    }
-
-    .main-poster img {
-        width: 984px;
-        height: 444px;
-    }
-
-    .main-play {
-        width: 152px;
-        height: 152px;
-        background-image: url(../images/video1024/mainplay.svg);
-        border: 6px solid #fff;
-    }
-
-    .button-play {
-        width: 152px;
-        height: 152px;        
-    }
-
-    .progress {
-        width: 984px;
-        height: 60px;
-    }
-
-    .progress-bar {
-        width: 564px;
-        height: 5px;
-    }
-
-    .progress-bar-vol {
-        width: 143px;
-        height: 5px;
-    }
-
-    .video-changer {
-        width: 984px;
-        height: 170px;
-    }
-
-    .gallery {
-        height: 1460px;
-    }
-
-    .wrapper-gallery {
-        width: 984px;
-    }
-
-    .gallery-scroll {
-        width: 984px;
-    }
 }

@@ -45,8 +45,37 @@
                     </li>
                 </ul>
             </nav>
+            <div class="burger__button" id="burger__button" onclick="openClose()">
+                <a href="#burger" id="open" class="open">
+                    <span class="top-span"></span>
+                    <span class="mid-span"></span>
+                    <span class="bot-span"></span>
+                </a>
+            </div>
         </div>
     </header>
+    <div class="burger" id="burger">
+        <ul onclick="openClose()">
+            <li>
+                <a href="#visiting" class="nav__link">Visiting</a>
+            </li>
+            <li>
+                <a href="#explore" class="nav__link">Explore</a>
+            </li>
+            <li>
+                <a href="#video" class="nav__link">Video</a>
+            </li>
+            <li>
+                <a href="#gallery" class="nav__link">Gallery</a>
+            </li>
+            <li>
+                <a href="#tickets" class="nav__link">Tickets</a>
+            </li>
+            <li>
+                <a href="#contacts" class="nav__link">Contacts</a>
+            </li>
+        </ul>
+    </div>
     <main>
 
         <section class="welcome" id="#welcome">
@@ -288,7 +317,7 @@
                         <h4>Palais Royal</h4>
                         <h4>Musee du Louvre</h4>
                         <ul>
-                            <li>address:75001 Paris, France</li>
+                            <li>address: 75001 Paris, France</li>
                             <li>phone: <a href="tel:+33(0)140205050">+33(0) 1 40 20 50 50</a></li>
                             <li>mail: <a href="mailto:info@louvre.fr">info@louvre.fr</a></li>
                         </ul>
@@ -344,9 +373,13 @@
         </div>
         <div class="underline-footer"></div>
         <div class="footer-links">
-            <h4>© 2021</h4>
-            <a href="https://rs.school" target="_blank">The Rolling Scopes School</a>
-            <a href="https://github.com/Arxons" target="_blank">Arxons</a>
+            <div class="container">
+                <div class="flex">
+                    <h4>© 2021</h4>
+                    <a href="https://rs.school" target="_blank">The Rolling Scopes School</a>
+                    <a href="https://github.com/Arxons" target="_blank">Arxons</a>
+                </div>
+            </div>
         </div>
     </footer>
     <div class="popup" id="popup">
@@ -452,10 +485,12 @@
 
         </div>
     </div>
+
     <script src="js/progress-bar.js"></script>
     <script src="js/gallery.js"></script>
     <script src='js/console.js'></script>
     <script src='js/gallerysecond.js'></script>
+    <script src="js/burger.js"></script>
 </body>
 
 </html>
