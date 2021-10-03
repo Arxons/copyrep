@@ -11,15 +11,19 @@ progressTop.addEventListener('input', function () {
     this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #c4c4c4 ${value}%, #c4c4c4 100%)`
 });
 
+const width = screen.width;
+
 const progress_volume = document.querySelector('.progress-bar-vol');
 progress_volume.addEventListener('input', function () {
     const value = this.value;
     const icon_volume = document.getElementById('icon-vol');
     this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #c4c4c4 ${value}%, #c4c4c4 100%)`;
-    value == 0 ? icon_volume.style.backgroundImage = `url(images/video/volume.svg), url(images/video/novolume.svg)` :
-        value <= 20 ? icon_volume.style.backgroundImage = `url(images/video/volume.svg)` :
-            value > 20 && value <= 50 ? icon_volume.style.backgroundImage = `url(images/video/volume.svg), url(images/video/volume1.svg)` :
-                icon_volume.style.backgroundImage = `url(images/video/volume.svg), url(images/video/volume1.svg), url(images/video/volume2.svg)`
+    if (width > 750) {
+        value == 0 ? icon_volume.style.backgroundImage = `url(images/video/volume.svg), url(images/video/novolume.svg)` :
+            value <= 20 ? icon_volume.style.backgroundImage = `url(images/video/volume.svg)` :
+                value > 20 && value <= 50 ? icon_volume.style.backgroundImage = `url(images/video/volume.svg), url(images/video/volume1.svg)` :
+                    icon_volume.style.backgroundImage = `url(images/video/volume.svg), url(images/video/volume1.svg), url(images/video/volume2.svg)`
+    }
 });
 
 function volumeOnOff(value) {

@@ -1786,6 +1786,18 @@ footer {
     display: none;
 }
 
+.left-column-nav__small, .mid-column-nav__small, .right-column-nav__small {
+    display: none;
+}
+
+.small__tickets {
+    display: none;
+}
+
+.small__contacts {
+    display: none;
+}
+
 @media (max-width: 1920px) {
     .gallery-scroll img {
         width: 456px;
@@ -2717,5 +2729,268 @@ footer {
         background-image: url(../images/welocmeslider420/aright.svg);
         transform: rotate(0deg);
         filter: invert(68%) sepia(46%) saturate(254%) hue-rotate(355deg) brightness(97%) contrast(95%);
+    }
+
+    .visiting {
+        height: 2153px;
+    }
+
+    .container h2 {
+        font-size: 28px;
+        line-height: 40px;
+        margin-bottom: 20px;
+    }
+
+    .cards {
+        gap: 40px
+    }
+
+    .each-card {
+        height: 295px;
+    }
+
+    .explore {
+        height: 551px;
+    }
+
+    .explore-info {
+        width: 380px;
+    }
+
+    .explore-info h3 {
+        font-size: 28px;
+        line-height: 40px;
+    }
+
+    .underline-explore {
+        width: 380px
+    }
+
+    .explore img {
+        width: 380px;
+        height: 368px;
+        margin-top: 143px;
+    }
+
+    .video {
+        height: 555px;
+    }
+
+    .video-title h3 {
+        font-size: 28px;
+        line-height: 40px;
+        padding-top: 36px;
+    }
+
+    .main-poster {
+        width: 380px;
+        height: 172px;
+    }
+
+    .main-poster img {
+        width: 380px;
+        height: 172px;
+    }
+
+    .main-play {
+        width: 50px;
+        height: 50px;
+        background-image: url(../images/video420/mainplay.svg);        
+        border: 2px solid #fff;
+    }
+
+    .button-play {
+        width: 50px;
+        height: 50px;
+    }
+
+    .progress-bar__top {
+        width: 380px;
+    }
+
+    .progress-bar-vol {
+        width: 200px;
+    }
+
+    .icon-play {
+        width: 14px;
+        height: 18px;
+        background-image: url(../images/video420/paly.svg);
+        margin-left: 20px;
+    }
+
+    .icon-volume {
+        width: 18px;
+        height: 14px;
+        background-image: url(../images/video420/vol.svg);
+    }
+
+    .icon-fullscreen {
+        width: 18px;
+        height: 18px;
+        background-image: url(../images/video420/fullscreen.svg);
+        margin-right: 20px;
+    }
+
+    .video-changer {
+        width: 380px;
+        height: 101px;
+    }
+
+    .video-changer img {
+        width: 180px;
+        height: 101px;
+    }
+
+    .gallery {
+        height: 757px;
+    }
+
+    .gallery h3{
+        font-size: 28px;
+        line-height: 40px;
+    }
+
+    .gallery-scroll {
+        gap: 24px;
+    }
+
+    .gallery-scroll img {
+        width: 178px;
+    }
+
+    .left-column, .middle-column {
+        height: 586px;
+    }
+
+    .shadow-box {
+        top: 387px;
+        height: 250px;
+    }
+
+    .tickets {
+        height: 759px;
+    }
+
+    .tickets h3 {
+        font-size: 28px;
+        line-height: 40px;
+    }
+
+    .tickets-content {
+        display: block;
+    }
+
+    .tickets-content img {
+        width: 380px;
+        height: 160px;
+    }
+
+    .tickets-content .img__hide {
+        display: none;
+    }
+
+    .amount {
+        height: 286px;
+        margin-left: 102px;
+    }
+
+    .amount h4 {
+        font-size: 16px;
+        line-height: 18px;
+        text-align: center;
+    }
+
+    .amount h5 {
+        font-size: 16px;
+        line-height: 18px;
+    }
+
+    .buy-now {
+        margin-top: 15px;
+    }
+
+    .contacts {
+        height: 636px;
+    }
+
+    .contacts h3 {
+        font-size: 28px;
+        line-height: 40px;
+    }
+
+    .contacts-li h4 {
+        font-size: 16px;
+        line-height: 18px;
+    }
+
+    .contacts-li ul li, li a {
+        font-size: 16px;
+        line-height: 18px;
+    }
+
+    .map__hide {
+        display: none;
+    }
+    
+    .contacts-info img {        
+        width: 380px;
+        height: 248px;
+    }
+
+    footer {
+        height: 420px;
+    }
+
+    .logo-footer {
+        background-image: url(../images/logo420.svg);
+        margin-top: 40px;
+    }
+
+    .logo-footer a {
+        font-size: 16px;
+        line-height: 18px;
+        margin-left: 54px;
+    }
+
+    .left-column-nav, .right-column-nav {
+        display: none;
+    }
+
+    .footer-nav {
+        width: 380px;
+        height: 68px;
+        margin-left: 0;
+        gap: 30px 90px;
+        margin-top: 40px;     
+    }
+
+    .nav__link {
+        font-size: 16px;
+    }
+
+    .footer-icons {
+        width: 280px;
+        margin-left: 50px;
+    }
+
+    .rolling__hide {
+        display: none;
+    }
+
+    .footer-links h4, a{
+        font-size: 16px;
+    }
+
+    .left-column-nav__small, .mid-column-nav__small, .right-column-nav__small {
+        display: block;
+    }
+    
+    .small__tickets {
+        display: block;
+    }
+    
+    .small__contacts {
+        display: block;
     }
 }
