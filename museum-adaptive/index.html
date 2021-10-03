@@ -46,10 +46,11 @@
                 </ul>
             </nav>
             <div class="burger__button" id="burger__button" onclick="openClose()">
-                <a href="#burger" id="open" class="open">
-                    <span class="top-span"></span>
-                    <span class="mid-span"></span>
-                    <span class="bot-span"></span>
+                <a href="#burger" id="burger__nav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </a>
             </div>
         </div>
@@ -75,10 +76,23 @@
                 <a href="#contacts" class="nav__link">Contacts</a>
             </li>
         </ul>
+        <div class="burger__imgs">
+            <img src="images/burger768/image15.jpg" alt="img" width="658" height="194">
+            <img src="images/burger768/image16.jpg" alt="img" width="319" height="161">
+            <img src="images/burger768/image17.jpg" alt="img" width="319" height="161">
+        </div>
+        <div class="underburger"></div>
+        <div class="footer-icons">
+            <a class="youtube" href="https://www.youtube.com/user/louvre" target="_blank"></a>
+            <a class="instagram" href="https://www.instagram.com/museelouvre/" target="_blank"></a>
+            <a class="facebook" href="https://www.facebook.com/museedulouvre" target="_blank"></a>
+            <a class="twitter" href="http://twitter.com/museelouvre" target="_blank"></a>
+            <a class="pinterest" href="https://www.pinterest.fr/museedulouvre/" target="_blank"></a>
+        </div>
     </div>
     <main>
 
-        <section class="welcome" id="#welcome">
+        <section class="welcome" id="welcome">
             <div class="container">
                 <div class="flex">
                     <div class="welcome-slider">
@@ -222,6 +236,7 @@
                         </button>
                     </div>
                 </div>
+                <input type="range" value="40" min="0" max="100" step="1" class="progress-bar__top">
                 <div class="progress">
                     <button class="icon-play" id="play"></button>
                     <input type="range" value="40" min="0" max="100" step="1" class="progress-bar">
@@ -232,7 +247,7 @@
                 <div class="video-changer">
                     <img src="images/video/poster2.jpg" alt="poster">
                     <img src="images/video/poster3.jpg" alt="poster">
-                    <img src="images/video/poster4.jpg" alt="poster">
+                    <img src="images/video/poster4.jpg" class="video__hide" alt="poster">
                 </div>
                 <div class="control-pannel">
                     <div class="arrow-left">
@@ -331,7 +346,7 @@
         <div class="container">
             <div class="flex">
                 <div class="logo-footer">
-                    <a href="/#">louvre</a>
+                    <a href="#welcome">louvre</a>
                 </div>
                 <nav class="footer-nav">
                     <div class="left-column-nav">
@@ -367,7 +382,6 @@
                     <a class="facebook" href="https://www.facebook.com/museedulouvre" target="_blank"></a>
                     <a class="twitter" href="http://twitter.com/museelouvre" target="_blank"></a>
                     <a class="pinterest" href="https://www.pinterest.fr/museedulouvre/" target="_blank"></a>
-
                 </div>
             </div>
         </div>

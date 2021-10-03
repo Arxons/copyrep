@@ -553,7 +553,7 @@ section {
 }
 
 .progress-bar {
-    background: linear-gradient(to right, #710707 0%, #710707 40%, #fff 40%, #fff 100%);    
+    background: linear-gradient(to right, #710707 0%, #710707 40%, #c4c4c4 40%, #c4c4c4 100%);    
     border-radius: 8px;
     width: 930px;
     height: 8px;    
@@ -572,7 +572,7 @@ section {
 }
 
 .progress-bar-vol {
-    background: linear-gradient(to right, #710707 0%, #710707 40%, #fff 40%, #fff 100%);
+    background: linear-gradient(to right, #710707 0%, #710707 40%, #c4c4c4 40%, #c4c4c4 100%);
     border-radius: 8px;
     width: 155px;
     height: 8px;    
@@ -1690,54 +1690,63 @@ footer {
     height: 25px;
 }
 
-.open {
+#burger__nav {
     display: block;
-    position: relative;
-}
-
-.close {
-    display: block;
-    position: relative;
     width: 32px;
-    height: 32px;
+    height: 25px;
+    position: relative;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    cursor: pointer;
 }
 
-.open .top-span, .open .mid-span, .open .bot-span {
-    display: block;
-    background-color: #fff;
-    margin-bottom: 6px;    
-    width: 32px;
-    height: 2px;
-    transition: all 0.3s ease 0s;    
-}
-
-.close .mid-span {    
-    opacity: 0;
-    position: absolute;
-    width: 25px;
-    height: 2px;
-    display: block;   
-}
-
-.close .top-span {
+#burger__nav span {
     display: block;
     position: absolute;
-    /* top: 56px; */        
-    background-color: #fff;    
-    width: 33px;
     height: 2px;
-    transition: all 0.3s ease 0s;
+    width: 100%;
+    background: #fff;
+    border-radius: 3px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+#burger__nav span:nth-child(1) {
+    top: 0;
+}
+
+#burger__nav span:nth-child(2) {
+    top: 8px;
+}
+
+#burger__nav span:nth-child(3) {
+    top: 8px;
+}
+
+#burger__nav span:nth-child(4) {
+    top: 16px;
+}
+
+#burger__nav.open span:nth-child(1){
+    top: 8px;
+    width: 0%;
+    left: 50%
+}
+
+#burger__nav.open span:nth-child(2){
     transform: rotate(45deg);
 }
 
-.close .bot-span {
-    display: block;
-    position: absolute;    
-    background-color: #fff;    
-    width: 33px;
-    height: 2px;
-    transition: all 0.3s ease 0s;
+#burger__nav.open span:nth-child(3){
     transform: rotate(-45deg);
+}
+
+#burger__nav.open span:nth-child(4){
+    top: 8px;
+    width: 0%;
+    left: 50%
 }
 
 .burger {
@@ -1773,10 +1782,14 @@ footer {
     display: none;
 }
 
+.burger__imgs, .underburger, .burger .footer-icons {
+    display: none;
+}
+
 @media (max-width: 1920px) {
     .gallery-scroll img {
         width: 456px;
-    }
+    }   
 }
 
 @media (max-width: 1460px) {
@@ -2196,6 +2209,14 @@ footer {
         margin-top: 110px;
         margin-left: 219px;        
     }
+    .title-welcome__hide {
+        width: 328px;
+        height: 165px;
+        position: absolute;
+        top: 0;
+        margin-top: 110px;
+        margin-left: 219px;
+    }    
 
     .title-welcome h1 {
         display: flex;
@@ -2302,5 +2323,399 @@ footer {
         height: 705px;
         margin: 0;
         margin-top: 163px;
+    }
+
+    .video {
+        height: 837px;
+    }
+
+    .video-title h3 {
+        font-size: 40px;
+        line-height: 60px;
+        letter-spacing: 5px;
+        padding-top: 40px;
+        margin-bottom: 20px;
+    }
+
+    .main-poster {
+        width: 728px;
+        height: 329px;
+    }
+
+    .main-poster img {
+        width: 728px;
+        height: 329px;
+    }
+
+    .main-play {
+        width: 80px;
+        height: 80px;
+        background-image: url(../images/video768/mainplay.svg);
+        border: 4px solid #fff;
+    }
+
+    .progress-bar {
+        display: none;
+    }
+
+    .progress-bar__top {
+        background: linear-gradient(to right, #710707 0%, #710707 40%, #c4c4c4 40%, #c4c4c4 100%);    
+        border-radius: 8px;
+        width: 728px;
+        height: 5px;    
+        outline: none;
+        transition: 450ms ease-in;
+        -webkit-appearance: none;
+        position: absolute;
+    }
+
+    .progress-bar__top::-webkit-slider-thumb {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        -webkit-appearance: none;
+        cursor: ew-resize;
+        background: #fff;
+    }
+
+    .progress-bar-vol {
+        width: 486px;
+    }
+
+    .video-changer {
+        width: 100%;
+        gap: 20px;
+    }
+
+    .video-changer img {
+        width: 354px;
+        height: 199px;
+    }
+
+    .video__hide {
+        display: none;
+    }
+
+    .gallery {
+        height: 1220px;
+    }
+
+    .gallery h3 {
+        font-size: 40px;
+        line-height: 60px;
+        padding-top: 40px;
+    }
+
+    .gallery-scroll {
+        margin-top: 40px;
+    }
+
+    .gallery-scroll img {
+        width: 352px;
+    }
+
+    .right-column {
+        display: none;
+    }
+
+    .left-column, .middle-column {
+        height: 1030px;
+    }
+
+    .shadow-box {
+        top: 720px;
+    }
+
+    .tickets {
+        height: 633px;
+    }
+
+    .tickets h3 {
+        font-size: 40px;
+        line-height: 60px;
+        padding-top: 40px;        
+    }
+
+    .tickets-content img {
+        width: 444px;
+        height: 340px;
+        margin-top: 40px;
+    }
+
+    .amount {
+        margin-top: 40px;
+    }
+
+    .amount h4 {
+        margin-top: 0;
+    }
+
+    .parallax {
+        height: 300px;
+    }
+
+    .contacts {
+        height: 925px;
+    }
+
+    .contacts h3 {
+        font-size: 40px;
+        line-height: 60px;
+        padding-top: 40px;
+        margin-bottom: 20px;
+    }
+
+    .underline-c {
+        margin-bottom: 40px;
+    }
+
+    .contacts-info {
+        display: block;
+    }
+
+    .contacts-li h4 {
+        font-size: 20px;
+    }
+
+    .contacts-li ul {
+        margin-top: 40px;
+    }
+
+    .contacts-li ul li, li a {
+        font-size: 18px;
+    }
+
+    .contacts-info img {
+        width: 728px;
+        height: 476px;
+        margin-top: 25px;
+    }
+
+    footer {
+        height: 426px;
+    }
+
+    footer .flex {
+        flex-wrap: wrap;
+    }
+
+    .logo-footer {
+        margin-top: 50px;
+    }
+
+    .footer-nav {
+        margin-top: 57px;
+        margin-left: 80px;
+        margin-bottom: 42px;
+    }
+
+    .footer-icons {
+        margin-top: 0;
+        margin-left: 265px;
+        margin-bottom: 42px;
+    }
+
+    .footer-links {
+        height: 102px;
+    }
+
+    .footer-links .container .flex {
+        height: 102px;
+    }
+
+    .popup__wrapper {        
+        width: 590px;
+        height: 100%;
+        overflow-y: scroll;
+    }
+
+    .popup__content {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    .popup__title {
+        width: 530px;        
+    }
+
+    .under {
+        width: 100%;
+    }
+
+    .left__col {
+        width: 530px;
+        height: 658px;
+        margin-left: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;       
+    }
+
+    .right__col {
+        height: 665px;
+        width: 530px;
+        margin-top: 50px;
+        margin-left: 30px;
+    }
+
+    .form__selector {
+        width: 530px;
+    }
+
+    .form__date, .form__time {
+        width: 251px;
+        background-position: 15px, 219px;
+        cursor: pointer;
+    }
+
+    .form__text, .form__email, .form__tel {
+        width: 481px;
+    }
+
+    .ticket__type {
+        width: 530px;
+        background-position: 15px, 498px;
+        cursor: pointer;
+    }
+
+    .ticket__entry {
+        width: 530px;
+    }
+
+    .burger {
+        width: 100%;
+        height: 861px;
+        top: 0;
+    }
+
+    .burger ul {
+        margin-left: 55px;
+    }
+
+    .burger__imgs {
+        width: 658px;
+        height: 375px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px 20px;
+    }
+
+    .underburger {
+        display: block;
+        width: 658px;
+        height: 1px;
+        background-color: #c4c4c4;
+        margin: 35px auto;
+    }
+
+    .burger .footer-icons {
+        display: flex;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 750px) {
+    .burger {
+        display: none;
+    }
+
+    .container {
+        width: 380px;
+    }
+
+    .header {
+        width: 380px;
+        height: 90px;
+    }
+
+    .logo {
+        width: 131px;
+        background-image: url(../images/logo420.svg);
+        margin-top: 15px;   
+    }
+
+    .logo a {
+        font-size: 16px;
+        margin-left: 54px;
+    }
+
+    .welcome {
+        height: 544px;
+    }
+
+    .title-welcome {
+        width: 276px;
+        height: 124px;
+        margin: 95px 66px;        
+    }
+
+    .title-welcome h1 {
+        font-size: 28px;
+        line-height: 40px;
+        height: 80px;        
+    }
+
+    .title-welcome h3 {
+        font-size: 15px;
+        line-height: 19px;
+    }
+
+    .welcome-slider {
+        width: 380px;
+        height: 285px;
+        background-image: url(../images/welocmeslider420/mona.jpg);
+        top: 179px
+    }
+
+    .slider-pannel {
+        width: 230px;
+        height: 40px;
+        top: 305px;
+        right: 75px;
+        align-items: center;
+    }
+
+    .count {
+        font-size: 16px;
+    }
+
+    .squares {
+        width: 75px;
+        height: 7px;
+        margin-left: 25px;
+    }
+
+    .square {
+        width: 7px;
+        height: 7px;
+    }
+
+    .arrows-slider {
+        margin-left: 25px;
+    }
+
+    .arrows-slider button {
+        display: none;
+    }
+
+    .ar-left {
+        background-image: url(../images/welocmeslider420/arleft.svg);
+    }
+
+    .ar-left:hover {
+        background-image: url(../images/welocmeslider420/arleft.svg);
+        filter: invert(68%) sepia(46%) saturate(254%) hue-rotate(355deg) brightness(97%) contrast(95%);
+    }
+
+    .ar-right {
+        background-image: url(../images/welocmeslider420/aright.svg);
+    }
+
+    .ar-right:hover {
+        background-image: url(../images/welocmeslider420/aright.svg);
+        transform: rotate(0deg);
+        filter: invert(68%) sepia(46%) saturate(254%) hue-rotate(355deg) brightness(97%) contrast(95%);
     }
 }

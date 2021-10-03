@@ -1,19 +1,18 @@
-const burgerButton = document.getElementById('open');
-const burgerButtonOpen = document.querySelector('.open');
+const burgerButton = document.getElementById('burger__nav');
 const titleWelcome = document.querySelector('.title-welcome');
 
-let counter = 1;
+let counter = 0;
 
 function openClose() {
-    if (counter === 1) {
-        burgerButton.href = '#burger';
-        burgerButtonOpen.className = 'close';
+    if (counter === 0) {
+        burgerButton.className = 'open';
+        burgerButton.href = '#burger'
         titleWelcome.className = 'title-welcome__hide'
-        counter = 0;
-    } else {
-        burgerButton.href = '#';
-        burgerButtonOpen.className = 'open';
-        titleWelcome.className = 'title-welcome'
         counter = 1;
+    } else {
+        burgerButton.className = '';
+        burgerButton.href = '#'
+        titleWelcome.className = 'title-welcome'
+        counter = 0;
     }
 }
