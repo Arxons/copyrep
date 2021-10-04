@@ -1770,12 +1770,12 @@ footer {
 .burger ul {    
     width: 122px;
     height: 263px;   
-    margin: 35px 120px
+    margin: 35px 48px;
 }
 
 .burger ul li {
-    margin-bottom: 25px;
-    background: url(../images/burger/burgerarrows.svg) no-repeat right;
+    margin-bottom: 28px;
+    background: url(../images/burger/burgerarrows.svg) no-repeat 111px;
 }
 
 .burger__button {
@@ -1810,6 +1810,10 @@ footer {
         height: 130px;
     }
 
+    .logo {
+        margin-top: 8px;
+    }
+
     .nav__link {
         font-size: 20px;
     }
@@ -1836,7 +1840,9 @@ footer {
     }
 
     .title-welcome h3 {
-        font-size: 24px;        
+        font-size: 24px;
+        padding-top: 26px; 
+        margin-bottom: 53px;     
     }
 
     .button-text {
@@ -1864,16 +1870,18 @@ footer {
     }
 
     .visiting {
-        height: 1525px;
+        height: 1433px;;
     }
 
     .container h2 {
         font-size: 50px;
+        margin-bottom: 30px;
     }
     
     .cards {
         justify-content: center;
-        gap: 60px, 60px;        
+        gap: 60px 108px;
+        padding-top: 60px;      
     }
 
     .each-card {
@@ -1884,6 +1892,7 @@ footer {
     .each-card img {
         width: 330px;
         height: 215px;
+        margin-bottom: 27px;
     }
 
     .each-card h3 {
@@ -1916,7 +1925,7 @@ footer {
 
     .explore-info {       
         position: absolute;
-        margin: 60px 20px;
+        margin: 60px 0px;
     }
     
     .explore-info h3 {
@@ -1955,7 +1964,8 @@ footer {
     .video-title h3{
         font-size: 50px;
         line-height: 75px;  
-        margin-bottom: 40px;      
+        margin-bottom: 40px;
+        padding-top: 60px;     
     }
 
     .video-title p {
@@ -1972,10 +1982,12 @@ footer {
     }
 
     .main-play {
-        width: 152px;
-        height: 152px;
+        width: 142px;
+        height: 142px;
         background-image: url(../images/video1024/mainplay.svg);
         border: 6px solid #fff;
+        left: 42%;
+        top: 32%;
     }
 
     .button-play {
@@ -1983,9 +1995,17 @@ footer {
         height: 152px;        
     }
 
+    .progress-bar__top {
+        display: none;
+    }
+
     .progress {
         width: 100%;
         height: 60px;
+    }
+
+    .icon-play {
+        margin-left: 41px;
     }
 
     .progress-bar {
@@ -2014,6 +2034,7 @@ footer {
     .gallery h3{
         font-size: 50px;
         line-height: 75px;
+        padding-top: 60px;
     }
 
     .gallery-scroll {
@@ -2044,6 +2065,7 @@ footer {
         font-size: 50px;
         line-height: 75px;
         margin-bottom: 20px;
+        padding-top: 60px;
     }
 
     .tickets-content img {
@@ -2066,6 +2088,8 @@ footer {
     .amount h4 {
         text-align: left;
         margin-top: 25px;
+        margin-bottom: 37px;
+        letter-spacing: 2px;
     }
 
     .amount h5 {
@@ -2074,13 +2098,13 @@ footer {
 
     .button-amount {
         margin-left: 0;
-        margin-bottom: 25px;
+        margin-bottom: 26px;
         width: 175px;
     }
 
     .buy-now {
         margin-left: 0;
-        margin-top: 60px;
+        margin-top: 35px;
     }
 
     .parallax {
@@ -2089,21 +2113,23 @@ footer {
     }
 
     .contacts {
-        height: 724px;
+        height: 730px;
     }
 
     .contacts h3 {
         font-size: 50px;
         line-height: 75px;
         padding-top: 60px;
+        margin-bottom: 20px;
     }
 
     .underline-c {
-        margin-bottom: 60px;
+        margin-bottom: 55px;
     }
     
     .contacts-li h4 {
         font-size: 24px;
+        line-height: 30px;
 
     }
 
@@ -2111,9 +2137,9 @@ footer {
         margin-top: 35px;
     }
 
-    .contacts-li ul li {
+    .contacts-li ul li, .contacts-li ul li a {
         font-size: 20px;
-        margin-bottom: 15px;
+        margin-bottom: 18px;
     }
 
     .contacts-info {
@@ -2130,18 +2156,28 @@ footer {
     }
 
     .logo-footer {
-        margin-top: 60px;
+        margin-top: 61px;
         height: 33px;
     }
 
     .footer-nav {
-        margin-top: 65px;
+        margin-top: 72px;
         margin-left: 45px;
+        margin-bottom: 42px;
+        gap: 129px;
+    }
+
+    .footer-nav li {
+        margin-bottom: 30px;
     }
 
     .footer-icons {
-        margin-top: 142px;
-        margin-left: 92px;
+        margin-top: 145px;
+        margin-left: 39px;
+    }
+
+    .footer-links h4, .footer-links a {
+        letter-spacing: 2px;
     }
 
     .popup__wrapper {
@@ -2591,6 +2627,25 @@ footer {
         cursor: pointer;
     }
 
+    .under__entry {
+        width: 502px;
+    }
+
+    .basic {
+        width: 502px;
+    }
+    .senior {
+        width: 502px;
+    }
+
+    .basic h4 {
+        margin-right: 263px;
+    }
+
+    .senior h4 {
+        margin-right: 257px;
+    }
+
     .ticket__entry {
         width: 530px;
     }
@@ -2630,7 +2685,24 @@ footer {
 
 @media (max-width: 750px) {
     .burger {
-        display: none;
+        width: 420px;
+        height: 544px;
+    }
+
+    .burger__imgs {
+        width: 310px;
+        height: 95px;
+        gap: 12px;
+    }
+
+    .burger__imgs img {
+        width: 95px;
+        height: 95px;
+    }
+
+    .underburger {
+        width: 320px;
+        margin: 20px auto;
     }
 
     .container {
@@ -2992,5 +3064,612 @@ footer {
     
     .small__contacts {
         display: block;
+    }
+
+    .popup__wrapper {
+        width: 420px;
+    }
+
+    .popup__title {
+        width: 360px;
+    }
+
+    .popup__title h2{
+        font-size: 32px;
+    }
+
+    .left__col {
+        width: 360px;
+        height: 686px;
+        display: block;        
+    }
+
+    .form__selector {
+        width: 360px;
+        margin-top: 30px;
+    }
+
+    .date__time {
+        display: block;
+    }
+
+    .form__date, .form__time {
+        width: 360px;
+        box-sizing: border-box;
+        background-position: 15px, 328px;
+    }
+
+    .form__date {
+        margin-bottom: 20px;
+    }
+
+    .form__text, .form__email, .form__tel {
+        box-sizing: border-box;
+        width: 360px;
+    }
+
+    .ticket__type {
+        box-sizing: border-box;
+        width: 360px;
+        background-position: 15px, 328px;
+    }
+
+    .ticket__entry, .ticket__entry .wrapper {
+        width: 360px
+    }
+
+    .under__entry {
+        width: 330px;
+    }
+
+    .basic h4 {
+        margin-right: 93px;
+    }
+
+    .basic input {
+        width: 40px;
+    }
+
+    .senior input {
+        width: 40px;
+    }
+
+    .senior h4 {
+        margin-right: 86px;
+    }
+
+    .right__col {
+        width: 360px;
+        height: 870px;
+    }
+
+    .overview {
+        margin-left: 15px;
+        width: 330px;
+    }
+
+    .overview img {
+        width: 120px;
+        height: 96px;
+    }
+
+    .prices {
+        width: 330px;
+    }
+
+    .prices h2 {
+        margin-right: 187px;
+    }
+
+    .prices h3 {
+        margin-right: 127px;
+        margin-bottom: 10px;
+    }
+
+    .prices .sen {
+        margin-right: 119px;
+    }
+
+    .card__front {
+        width: 330px;
+        height: 209px;
+        margin-left: 15px;
+    }
+
+    #card__name {
+        box-sizing: border-box;
+        width: 290px;
+    }
+
+    .card__back {
+        width: 330px;
+        height: 209px;
+        margin-left: 15px;
+        margin-top: 249px;
+    }
+
+    .card__back label {
+        margin-left: 244px;
+    }
+
+    .card__back p {
+        margin-left: 249px;
+    }
+
+    .blackline {
+        width: 330px;
+    }
+
+    #cvc {
+        margin-left: 235px;
+    }
+
+    .book {
+        margin-left: 125px;
+    }
+}
+
+@media (max-width: 410px) {
+    .header {
+        width: 200px;
+    }
+
+    .burger__button {
+        width: 22px;
+    }
+
+    #burger__nav {
+        width: 22px;
+    }
+
+    .container {
+        width: 200px;
+    }
+
+    .welcome {
+        height: 370px;
+    }
+
+    .title-welcome {
+        margin: 95px 0;
+        width: 200px;
+    }
+
+    .title-welcome h1 {
+        font-size: 20px;
+    }
+
+    .title-welcome h3 {
+        font-size: 10px;
+        padding-top: 10px;
+    }
+
+    .welcome-slider {
+        background-image: url(../images/welcomeslider240/mona.jpg);
+        width: 200px;
+        height: 150px;
+        top: 145px;
+    }
+
+    .squares {
+        display: none;
+    }
+
+    .slider-pannel {
+        width: 200px;
+        height: 40px;
+        top: 160px;
+        right: 0px;
+    }
+
+    .count {
+        font-size: 14px;
+    }
+
+    .visiting {
+        height: 1900px;
+    }
+
+    .container h2 {
+        font-size: 20px;
+        line-height: 20px;
+        margin-bottom: 10px;
+        padding-top: 20px;
+    }
+
+    .underline {
+        height: 2px;
+    }
+
+    .cards {
+        gap: 20px;
+    }
+
+    .each-card {
+        width: 200px;
+        height: 280px;
+    }
+
+    .each-card img {
+        width: 200px;
+        height: 140px;
+    }
+
+    .each-card h3 {
+        font-size: 18px;
+    }
+
+    .each-card h4 {
+        font-size: 16px;
+    }
+
+    .each-card p {
+        font-size: 14px;
+    }
+
+    .explore {
+        height: 365px;
+    }
+
+    .explore-info {
+        width: 210px;
+        margin-top: 20px;
+    }
+
+    .explore-info h3 {
+        font-size: 20px;
+        line-height: 40px;
+        letter-spacing: 4px;
+        margin-bottom: 10px;        
+    }
+
+    .underline-explore {
+        width: 200px;
+        height: 2px;
+    }
+
+    .explore img {
+        width: 200px;
+        height: 232px;
+        margin-top: 100px;
+    }
+
+    .video {
+        height: 410px;
+    }
+
+    .video-title h3 {
+        font-size: 20px;
+        line-height: 40px;
+        padding-top: 20px;
+        letter-spacing: 4px;
+    }
+
+    .main-poster {
+        width: 200px;
+        height: 120px;
+    }
+
+    .main-poster img {
+        width: 200px;
+        height: 120px;
+    }
+
+    .progress {
+        height: 40px;
+        margin-bottom: 20px;
+    }
+
+    .progress-bar__top {
+        width: 200px;
+    }
+
+    .progress-bar__top::-webkit-slider-thumb {
+        width: 10px;
+        height: 10px;
+    }
+
+    .progress-bar-vol {
+        width: 60px;
+    }
+
+    .progress-bar-vol::-webkit-slider-thumb {
+        width: 10px;
+        height: 10px;
+    }
+
+    .video-changer {
+        width: 200px;
+        height: 70px;
+        margin-bottom: 30px;
+    }
+
+    .video-changer img {
+        width: 90px;
+        height: 70px;
+    }
+
+    .gallery {
+        height: 464px;
+    }
+
+    .gallery h3 {
+        font-size: 20px;
+        padding-top: 20px;
+        line-height: 40px;
+    }
+
+    .gallery-scroll {
+        margin-top: 20px;
+    }
+
+    .gallery-scroll img {
+        width: 88px;
+        margin-bottom: 10px;
+    }
+
+    .left-column, .middle-column {
+        height: 363px;
+    }
+
+    .left-column {
+        margin-top: 20px;
+    }
+
+    .shadow-box {
+        top: 134px;
+        height: 250px;
+    }
+
+    .tickets {
+        height: 709px;
+    }
+
+    .tickets h3 {
+        font-size: 20px;
+        padding-top: 20px;
+        line-height: 40px;
+        margin-bottom: 10px;
+    }
+
+    .tickets-content img {
+        width: 200px;
+        height: 120px;
+    }
+
+    .amount {
+        height: 286px;
+        margin-left: 20px;
+    }
+
+    .parallax {
+        height: 200px;
+    }
+
+    .contacts {
+        height: 468px;
+    }
+
+    .contacts h3 {
+        font-size: 20px;
+        padding-top: 20px;
+        line-height: 40px;
+        margin-bottom: 10px;
+    }
+
+    .underline-c {
+        height: 2px;
+        margin-bottom: 20px;
+    }
+
+    .contacts-info img {
+        width: 200px;
+        height: 120px;
+    }
+
+    footer {
+        height: 410px;
+    }
+
+    .logo-footer {
+        margin-top: 20px;
+    }
+
+    .footer-nav {
+        width: 200px;
+        margin-top: 20px;
+        gap: 30px 60px;
+    }
+
+    .left-column-nav__small, .mid-column-nav__small, .right-column-nav__small {
+        display: none;
+    }
+
+    .left-column-nav, .right-column-nav {
+        display: block;
+    }
+
+    .footer-icons {
+        width: 200px;
+        margin-left: 0px;        
+        flex-wrap: wrap;
+        gap: 10px;
+        height: 90px;
+        margin-top: 20px;
+    }
+
+    .underline-footer {
+        height: 2px;
+    }
+
+    .footer-links {
+        height: 73px;
+    }
+
+    .footer-links .container .flex {
+        height: 72px;
+    }
+
+    .popup__wrapper {
+        width: 240px;
+    }
+
+    .form__date, .form__time {
+        width: 200px;
+        box-sizing: border-box;
+        background-position: 15px, 172px;
+    }
+
+    .left__col {
+        width: 200px;
+        margin-left: 15px;
+    }
+
+    .form__text, .form__email, .form__tel {
+        box-sizing: border-box;
+        width: 200px;
+    }
+
+    .ticket__type {
+        box-sizing: border-box;
+        width: 200px;
+        background-position: 15px, 172px;
+    }
+
+    .ticket__entry, .ticket__entry .wrapper {
+        width: 198px;
+        height: 188px;        
+    }
+
+    .under__entry {
+        width: 170px;
+    }
+
+    .basic {
+        width: 200px;
+        flex-wrap: wrap;
+    }
+
+    .basic h4 {
+        margin-right: 35px;
+        margin-bottom: 10px;
+    }
+
+    .senior {
+        width: 200px;
+        flex-wrap: wrap;
+    }
+
+    .senior h4 {
+        margin-right: 35px;
+        margin-bottom: 10px;
+    }
+
+    .right__col {
+        width: 200px;
+        margin-left: 15px;
+        height: 944px;
+    }
+
+    .overview {
+        margin-left: 15px;
+        width: 175px;
+    }
+
+    .overview img {
+        display: none;
+    }
+
+    .prices {
+        width: 200px;
+    }
+
+    .prices h2 {
+        margin-left: 15px;
+    }
+
+    .prices h3 {
+        margin-right: 0px;
+        margin-bottom: 10px;
+    }
+
+    .prices h4 {
+        font-size: 22px;
+        margin-right: 126px;
+        margin-bottom: 10px;
+        margin-left: 15px;
+    }
+
+    .prices h5 {
+        margin-left: 15px;
+    }
+
+    .prices .count {
+        margin-left: 15px;
+    }
+
+    .prices .sen {
+        margin-right: 0px;
+    }
+
+    .card__front {
+        transform: rotate(90deg);
+        height: 193px;
+        margin-left: -66px;
+        margin-top: 156px;
+    }
+
+    .card__back {
+        transform: rotate(90deg);
+        height: 193px;
+        margin-left: -66px;       
+        margin-top: 281px;
+    }
+
+    .book {
+        width: 120px;
+        margin-left: 37px;
+        margin-top: 92px;
+    }
+
+    .prices .under {
+        margin-left: 13px;
+        width: 170px;
+    }
+
+    .popup__title {
+        width: 200px
+    }
+
+    .popup__title h2 {
+        font-size: 25px;
+    }
+
+    .under {
+        height: 2px;
+    }
+
+    .burger {
+        width: 223px;
+        height: 600px;
+    }
+
+    .burger__imgs {
+        width: 212px;
+        height: 95px;
+        gap: 12px;
+        margin-left: 10px;
+    }
+
+    .burger__hide {
+        display: none;
+    }
+
+    .title-welcome__hide {
+        display: none;
+    }
+
+    .underburger {
+        width: 223px;
     }
 }
