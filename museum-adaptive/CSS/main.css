@@ -90,7 +90,7 @@ section {
     position: relative;
 }
 
-.welcome {
+.welcome {    
     width: 100%;
     height: 810px;
     background-color: #030303;
@@ -98,6 +98,7 @@ section {
 }
 
 .title-welcome {
+    z-index: 2;
     width: 600px;
     height: 390px;
 
@@ -134,19 +135,63 @@ section {
     display: flex;
 }
 
-.welcome-slider {
+.welcome-slider {       
     width: 1000px;
     height: 750px;
 
-    position: relative;
-    margin-left: 440px;
-
-    background-image: url(../images/welcomeslider/1.webp);
-
+    position: absolute;
+    margin-left: 440px;    
+    
     box-shadow: inset 130px 0px 160px 0px #000
 }
 
+.slider-hider-left {
+    position: absolute;
+    z-index: 1;
+    width: 37%;
+    height: 750px;
+    background-color: #000;
+}
+
+.slider-hider-right {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    width: 15.8%;
+    height: 750px;
+    background-color: #000;
+}
+
+.slide {    
+    opacity: 0;
+    position: absolute;        
+    margin-left: 0;    
+    transition: 0.5s ease-in-out;
+}
+
+.slide.active {       
+    transform: translate(0);       
+    opacity: 1;
+}
+
+.slide.left {    
+    transform: translate(100%);    
+}
+
+.slide.right {      
+    transform: translate(-100%);
+}
+
+.boxshadow {
+    width: 400px;
+    height: 750px;
+    position: relative;
+    background: linear-gradient(-90deg, rgba(0, 0, 0, 0) 0%, #000000 95%);
+}
+  
+
 .slider-pannel {
+    z-index: 1000;
     position: absolute;
     bottom: 0px;
     right: 0px;
@@ -182,11 +227,16 @@ section {
     justify-content: space-between;    
 }
 
-.square {
+.square {    
     width: 16px;
     height: 16px;
     background-color: #fff;
-    transition: linear 0.1s;
+    transition: linear 0.2s;
+    cursor: pointer;
+}
+
+.square.active {
+    background-color: #9D8665;
 }
 
 .square:hover {
@@ -202,10 +252,11 @@ section {
     margin-right: 75px; 
 }
 
-.arrows-slider button {
-    outline: none;
-    border: none;
-    background-color: #030303;
+.arrows-slider .left, .arrows-slider .right {
+    width: 30px;
+    height: 8px;
+    opacity: 0;
+    position: absolute;
 }
 
 .ar-left {
@@ -224,13 +275,12 @@ section {
     transition: linear 0.1s;
 }
 
-.ar-left:hover {
-    background-image: url(../images/welcomeslider/ar_hover.svg);
+.ar-left:hover {    
+    filter: invert(68%) sepia(46%) saturate(254%) hue-rotate(355deg) brightness(97%) contrast(95%);
 }
 
-.ar-right:hover {
-    transform: rotate(180deg);
-    background-image: url(../images/welcomeslider/ar_hover.svg);
+.ar-right:hover {    
+    filter: invert(68%) sepia(46%) saturate(254%) hue-rotate(355deg) brightness(97%) contrast(95%);
 }
 
 
@@ -1853,9 +1903,21 @@ footer {
 
     .welcome-slider {
         width: 700px;
-        height: 525px;
-        background-image: url(../images/welcomeslider1024/mona.webp);
+        height: 525px;        
         margin-left: 284px;
+    }
+
+    .welcome-slider img {
+        width: 700px;
+        height: 525px; 
+        position: absolute;    
+        margin-left: 0;
+    }
+
+    .boxshadow {
+        position: relative;
+        width: 300px;
+        height: 525px;
     }
 
     .slider-pannel {
@@ -2246,11 +2308,20 @@ footer {
     .welcome-slider {
         width: 728px;
         height: 546px;
-        box-shadow: none;
-        background-image: url(../images/welcomeslider768/mona.webp);        
-        background-repeat: no-repeat;
-        top: 215px;
+        box-shadow: none;              
+        top: 315px;
         margin-left: 0;             
+    }
+
+    .welcome-slider img {
+        width: 728px;
+        height: 546px;
+        position: absolute;    
+        top: 0;
+    }
+
+    .boxshadow {
+        display: none;
     }
 
     .title-welcome {
@@ -2787,9 +2858,19 @@ footer {
 
     .welcome-slider {
         width: 380px;
-        height: 285px;
-        background-image: url(../images/welocmeslider420/mona.webp);
-        top: 179px
+        height: 285px;        
+        top: 249px
+    }
+
+    .welcome-slider img {
+    width: 380px;
+    height: 285px;
+    position: absolute;    
+    top: 0;
+    }
+
+    .boxshadow {
+    display: none;
     }
 
     .slider-pannel {
@@ -2819,16 +2900,17 @@ footer {
         margin-left: 25px;
     }
 
-    .arrows-slider button {
-        display: none;
+    .arrows-slider .left, .arrows-slider .right {
+        opacity: 0;
+        width: 23px;
+        height: 8px;
     }
 
     .ar-left {
         background-image: url(../images/welocmeslider420/arleft.svg);
     }
 
-    .ar-left:hover {
-        background-image: url(../images/welocmeslider420/arleft.svg);
+    .ar-left:hover {        
         filter: invert(68%) sepia(46%) saturate(254%) hue-rotate(355deg) brightness(97%) contrast(95%);
     }
 
@@ -2836,9 +2918,7 @@ footer {
         background-image: url(../images/welocmeslider420/aright.svg);
     }
 
-    .ar-right:hover {
-        background-image: url(../images/welocmeslider420/aright.svg);
-        transform: rotate(0deg);
+    .ar-right:hover {        
         filter: invert(68%) sepia(46%) saturate(254%) hue-rotate(355deg) brightness(97%) contrast(95%);
     }
 
@@ -3296,11 +3376,21 @@ footer {
         padding-top: 10px;
     }
 
-    .welcome-slider {
-        background-image: url(../images/welcomeslider240/mona.webp);
+    .welcome-slider {        
         width: 200px;
         height: 150px;
-        top: 145px;
+        top: 235px;
+    }
+
+    .welcome-slider img {
+        width: 200px;
+        height: 150px;
+        position: absolute;    
+        top: 0;
+    }
+
+    .boxshadow {
+        display: none;
     }
 
     .squares {

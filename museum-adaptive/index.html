@@ -93,17 +93,19 @@
     <main>
 
         <section class="welcome" id="welcome">
+            <div class="slider-hider-left"></div>
+            <div class="slider-hider-right"></div>
             <div class="container">
                 <div class="flex">
                     <div class="welcome-slider">
                         <div class="slider-pannel">
                             <div class="count">
-                                <h5>01</h5>
+                                <h5 class="pic-num">01</h5>
                                 <h5>|</h5>
                                 <h5>05</h5>
                             </div>
                             <div class="squares">
-                                <div class="square"></div>
+                                <div class="square active"></div>
                                 <div class="square"></div>
                                 <div class="square"></div>
                                 <div class="square"></div>
@@ -115,12 +117,20 @@
                                     </button>
                                 </div>
                                 <div class="ar-right">
-                                    <button class="right">
+                                    <button type="button" class="right">
                                     </button>
                                 </div>
                             </div>
                         </div>
-                        <!-- <img class="welcome-slider" src="images/welcomeslider/1.webp" alt="" width="1000" height="750"> -->
+                        <div class="slides">
+                            <img class="slide active" src="images/welcomeslider/1.webp" alt="" width="1000"
+                                height="750">
+                            <img class="slide left" src="images/welcomeslider/2.jpg" alt="" width="1000" height="750">
+                            <img class="slide" src="images/welcomeslider/3.jpg" alt="" width="1000" height="750">
+                            <img class="slide" src="images/welcomeslider/4.jpg" alt="" width="1000" height="750">
+                            <img class="slide right" src="images/welcomeslider/5.jpg" alt="" width="1000" height="750">
+                            <div class="boxshadow"></div>
+                        </div>
                     </div>
                     <div class="title-welcome" id="title-welcome">
                         <h1>welcome<br> to the louvre</h1>
@@ -536,6 +546,7 @@
     <script src="./JS/gallery.js"></script>
     <script src='./JS/console.js'></script>
     <script src="./JS/burger.js"></script>
+    <script src="./JS/welcomeslider.js"></script>
 </body>
 
 </html>
