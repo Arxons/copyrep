@@ -15,6 +15,7 @@ const activePic = (val) => {
     squares[val].classList.add('active'); //squares on pannel    
 }
 
+//swipe anim to pics
 const rightSwipe = (val) => {
     slides.forEach(elem => elem.classList.remove('left'));
     slides.forEach(elem => elem.classList.remove('right'));
@@ -23,11 +24,17 @@ const rightSwipe = (val) => {
 
 }
 
+//swipe anim to pics
 const leftSwipe = val => {
     slides.forEach(elem => elem.classList.remove('left'));
     slides.forEach(elem => elem.classList.remove('right'));
     slides[val].classList.add('left');
     slides[val - 2].classList.add('right');
+}
+
+const clickOnSquare = () => {
+    slides.forEach(elem => elem.classList.remove('left'));
+    slides.forEach(elem => elem.classList.remove('right'));
 }
 
 //Function that swipe to next picture
@@ -68,8 +75,64 @@ squares.forEach((elem, i) => {
     elem.addEventListener('click', () => {
         slidesIndex = i;
         activePic(i);
+        clickOnSquare()
         picNumber.innerHTML = `0${i + 1}`;
     })
 })
 
-console.log(slidesIndex)
+
+//swipes for mouse
+const curSlide = document.querySelector('.welcome-slider');
+curSlide.addEventListener('mousedown', clickOn, false);
+curSlide.addEventListener('mouseup', mouseMove, false);
+
+let posInit = null;
+
+function clickOn(event) {
+    event = event || window.event;
+    posInit = event.offsetX;
+}
+
+
+function mouseMove(event) {
+    if (!posInit) return false
+    event = event || window.event;
+    let posX = posInit - event.offsetX;
+    console.log(posX)
+
+    if (posX > 100) {
+        nextPic()
+    } else if (posX < -100) {
+        prevPic();
+    }
+    posX = null;
+    posInit = null;
+}
+
+
+//swipes for touches
+curSlide.addEventListener('touchstart', touchOn, false);
+curSlide.addEventListener('touchend', touchMove, false);
+
+
+function touchOn(event) {
+    event = event || window.event;
+    posInit = event.changedTouches[0].clientX;
+    console.log(posInit)
+}
+
+
+function touchMove(event) {
+    if (!posInit) return false
+    event = event || window.event;
+    let posX = posInit - event.changedTouches[0].clientX;
+    console.log(posX)
+
+    if (posX > 100) {
+        nextPic()
+    } else if (posX < -100) {
+        prevPic();
+    }
+    posX = null;
+}
+
