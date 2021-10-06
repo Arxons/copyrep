@@ -535,6 +535,7 @@ section {
     position: absolute;
     top: 0;
     background-color: #fff;
+    cursor: pointer;
 }
 
 .img-changer::after {
@@ -2079,7 +2080,7 @@ footer {
         display: none;
     }
 
-    .explore__img {
+    .before-after {
         margin: 389px 132px 60px 132px;
     }
 
@@ -2515,7 +2516,7 @@ footer {
         display: none;
     }
 
-    .explore img {
+    .before-after {
         width: 728px;
         height: 705px;
         margin: 0;
@@ -3029,10 +3030,40 @@ footer {
         width: 380px
     }
 
-    .explore img {
+    .before-after {
         width: 380px;
         height: 368px;
         margin-top: 143px;
+    }
+
+    .before {
+        width: 190px;
+        height: 368px;
+    }
+
+    .before img{
+        width: 380px;
+        height: 368px;
+    }
+
+    .after {
+        width: 380px;
+        height: 368px;
+    }
+
+    .after img{
+        width: 380px;
+        height: 368px;
+    }
+
+    .img-changer {
+        height: 368px;
+        width: 3px;
+    }
+
+    .img-changer::after {
+        width: 20px;
+        height: 20px;
     }
 
     .video {
@@ -3542,10 +3573,31 @@ footer {
         height: 2px;
     }
 
-    .explore img {
+    .before-after {
         width: 200px;
         height: 232px;
         margin-top: 100px;
+    }
+
+    .after, .before img, .after img {
+        width: 200px;
+        height: 232px;
+    }
+
+    .before {
+        width: 100px;
+        height: 232px;
+    }
+
+    .img-changer {
+        width: 3px;
+        height: 232px;
+        border-radius: 2px;
+    }
+
+    .img-changer::after {
+        width: 15px;
+        height: 15px;
     }
 
     .video {
