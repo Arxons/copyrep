@@ -839,7 +839,7 @@ section {
 .galpics.onfocus {
     opacity: 1;
     transform: translate(0, 0) rotate(0);
-    perspective: 400px;
+    perspective: 40px;
     transform-style: preserve-3d;
 }
 
