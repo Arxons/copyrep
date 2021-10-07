@@ -799,8 +799,8 @@ section {
 .left-column, .middle-column, .right-column {
     margin-top: 50px;
     height: 1820px;
-    overflow-y: auto;
-    scroll-snap-type: auto;
+    overflow-y: hidden;
+    
 }
 
 .middle-column {
@@ -815,9 +815,32 @@ section {
     margin: 165px auto;    
 }
 
-.gallery-scroll img {
+.left-column .galpics {
     margin-bottom: 24px;
-      
+    opacity: 0;    
+    transform: translate(-150%) rotate(90deg);
+    transition: all 1.2s ease;         
+}
+
+.right-column .galpics {
+    margin-bottom: 24px;
+    opacity: 0;    
+    transform: translate(150%) rotate(-90deg);
+    transition: all 1.2s ease;         
+}
+
+.middle-column .galpics {
+    margin-bottom: 24px;
+    opacity: 0;    
+    transform: translate(0, 150%);
+    transition: all 1.2s ease;         
+}
+
+.galpics.onfocus {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0);
+    perspective: 400px;
+    transform-style: preserve-3d;
 }
 
 .left-column::-webkit-scrollbar-button {

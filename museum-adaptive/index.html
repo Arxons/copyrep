@@ -308,36 +308,41 @@
                     <div class="ticket-type">
                         <h4>Ticket Type</h4>
                         <label class="changer">
-                            <input type="radio" checked="checked" name="radio">
+                            <input type="radio" checked="checked" name="radio" class="ticket-type" id="1">
                             Permanent exhibition
                             <span class="checkmark"></span>
                         </label>
                         <label class="changer">
-                            <input type="radio" checked="checked" name="radio">
+                            <input type="radio" checked="checked" name="radio" class="ticket-type" id="2">
                             Temporary exhibition
                             <span class="checkmark"></span>
                         </label>
                         <label class="changer">
-                            <input type="radio" checked="checked" name="radio">
+                            <input type="radio" checked="checked" name="radio" class="ticket-type" id="3">
                             Combined Admission
                             <span class="checkmark"></span>
                         </label>
+                        <input type="button" value="check" onclick="check()" />
                     </div>
                     <div class="amount">
                         <h4>Amount</h4>
                         <h5>Basic 18+</h5>
                         <div class="button-amount">
-                            <button type="button" onclick="this.nextElementSibling.stepDown()">&#8722;</button>
+                            <button type="button" class="btn-minusb"
+                                onclick="this.nextElementSibling.stepDown(), check(), totalForBasicMinus()">&#8722;</button>
                             <input type="number" min="0" max="20" value="1" readonly class="input-counter">
-                            <button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+                            <button type="button" class="btn-plusb"
+                                onclick="this.previousElementSibling.stepUp(), check(), totalForBasicPlus()">+</button>
                         </div>
                         <h5>Senior</h5>
                         <div class="button-amount">
-                            <button type="button" onclick="this.nextElementSibling.stepDown()">&#8722;</button>
+                            <button type="button" class="btn-minuss"
+                                onclick="this.nextElementSibling.stepDown(), check()">&#8722;</button>
                             <input type="number" min="0" max="20" value="1" readonly class="input-counter">
-                            <button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+                            <button type="button" class="btn-pluss"
+                                onclick="this.previousElementSibling.stepUp(), check(), totalForSeniorPlus()">+</button>
                         </div>
-                        <h4>Total € 220</h4>
+                        <h4 class="total">Total € 220</h4>
                         <a class="buy-now" href="#popup">Buy Now</a>
                     </div>
                 </div>
@@ -544,9 +549,6 @@
                         <button class="book">Book</button>
                     </div>
                 </div>
-
-
-
             </div>
 
         </div>
@@ -557,6 +559,7 @@
     <script src="./JS/burger.js"></script>
     <script src="./JS/welcomeslider.js"></script>
     <script src="./JS/explore.js"></script>
+    <script src="./JS/tickets.js"></script>
 </body>
 
 </html>

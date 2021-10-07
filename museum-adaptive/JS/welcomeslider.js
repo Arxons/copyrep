@@ -8,7 +8,6 @@ let slidesIndex = 0;
 
 //Function that removes all active and add last to index
 const activePic = (val) => {
-    console.log(val);
     slides.forEach(elem => elem.classList.remove('active')); //pictures
     squares.forEach(elem => elem.classList.remove('active')); //squares on pannel    
     slides[val].classList.add('active'); //pictures
@@ -70,6 +69,8 @@ const prevPic = () => {
 right.addEventListener('click', nextPic, rightSwipe);
 left.addEventListener('click', prevPic, leftSwipe);
 
+setInterval(nextPic, 3000);
+
 //change pic by click on square
 squares.forEach((elem, i) => {
     elem.addEventListener('click', () => {
@@ -98,7 +99,6 @@ function mouseMove(event) {
     if (!posInit) return false
     event = event || window.event;
     let posX = posInit - event.offsetX;
-    console.log(posX)
 
     if (posX > 100) {
         nextPic()
@@ -110,7 +110,7 @@ function mouseMove(event) {
 }
 
 
-//swipes for touches
+//swipes for mobile
 curSlide.addEventListener('touchstart', touchOn, false);
 curSlide.addEventListener('touchend', touchMove, false);
 
@@ -118,7 +118,6 @@ curSlide.addEventListener('touchend', touchMove, false);
 function touchOn(event) {
     event = event || window.event;
     posInit = event.changedTouches[0].clientX;
-    console.log(posInit)
 }
 
 
@@ -126,7 +125,6 @@ function touchMove(event) {
     if (!posInit) return false
     event = event || window.event;
     let posX = posInit - event.changedTouches[0].clientX;
-    console.log(posX)
 
     if (posX > 100) {
         nextPic()
