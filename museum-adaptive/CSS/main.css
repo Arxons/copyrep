@@ -1644,7 +1644,7 @@ footer {
     font-weight: 400;
 }
 
-.prices .count {
+.prices .count-basic, .prices .count-sen {
     width: 32px;
     height: 20px;
     background-color: #030303;
@@ -1669,7 +1669,7 @@ footer {
 }
 
 .prices .sen {
-    margin-right: 259px;
+    margin-right: 240px;
 }
 
 .prices .under {
@@ -1680,7 +1680,7 @@ footer {
 
 .prices h2 {
     font-size: 32px;
-    margin-right: 327px;
+    margin-right: 283px;
     font-weight: 500;
 }
 
@@ -3893,7 +3893,7 @@ footer {
         margin-left: 15px;
     }
 
-    .prices .count {
+    .prices .count-basic, .prices .count-sen {
         margin-left: 15px;
     }
 

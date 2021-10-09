@@ -308,7 +308,7 @@
                     <div class="ticket-type">
                         <h4>Ticket Type</h4>
                         <label class="changer">
-                            <input type="radio" checked="checked" name="radio" class="ticket-type" id="1">
+                            <input type="radio" name="radio" class="ticket-type" id="1">
                             Permanent exhibition
                             <span class="checkmark"></span>
                         </label>
@@ -318,7 +318,7 @@
                             <span class="checkmark"></span>
                         </label>
                         <label class="changer">
-                            <input type="radio" checked="checked" name="radio" class="ticket-type" id="3">
+                            <input type="radio" name="radio" class="ticket-type" id="3">
                             Combined Admission
                             <span class="checkmark"></span>
                         </label>
@@ -477,7 +477,6 @@
                             <input placeholder="Phone" type="tel" name="tel" class="form__tel" value="">
 
                             <select name="ticket__type" class="ticket__type">
-                                <option value="">Ticket Type</option>
                                 <option>Permanent exhibition</option>
                                 <option>Temporary exhibition</option>
                                 <option>Combined Admission</option>
@@ -489,16 +488,18 @@
                                     <div class="basic">
                                         <h4>Basic 18+ (20 €)</h4>
                                         <button type="button"
-                                            onclick="this.nextElementSibling.stepDown()">&#8722;</button>
-                                        <input type="number" min="0" max="20" readonly value="1">
-                                        <button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+                                            onclick="this.nextElementSibling.stepDown(), formMinusB()">&#8722;</button>
+                                        <input class="forminp-basic" type="number" min="0" max="20" readonly value="0">
+                                        <button type="button"
+                                            onclick="this.previousElementSibling.stepUp(), formPlusB()">+</button>
                                     </div>
                                     <div class="senior">
                                         <h4>Senior 65+ (10 €)</h4>
                                         <button type="button"
-                                            onclick="this.nextElementSibling.stepDown()">&#8722;</button>
-                                        <input type="number" min="0" max="20" readonly value="1">
-                                        <button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+                                            onclick="this.nextElementSibling.stepDown(), formMinusS()">&#8722;</button>
+                                        <input class="forminp-senior" type="number" min="0" max="20" readonly value="0">
+                                        <button type="button"
+                                            onclick="this.previousElementSibling.stepUp(), formPlusS()">+</button>
                                     </div>
                                 </div>
                             </div>
@@ -517,15 +518,15 @@
 
                         </div>
                         <div class="prices">
-                            <div class="count">2</div>
-                            <h3>Basic (20 €)</h3>
-                            <h4>40 €</h4>
-                            <div class="count">2</div>
+                            <div class="count-basic">2</div>
+                            <h3 class="bas">Basic (20 €)</h3>
+                            <h4 class="price-basic">40 €</h4>
+                            <div class="count-sen">2</div>
                             <h3 class="sen">Senior (10 €)</h3>
-                            <h4>20 €</h4>
+                            <h4 class="price-senior">20 €</h4>
                             <div class="under"></div>
                             <h2>Total:</h2>
-                            <h5>60 €</h5>
+                            <h5 class="total-popup">60 €</h5>
                         </div>
                         <div class="card__front">
                             <form action="#" class="card__form">
@@ -560,6 +561,7 @@
     <script src="./JS/welcomeslider.js"></script>
     <script src="./JS/explore.js"></script>
     <script src="./JS/tickets.js"></script>
+    <script src="./JS/form.js"></script>
 </body>
 
 </html>

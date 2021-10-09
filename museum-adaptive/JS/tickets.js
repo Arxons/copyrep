@@ -1,10 +1,9 @@
-let select;
-
 function check() {
     let inp = document.getElementsByName('radio');
     for (let i = 0; i < inp.length; i++) {
         if (inp[i].type == "radio" && inp[i].checked) {
-            select = Number.parseInt(inp[i].id);
+            typeWithPrice.select = Number.parseInt(inp[i].id);
+            typeWithPrice.selectIndex = Number.parseInt(inp[i].id) - 1;
         }
     }
 }
@@ -14,88 +13,127 @@ const plusBasic = document.querySelector('.btn-plusb'),
     total = document.querySelector('.total'),
     radioinp = document.querySelector('.ticket-type'),
     inpBasic = document.getElementById('i-basic'),
-    inpSenior = document.getElementById('i-senior');
+    inpSenior = document.getElementById('i-senior'),
+    inpRadioAll = document.querySelectorAll('.ticket-type');
 
-let totalPrice = 0;
-let valueOfinp = true;
-let counterB = 0;
-let counterS = 0;
+let typeWithPrice = {
+    totalPrice: 0,
+    valueoOfinp: true,
+    counterB: 0,
+    counterS: 0,
+    select: 0,
+    selectIndex: 0
+}
 
 radioinp.addEventListener('click', () => {
-    total.innerHTML = `Total € 0`;
-    inpBasic.value = 0;
-    inpSenior.value = 0;
-    totalPrice = 0;
-    counterB = 0;
-    counterS = 0;
+    check();
+    typeWithPrice.select === 1 ? typeWithPrice.totalPrice = inpBasic.value * 20 + inpSenior.value * 10 :
+        typeWithPrice.select === 2 ? typeWithPrice.totalPrice = inpBasic.value * 25 + inpSenior.value * 12.5 :
+            typeWithPrice.select === 3 ? typeWithPrice.totalPrice = inpBasic.value * 40 + inpSenior.value * 20 : typeWithPrice.select;
+    total.innerHTML = `Total € ${typeWithPrice.totalPrice}`;
+    localStorage.setItem('valuesOfprice', JSON.stringify(typeWithPrice))
 });
 
 function plusB() {
-    if (select === 1) {
-        totalPrice += 20;
-        counterB += 1;
-        total.innerHTML = `Total € ${totalPrice}`;
-    } else if (select === 2) {
-        totalPrice += 25;
-        counterB += 1;
-        total.innerHTML = `Total € ${totalPrice}`;
+    if (typeWithPrice.select === 1) {
+        typeWithPrice.totalPrice += 20;
+        typeWithPrice.counterB += 1;
+        total.innerHTML = `Total € ${typeWithPrice.totalPrice}`;
+        document.querySelector('.total-popup').innerHTML = `${typeWithPrice.totalPrice} €`;
+        inpBasic.value = typeWithPrice.counterB;
+    } else if (typeWithPrice.select === 2) {
+        typeWithPrice.totalPrice += 25;
+        typeWithPrice.counterB += 1;
+        total.innerHTML = `Total € ${typeWithPrice.totalPrice}`;
+        document.querySelector('.total-popup').innerHTML = `${typeWithPrice.totalPrice} €`;
+        inpBasic.value = typeWithPrice.counterB;
     } else {
-        totalPrice += 40;
-        counterB += 1;
-        total.innerHTML = `Total € ${totalPrice}`;
+        typeWithPrice.totalPrice += 40;
+        typeWithPrice.counterB += 1;
+        total.innerHTML = `Total € ${typeWithPrice.totalPrice}`;
+        document.querySelector('.total-popup').innerHTML = `${typeWithPrice.totalPrice} €`;
+        inpBasic.value = typeWithPrice.counterB;
     }
+    localStorage.setItem('valuesOfprice', JSON.stringify(typeWithPrice))
 }
 
 function plusS() {
-    if (select === 1) {
-        totalPrice += 10;
-        counterS += 1;
-        total.innerHTML = `Total € ${totalPrice}`;
-    } else if (select === 2) {
-        totalPrice += 12.5;
-        counterS += 1;
-        total.innerHTML = `Total € ${totalPrice}`;
+    if (typeWithPrice.select === 1) {
+        typeWithPrice.totalPrice += 10;
+        typeWithPrice.counterS += 1;
+        total.innerHTML = `Total € ${typeWithPrice.totalPrice}`;
+        document.querySelector('.total-popup').innerHTML = `${typeWithPrice.totalPrice} €`;
+        inpSenior.value = typeWithPrice.counterS;
+    } else if (typeWithPrice.select === 2) {
+        typeWithPrice.totalPrice += 12.5;
+        typeWithPrice.counterS += 1;
+        total.innerHTML = `Total € ${typeWithPrice.totalPrice}`;
+        document.querySelector('.total-popup').innerHTML = `${typeWithPrice.totalPrice} €`;
+        inpSenior.value = typeWithPrice.counterS;
     } else {
-        totalPrice += 20;
-        counterS += 1;
-        total.innerHTML = `Total € ${totalPrice}`;
+        typeWithPrice.totalPrice += 20;
+        typeWithPrice.counterS += 1;
+        total.innerHTML = `Total € ${typeWithPrice.totalPrice}`;
+        document.querySelector('.total-popup').innerHTML = `${typeWithPrice.totalPrice} €`;
+        inpSenior.value = typeWithPrice.counterS;
     }
+    localStorage.setItem('valuesOfprice', JSON.stringify(typeWithPrice))
 }
 
 function minusB() {
-    if (counterB === 0) {
+    if (typeWithPrice.counterB === 0) {
         return false
     }
-    if (select === 1) {
-        totalPrice -= 20;
-        counterB -= 1;
-        total.innerHTML = `Total € ${totalPrice}`;
-    } else if (select === 2) {
-        totalPrice -= 25;
-        counterB -= 1;
-        total.innerHTML = `Total € ${totalPrice} `;
+    if (typeWithPrice.select === 1) {
+        typeWithPrice.totalPrice -= 20;
+        typeWithPrice.counterB -= 1;
+        total.innerHTML = `Total € ${typeWithPrice.totalPrice}`;
+        document.querySelector('.total-popup').innerHTML = `${typeWithPrice.totalPrice} €`;
+        inpBasic.value = typeWithPrice.counterB;
+    } else if (typeWithPrice.select === 2) {
+        typeWithPrice.totalPrice -= 25;
+        typeWithPrice.counterB -= 1;
+        total.innerHTML = `Total € ${typeWithPrice.totalPrice} `;
+        document.querySelector('.total-popup').innerHTML = `${typeWithPrice.totalPrice} €`;
+        inpBasic.value = typeWithPrice.counterB;
     } else {
-        totalPrice -= 40;
-        counterB -= 1;
-        total.innerHTML = `Total € ${totalPrice} `;
+        typeWithPrice.totalPrice -= 40;
+        typeWithPrice.counterB -= 1;
+        total.innerHTML = `Total € ${typeWithPrice.totalPrice} `;
+        document.querySelector('.total-popup').innerHTML = `${typeWithPrice.totalPrice} €`;
+        inpBasic.value = typeWithPrice.counterB;
     }
+    localStorage.setItem('valuesOfprice', JSON.stringify(typeWithPrice))
 }
 
 function minusS() {
-    if (counterS === 0) {
+    if (typeWithPrice.counterS === 0) {
         return false
     }
-    if (select === 1) {
-        totalPrice -= 10;
-        counterS -= 1;
-        total.innerHTML = `Total € ${totalPrice}`;
-    } else if (select === 2) {
-        totalPrice -= 12.5;
-        counterS -= 1;
-        total.innerHTML = `Total € ${totalPrice} `;
+    if (typeWithPrice.select === 1) {
+        typeWithPrice.totalPrice -= 10;
+        typeWithPrice.counterS -= 1;
+        total.innerHTML = `Total € ${typeWithPrice.totalPrice}`;
+        document.querySelector('.total-popup').innerHTML = `${typeWithPrice.totalPrice} €`;
+        inpSenior.value = typeWithPrice.counterS;
+    } else if (typeWithPrice.select === 2) {
+        typeWithPrice.totalPrice -= 12.5;
+        typeWithPrice.counterS -= 1;
+        total.innerHTML = `Total € ${typeWithPrice.totalPrice}`;
+        document.querySelector('.total-popup').innerHTML = `${typeWithPrice.totalPrice} €`;
+        inpSenior.value = typeWithPrice.counterS;
     } else {
-        totalPrice -= 20;
-        counterS -= 1;
-        total.innerHTML = `Total € ${totalPrice} `;
+        typeWithPrice.totalPrice -= 20;
+        typeWithPrice.counterS -= 1;
+        total.innerHTML = `Total € ${typeWithPrice.totalPrice}`;
+        document.querySelector('.total-popup').innerHTML = `${typeWithPrice.totalPrice} €`;
+        inpSenior.value = typeWithPrice.counterS;
     }
+    localStorage.setItem('valuesOfprice', JSON.stringify(typeWithPrice))
 }
+
+typeWithPrice = JSON.parse(localStorage.getItem('valuesOfprice'));
+total.innerHTML = `Total € ${typeWithPrice.totalPrice}`;
+inpBasic.value = typeWithPrice.counterB;
+inpSenior.value = typeWithPrice.counterS;
+inpRadioAll[typeWithPrice.select].checked = 'checked';
