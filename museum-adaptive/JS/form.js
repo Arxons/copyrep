@@ -13,6 +13,9 @@ const buyNowBTN = document.querySelector('.buy-now'),
 buyNowBTN.addEventListener('click', valuesDisplacement);
 formSelect.addEventListener('click', checkSelectedIndex);
 formSelect.addEventListener('click', changeExhib)
+formSelect.addEventListener('change', () => {
+    document.querySelector('.kindof').innerHTML = `${formSelect.value}`
+});
 
 function valuesDisplacement() {
     totalPopup.innerHTML = `${typeWithPrice.totalPrice} €`;
@@ -29,6 +32,7 @@ function valuesDisplacement() {
         ticketCostSen.innerHTML = `Senior (10 €)`;
         ticketCostBas.style.margin = '0 256px 5px 10px'; //Дичайшие костыли, лучше не трогать
         ticketCostSen.style.margin = '0 247px 5px 10px'; //Дичайшие костыли, лучше не трогать
+        document.querySelector('.kindof').innerHTML = 'Permanent exhibition'
     } else if (typeWithPrice.select === 2) {
         basicValue = typeWithPrice.counterB * 25;
         seniorValue = typeWithPrice.counterS * 12.5;
@@ -36,6 +40,7 @@ function valuesDisplacement() {
         ticketCostSen.innerHTML = `Senior (12.5 €)`;
         ticketCostBas.style.margin = '0 252px 5px 10px'; //Дичайшие костыли, лучше не трогать
         ticketCostSen.style.margin = '0 211px 5px 10px'; //Дичайшие костыли, лучше не трогать
+        document.querySelector('.kindof').innerHTML = 'Temporary exhibition'
     } else {
         basicValue = typeWithPrice.counterB * 40;
         seniorValue = typeWithPrice.counterS * 20;
@@ -43,6 +48,7 @@ function valuesDisplacement() {
         ticketCostSen.innerHTML = `Senior (20 €)`;
         ticketCostBas.style.margin = '0 256px 5px 10px'; //Дичайшие костыли, лучше не трогать
         ticketCostSen.style.margin = '0 247px 5px 10px'; //Дичайшие костыли, лучше не трогать
+        document.querySelector('.kindof').innerHTML = 'Combined admission'
     }
 
     priceBasic.innerHTML = `${basicValue} €`;

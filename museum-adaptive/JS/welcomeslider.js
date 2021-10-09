@@ -69,7 +69,7 @@ const prevPic = () => {
 right.addEventListener('click', nextPic, rightSwipe);
 left.addEventListener('click', prevPic, leftSwipe);
 
-setInterval(nextPic, 3000);
+// setInterval(nextPic, 3000);
 
 //change pic by click on square
 squares.forEach((elem, i) => {
