@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="./CSS/reset.css">
     <link rel="stylesheet" href="./CSS/main.css">
     <link rel="shortcut icon" href="images/favicon.ico">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css' rel='stylesheet' />
+
     <title>Museum</title>
 </head>
 
@@ -91,7 +94,6 @@
         </div>
     </div>
     <main>
-
         <section class="welcome" id="welcome">
             <!-- <div class="slider-hider-left"></div> -->
             <!-- <div class="slider-hider-right"></div> -->
@@ -363,8 +365,9 @@
                             <li>mail: <a href="mailto:info@louvre.fr">info@louvre.fr</a></li>
                         </ul>
                     </div>
-                    <img src="images/contacts/map.webp" class="map__hide" alt="map" width="960" height="620">
-                    <img src="images/contacts420/map.webp" class="small__contacts" alt="map" width="380" height="248">
+                    <!-- <img src="images/contacts/map.webp" class="map__hide" alt="map" width="960" height="620">
+                    <img src="images/contacts420/map.webp" class="small__contacts" alt="map" width="380" height="248"> -->
+                    <div id="map"></div>
                 </div>
             </div>
         </section>
@@ -585,6 +588,7 @@
     <script src="./JS/tickets.js"></script>
     <script src="./JS/form.js"></script>
     <script src="./JS/validation.js"></script>
+    <script src="./JS/mapbox.js"></script>
 </body>
 
 </html>

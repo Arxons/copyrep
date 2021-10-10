@@ -72,5 +72,4 @@ dateForm.addEventListener('change', () => {
 
 timeForm.addEventListener('change', () => {
     choosenTime.innerHTML = `${timeForm.value}`
-    console.log(formSelect.value)
 })
