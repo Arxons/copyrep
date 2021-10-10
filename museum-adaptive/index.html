@@ -251,7 +251,10 @@
                         Mona Lisa or Hammurabi's Code</p>
                 </div>
                 <div class="main-poster">
-                    <img src="images/video/poster1.webp" alt="poster" width="1440" height="650">
+                    <!-- <img src="images/video/poster1.webp" alt="poster" width="1440" height="650"> -->
+                    <video width="1440" height="650" poster="./images/video/poster1.webp" id="main-video">
+                        <source src="./video/video0.mp4" type="video/mp4" width="1440" height="650">
+                    </video>
                     <div class="main-play">
                         <button class="button-play">
                         </button>
@@ -260,8 +263,8 @@
                 <input type="range" value="40" min="0" max="100" step="1" class="progress-bar__top">
                 <div class="progress">
                     <button class="icon-play" id="play"></button>
-                    <input type="range" value="40" min="0" max="100" step="1" class="progress-bar">
-                    <button class="icon-volume" id="icon-vol" onclick="volumeOnOff()"></button>
+                    <input type="range" value="0" min="0" max="100" step="1" class="progress-bar">
+                    <button class="icon-volume" id="icon-vol"></button>
                     <input type="range" value="40" min="0" max="100" step="1" class="progress-bar-vol" id="progress">
                     <button class="icon-fullscreen"></button>
                 </div>
@@ -589,6 +592,7 @@
     <script src="./JS/form.js"></script>
     <script src="./JS/validation.js"></script>
     <script src="./JS/mapbox.js"></script>
+    <script src="./JS/video.js"></script>
 </body>
 
 </html>

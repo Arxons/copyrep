@@ -3,10 +3,7 @@ const map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/light-v10', // style URL
     center: [2.3364, 48.86091], // starting position [lng, lat]
-    zoom: 16, // starting zoom 
-    "light": {
-        "line-color": "hsla(100, 50%, 100%, 1)"
-    }
+    zoom: 16, // starting zoom     
 });
 
 const marker1 = new mapboxgl.Marker({ color: 'black' })
