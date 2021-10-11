@@ -16,6 +16,8 @@
     <link rel="shortcut icon" href="images/favicon.ico">
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 
     <title>Museum</title>
 </head>
@@ -135,8 +137,8 @@
                         </div>
                     </div>
                     <div class="title-welcome" id="title-welcome">
-                        <h1>welcome<br> to the louvre</h1>
-                        <h3>From the castle to the museum</h3>
+                        <h1 class="main-title">welcome<br> to the louvre</h1>
+                        <h3 class="main-title-info">From the castle to the museum</h3>
                         <a class="button-text" href="tours/tour1.html" target="_blank">
                             Discover the Louvre
                         </a>
@@ -146,7 +148,7 @@
         </section>
         <section class="visiting" id="visiting">
             <div class="container">
-                <h2>Virtual Tour</h2>
+                <h2 class="v-tour">Virtual Tour</h2>
                 <div class="underline"></div>
                 <div class="cards">
                     <div class="each-card">
@@ -210,7 +212,9 @@
             <div class="container">
                 <div class="flex">
                     <div class="explore-info">
-                        <h3>Picture Explore</h3>
+                        <h3><span class="s1">P</span>i<span class="s2">c</span>t<span class="s3">u</span>re
+                            <span class="s4">E</span>xp<span class="s5">l</span>o<span class="s6">r</span>e
+                        </h3>
                         <div class="underline-explore"></div>
                         <p>Las Meninas is a 1656 painting by Diego Velázquez, the leading<br class="tohide"> artist
                             of
@@ -253,12 +257,13 @@
                 <div class="main-poster">
                     <!-- <img src="images/video/poster1.webp" alt="poster" width="1440" height="650"> -->
                     <video width="1440" height="650" poster="./images/video/poster1.webp" id="main-video">
-                        <source src="./video/video0.mp4" type="video/mp4" width="1440" height="650">
+                        <source src="./video/video0.mp4" type="video/mp4">
                     </video>
                     <div class="main-play">
                         <button class="button-play">
                         </button>
                     </div>
+                    <div class="speed"></div>
                 </div>
                 <input type="range" value="40" min="0" max="100" step="1" class="progress-bar__top">
                 <div class="progress">
@@ -269,9 +274,36 @@
                     <button class="icon-fullscreen"></button>
                 </div>
                 <div class="video-changer">
-                    <img src="images/video/poster2.webp" alt="poster">
-                    <img src="images/video/poster3.webp" alt="poster">
-                    <img src="images/video/poster4.webp" class="video__hide" alt="poster">
+                    <div class="videoslider">
+                        <iframe width="452" height="255" src="https://www.youtube.com/embed/Vi5D6FKhRmo"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="videoslider">
+                        <iframe class="videoslider" width="560" height="315"
+                            src="https://www.youtube.com/embed/NOhDysLnTvY" title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="videoslider">
+                        <iframe class="videoslider" width="560" height="315"
+                            src="https://www.youtube.com/embed/aWmJ5DgyWPI" title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="videoslider">
+                        <iframe class="videoslider" width="560" height="315"
+                            src="https://www.youtube.com/embed/2OR0OCr6uRE" title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="videoslider">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/zp1BXPX8jcU"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
                 </div>
                 <div class="control-pannel">
                     <div class="arrow-left">
@@ -304,7 +336,7 @@
         </section>
         <section class="tickets" id="tickets">
             <div class="container">
-                <h3>buy tickets</h3>
+                <h3 class="t-tickets">buy tickets</h3>
                 <div class="underline"></div>
                 <div class="tickets-content">
                     <img src="images/tickets/tickets.webp" class="img__hide" alt="photo" width="720" height="550">
@@ -356,7 +388,7 @@
         <div class="parallax"></div>
         <section class="contacts" id="contacts">
             <div class="container">
-                <h3>Contacts</h3>
+                <h3 class="c-contacts">Contacts</h3>
                 <div class="underline-c"></div>
                 <div class="contacts-info">
                     <div class="contacts-li">
@@ -582,6 +614,7 @@
 
         </div>
     </div>
+    <script src="./JS/otheranims.js"></script>
     <script src="./JS/progress-bar.js"></script>
     <script src="./JS/gallery.js"></script>
     <script src='./JS/console.js'></script>
@@ -593,6 +626,9 @@
     <script src="./JS/validation.js"></script>
     <script src="./JS/mapbox.js"></script>
     <script src="./JS/video.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="slick/slick.min.js"></script>
+    <script src="./JS/videoslider.js"></script>
 </body>
 
 </html>

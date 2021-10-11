@@ -97,7 +97,7 @@ section {
     user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    -webkit-user-select: none;
+    -webkit-user-select: none;    
 }
 
 .title-welcome {
@@ -111,7 +111,7 @@ section {
     transition: all 0.3s;
 }    
 
-.title-welcome h1 {
+.main-title {
     font-family: 'Forum', sans-serif;
     font-size: 80px;
     font-weight: 400;
@@ -119,10 +119,12 @@ section {
     color: #fff;
     letter-spacing: 5px;
     line-height: 90px;
-    transition: all 0.3s;    
+    transition: all 0.5s;
+    transform: translate(0, 100%);
+    opacity: 0;    
 }
 
-.title-welcome h3 {
+.main-title-info {
     font-family: 'Roboto', sans-serif;
     font-size: 28px;
     font-weight: 300;
@@ -130,8 +132,10 @@ section {
     letter-spacing: 2px;
 
     padding-top: 25px;
-    margin-bottom: 75px;
-    transition: all 0.6s;
+    margin-bottom: 75px;    
+    transition: all 0.5s;
+    transform: translate(0, 100%);
+    opacity: 0;    
 }
 
 .flex {
@@ -325,7 +329,9 @@ section {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    transition: all 0.8s;
+    transition: all 0.5s;
+    transform: scale(2);
+    opacity: 0;
 }
 
 .button-text:hover {
@@ -343,7 +349,7 @@ section {
     margin: 0 auto;
 }
 
-.container h2 {
+.v-tour {
     font-family: 'Forum', sans-serif;
     font-size: 80px;
     font-weight: 400;
@@ -353,13 +359,27 @@ section {
 
     padding-top: 75px;
     margin-bottom: 25px;
+    transform: scale(0);
+    opacity: 0;
+    transition: all 2s;
 }
 
-.underline {
+.v-tour.focus {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.underline {    
     width: 100%;
     height: 3px;
 
     background-color: #710707;
+    transform: translate(-200%);
+    transition: all 1.5s ease-out;
+}
+
+.underline.focus {
+    transform: translate(0);
 }
 
 .cards {
@@ -382,6 +402,14 @@ section {
     height: 100%;
     max-width: 440px;
     max-height: 425px;
+    transform: rotateY(180deg);
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+.each-card.focus {
+    transform: rotateY(0);
+    opacity: 1;    
 }
 
 .each-card h3 {
@@ -468,7 +496,7 @@ section {
 
 .explore-info h3 {
     font-family: 'Forum', sans-serif;
-    font-size: 80px;
+    font-size: 79px;
     font-weight: 400; 
     text-transform: uppercase;   
     color: #fff;
@@ -485,6 +513,59 @@ section {
     margin-bottom: 75px;
 
     background-color: #710707;
+}
+
+.explore-info span{
+    display: inline-block;    
+    transition: all 3s ease;
+}
+
+.s1 {
+    transform: translate(570px);
+}
+
+.s2 {
+    transform: translate(253px);
+}
+
+.s3 {
+    transform: translate(-171px);
+}
+
+.s4 {
+    transform: translate(129px);
+}
+
+.s5 {
+    transform: translate(-387px);
+}
+
+.s6 {
+    transform: translate(-400px);
+}
+
+.s1.focus {
+    transform: translate(0);
+}
+
+.s2.focus {
+    transform: translate(0);
+}
+
+.s3.focus {
+    transform: translate(0);
+}
+
+.s4.focus {
+    transform: translate(0);
+}
+
+.s5.focus {
+    transform: translate(0);
+}
+
+.s6.focus {
+    transform: translate(0);
 }
 
 .explore-info p {
@@ -626,14 +707,38 @@ section {
     position: absolute;
     width: 220px;
     height: 220px;
-    top: 35%;
-    left: 45%;
+    top: 50%;
+    left: 50%;
     outline: none;
-    border: 10px solid #fff;
+    border: 6px solid #fff;
     border-radius: 50%;
     background-image: url(../images/video/play-main.svg);
     background-repeat: no-repeat;
     background-position: 60%;
+    transform: translate(-50%, -50%);
+    transition: 0.2s ease;
+}
+
+.speed {
+    font-family: 'Roboto', sans-serif;
+    font-size: 58px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: absolute;
+    color: #fff;
+    background-color: black;
+    top: 20%;
+    left: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    opacity: 0;
+    transition: 0.1s ease;
+}
+
+.speed.active {
+    opacity: 0.8;
 }
 
 .progress {
@@ -657,7 +762,8 @@ section {
     background-repeat: no-repeat;
     background-position: center;
     margin-left: 30px;  
-    background-color: #030303;  
+    background-color: #030303;
+    transition: all 0.3s ease-in-out;  
 }
 
 .icon-volume {
@@ -669,6 +775,7 @@ section {
     background-image: url(../images/video/volume.svg);
     background-position: left, 24px, 27px;
     background-repeat: no-repeat;
+    transition: all 0.3s ease-in-out;
 }
 
 .icon-fullscreen {
@@ -726,14 +833,33 @@ section {
 }
 
 .video-changer {
+    /* min-width: 0; */
     width: 1440px;
     height: 255px;
-
-    display: flex;
+    /* overflow: hidden;
+    display: flex; */
     gap: 40px;
 
     margin-bottom: 40px;
+}
 
+.video-changer button {
+    width: 20px;
+    height: 20px;
+    top: 118%;
+    opacity: 0;
+}
+
+.video-changer .slick-prev {
+    left: 43%
+}
+.video-changer .slick-next {
+    right: 43%
+}
+
+.video-changer iframe {
+    width: 452px;
+    height: 255px;
 }
 
 .control-pannel {
@@ -912,7 +1038,7 @@ section {
     background-color: #fff;    
 }
 
-.tickets h3 {
+.t-tickets {
     font-family: 'Forum', sans-serif;
     font-size: 80px;
     font-weight: 400;
@@ -921,7 +1047,17 @@ section {
     letter-spacing: 5px;
     margin-bottom: 25px;
     padding-top: 75px;
+
+    transform: scale(0);
+    opacity: 0;
+    transition: all 2s;
 }
+
+.t-tickets.focus {
+    transform: scale(1);
+    opacity: 1;
+}
+
 .tickets img {
     margin-top: 75px;
 }
@@ -1092,7 +1228,7 @@ section {
     /* position: relative; */
 }
 
-.contacts h3 {
+.c-contacts {
     font-family: 'Forum', sans-serif;
     font-size: 80px;
     font-weight: 400;
@@ -1102,6 +1238,15 @@ section {
     
     padding-top: 75px;
     margin-bottom: 25px;
+
+    transform: scale(0);
+    opacity: 0;
+    transition: all 2s;
+}
+
+.c-contacts.focus {
+    transform: scale(1);
+    opacity: 1;
 }
 
 .underline-c {
@@ -1110,6 +1255,14 @@ section {
     margin-bottom: 75px;
 
     background-color: #710707;
+    opacity: 0;
+    transform: translate(-200%);
+    transition: 1s ease;
+}
+
+.underline-c.focus {
+    opacity: 1;
+    transform: translate(0);
 }
 
 .contacts-info {

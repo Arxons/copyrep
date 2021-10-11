@@ -3,10 +3,20 @@ const btnPlay = document.querySelector('.icon-play'),
     barVol = document.querySelector('.progress-bar-vol'),
     btnVol = document.querySelector('.icon-volume'),
     btnFullScreen = document.querySelector('.icon-fullscreen'),
-    btnVideoPlay = document.querySelector('.button-play')
+    btnVideoPlay = document.querySelector('.button-play'),
+    speedControl = document.querySelector('.speed')
 
 let playStatus = false;
 let volumeStatus = false;
+let screenStatus = false;
+video.playbackRate = 1;
+
+//Off scroll on space
+window.addEventListener('keydown', function (event) {
+    if (event.keyCode === 32 && event.target === document.body) {
+        event.preventDefault();
+    }
+});
 
 function playOnStop() {
     if (!playStatus) {
@@ -29,6 +39,7 @@ function progressBar() {
 
 function rewind() {
     video.currentTime = (progress.value * video.duration) / 100
+    console.log(video.currentTime)
     const value = this.value;
     this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #c4c4c4 ${value}%, #c4c4c4 100%)`
     Number.parseInt(value) === 100 ? playOnStop() : value;
@@ -44,18 +55,50 @@ function volOnOff() {
         video.volume = 0;
         volumeStatus = true;
         barVol.style.background = `linear-gradient(to right, #710707 0%, #710707 ${barVol.value}%, #c4c4c4 ${barVol.value}%, #c4c4c4 100%)`
-        this.style.backgroundImage = `url(images/video/mute.svg)`;
+        btnVol.style.backgroundImage = `url(images/video/mute.svg)`;
     } else {
         barVol.value = 50;
         video.volume = 0.5;
         volumeStatus = false;
         barVol.style.background = `linear-gradient(to right, #710707 0%, #710707 ${barVol.value}%, #c4c4c4 ${barVol.value}%, #c4c4c4 100%)`
-        this.style.backgroundImage = `url(images/video/volume.svg)`;
+        btnVol.style.backgroundImage = `url(images/video/volume.svg)`;
     }
 }
 
 function fullScreen() {
-    video.requestFullscreen()
+    if (screenStatus === false) {
+        video.requestFullscreen()
+        screenStatus = true
+    } else {
+        document.exitFullscreen();
+        screenStatus = false;
+    }
+}
+
+function videoSlow() {
+    video.playbackRate > 0 ? video.playbackRate -= 0.5 : false
+    speedControl.innerHTML = `${video.playbackRate}`;
+    speedControl.classList.add('active');
+    setTimeout(() => {
+        speedControl.classList.remove('active');
+    }, 150);
+}
+
+function videoSpeedup() {
+    video.playbackRate += 0.5;
+    speedControl.innerHTML = `${video.playbackRate}`;
+    speedControl.classList.add('active');
+    setTimeout(() => {
+        speedControl.classList.remove('active');
+    }, 150);
+}
+
+function videoKeys(event) {
+    event.code === 'Space' ? playOnStop() :
+        event.code === 'KeyM' ? volOnOff() :
+            event.code === 'KeyF' ? fullScreen() :
+                event.code === 'Comma' ? videoSlow() :
+                    event.code === 'Period' ? videoSpeedup() : event
 }
 
 progress.addEventListener('input', rewind);
@@ -66,3 +109,4 @@ btnVideoPlay.addEventListener('click', playOnStop);
 barVol.addEventListener('input', changeVolume);
 btnVol.addEventListener('click', volOnOff);
 btnFullScreen.addEventListener('click', fullScreen);
+document.querySelector('body').addEventListener('keydown', videoKeys)
