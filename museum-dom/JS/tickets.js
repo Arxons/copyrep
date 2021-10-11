@@ -8,7 +8,7 @@ let typeWithPrice = {
 }
 
 function check() {
-    let inp = document.getElementsByName('radio');
+    let inp = document.querySelectorAll('.ticket-type');
     for (let i = 0; i < inp.length; i++) {
         if (inp[i].type == "radio" && inp[i].checked) {
             typeWithPrice.select = Number.parseInt(inp[i].id);
