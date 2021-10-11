@@ -1,3 +1,12 @@
+let typeWithPrice = {
+    totalPrice: 0,
+    valueoOfinp: true,
+    counterB: 0,
+    counterS: 0,
+    select: 0,
+    selectIndex: 0
+}
+
 function check() {
     let inp = document.getElementsByName('radio');
     for (let i = 0; i < inp.length; i++) {
@@ -15,15 +24,6 @@ const plusBasic = document.querySelector('.btn-plusb'),
     inpBasic = document.getElementById('i-basic'),
     inpSenior = document.getElementById('i-senior'),
     inpRadioAll = document.querySelectorAll('.ticket-type');
-
-let typeWithPrice = {
-    totalPrice: 0,
-    valueoOfinp: true,
-    counterB: 0,
-    counterS: 0,
-    select: 0,
-    selectIndex: 0
-}
 
 radioinp.addEventListener('click', () => {
     check();
