@@ -18,32 +18,32 @@ formSelect.addEventListener('change', () => {
 });
 
 function valuesDisplacement() {
-    totalPopup.innerHTML = `${typeWithPrice.totalPrice} €`;
-    quantityBasic.innerHTML = `${typeWithPrice.counterB}`;
-    quantitySenior.innerHTML = `${typeWithPrice.counterS}`;
+    totalPopup.innerHTML = `${totalPrice} €`;
+    quantityBasic.innerHTML = `${counterB}`;
+    quantitySenior.innerHTML = `${counterS}`;
 
     check();
     let basicValue = 0;
     let seniorValue = 0;
-    if (typeWithPrice.select === 1) {
-        basicValue = typeWithPrice.counterB * 20;
-        seniorValue = typeWithPrice.counterS * 10;
+    if (select === 1) {
+        basicValue = counterB * 20;
+        seniorValue = counterS * 10;
         ticketCostBas.innerHTML = `Basic (20 €)`;
         ticketCostSen.innerHTML = `Senior (10 €)`;
         ticketCostBas.style.margin = '0 256px 5px 10px'; //Дичайшие костыли, лучше не трогать
         ticketCostSen.style.margin = '0 247px 5px 10px'; //Дичайшие костыли, лучше не трогать
         document.querySelector('.kindof').innerHTML = 'Permanent exhibition'
-    } else if (typeWithPrice.select === 2) {
-        basicValue = typeWithPrice.counterB * 25;
-        seniorValue = typeWithPrice.counterS * 12.5;
+    } else if (select === 2) {
+        basicValue = counterB * 25;
+        seniorValue = counterS * 12.5;
         ticketCostBas.innerHTML = `Basic (25 €)`;
         ticketCostSen.innerHTML = `Senior (12.5 €)`;
         ticketCostBas.style.margin = '0 252px 5px 10px'; //Дичайшие костыли, лучше не трогать
         ticketCostSen.style.margin = '0 211px 5px 10px'; //Дичайшие костыли, лучше не трогать
         document.querySelector('.kindof').innerHTML = 'Temporary exhibition'
     } else {
-        basicValue = typeWithPrice.counterB * 40;
-        seniorValue = typeWithPrice.counterS * 20;
+        basicValue = counterB * 40;
+        seniorValue = counterS * 20;
         ticketCostBas.innerHTML = `Basic (40 €)`;
         ticketCostSen.innerHTML = `Senior (20 €)`;
         ticketCostBas.style.margin = '0 256px 5px 10px'; //Дичайшие костыли, лучше не трогать
@@ -54,180 +54,177 @@ function valuesDisplacement() {
     priceBasic.innerHTML = `${basicValue} €`;
     priceSenior.innerHTML = `${seniorValue} €`;
 
-    formInpBas.value = typeWithPrice.counterB;
-    formInpSen.value = typeWithPrice.counterS;
-    formSelect.options[typeWithPrice.selectIndex].selected = true;
+    formInpBas.value = counterB;
+    formInpSen.value = counterS;
+    formSelect.options[selectIndex].selected = true;
 }
 
 function checkSelectedIndex() {
-    typeWithPrice.selectIndex = formSelect.options.selectedIndex;
-    total.innerHTML = `Total € ${typeWithPrice.totalPrice}`;
-    totalPopup.innerHTML = `${typeWithPrice.totalPrice} €`;
+    selectIndex = formSelect.options.selectedIndex;
+    total.innerHTML = `Total € ${totalPrice}`;
+    totalPopup.innerHTML = `${totalPrice} €`;
 }
 
 function formPlusB() {
     let basicValue = 0;
     let seniorValue = 0;
-    if (typeWithPrice.selectIndex === 0) {
-        typeWithPrice.totalPrice += 20;
-        typeWithPrice.counterB += 1;
-        basicValue = typeWithPrice.counterB * 20;
-        seniorValue = typeWithPrice.counterS * 10;
-        total.innerHTML = `Total € ${typeWithPrice.totalPrice}`;
-        document.querySelector('.total-popup').innerHTML = `${typeWithPrice.totalPrice} €`;
-        inpBasic.value = typeWithPrice.counterB;
-    } else if (typeWithPrice.selectIndex === 1) {
-        typeWithPrice.totalPrice += 25;
-        typeWithPrice.counterB += 1;
-        basicValue = typeWithPrice.counterB * 25;
-        seniorValue = typeWithPrice.counterS * 12.5;
-        total.innerHTML = `Total € ${typeWithPrice.totalPrice}`;
-        document.querySelector('.total-popup').innerHTML = `${typeWithPrice.totalPrice} €`;
-        inpBasic.value = typeWithPrice.counterB;
+    if (selectIndex === 0) {
+        totalPrice += 20;
+        counterB += 1;
+        basicValue = counterB * 20;
+        seniorValue = counterS * 10;
+        total.innerHTML = `Total € ${totalPrice}`;
+        document.querySelector('.total-popup').innerHTML = `${totalPrice} €`;
+        inpBasic.value = counterB;
+    } else if (selectIndex === 1) {
+        totalPrice += 25;
+        counterB += 1;
+        basicValue = counterB * 25;
+        seniorValue = counterS * 12.5;
+        total.innerHTML = `Total € ${totalPrice}`;
+        document.querySelector('.total-popup').innerHTML = `${totalPrice} €`;
+        inpBasic.value = counterB;
     } else {
-        typeWithPrice.totalPrice += 40;
-        typeWithPrice.counterB += 1;
-        basicValue = typeWithPrice.counterB * 40;
-        seniorValue = typeWithPrice.counterS * 20;
-        total.innerHTML = `Total € ${typeWithPrice.totalPrice}`;
-        document.querySelector('.total-popup').innerHTML = `${typeWithPrice.totalPrice} €`;
-        inpBasic.value = typeWithPrice.counterB;
+        totalPrice += 40;
+        counterB += 1;
+        basicValue = counterB * 40;
+        seniorValue = counterS * 20;
+        total.innerHTML = `Total € ${totalPrice}`;
+        document.querySelector('.total-popup').innerHTML = `${totalPrice} €`;
+        inpBasic.value = counterB;
     }
     priceBasic.innerHTML = `${basicValue} €`;
     priceSenior.innerHTML = `${seniorValue} €`;
-    quantityBasic.innerHTML = `${typeWithPrice.counterB}`;
-    quantitySenior.innerHTML = `${typeWithPrice.counterS}`;
-    localStorage.setItem('valuesOfprice', JSON.stringify(typeWithPrice))
+    quantityBasic.innerHTML = `${counterB}`;
+    quantitySenior.innerHTML = `${counterS}`;
 }
 
 function formPlusS() {
     let basicValue = 0;
     let seniorValue = 0;
-    if (typeWithPrice.selectIndex === 0) {
-        typeWithPrice.totalPrice += 10;
-        typeWithPrice.counterS += 1;
-        basicValue = typeWithPrice.counterB * 20;
-        seniorValue = typeWithPrice.counterS * 10;
-        total.innerHTML = `Total € ${typeWithPrice.totalPrice}`;
-        document.querySelector('.total-popup').innerHTML = `${typeWithPrice.totalPrice} €`;
-        inpSenior.value = typeWithPrice.counterS;
-    } else if (typeWithPrice.selectIndex === 1) {
-        typeWithPrice.totalPrice += 12.5;
-        typeWithPrice.counterS += 1;
-        basicValue = typeWithPrice.counterB * 25;
-        seniorValue = typeWithPrice.counterS * 12.5;
-        total.innerHTML = `Total € ${typeWithPrice.totalPrice}`;
-        document.querySelector('.total-popup').innerHTML = `${typeWithPrice.totalPrice} €`;
-        inpSenior.value = typeWithPrice.counterS;
+    if (selectIndex === 0) {
+        totalPrice += 10;
+        counterS += 1;
+        basicValue = counterB * 20;
+        seniorValue = counterS * 10;
+        total.innerHTML = `Total € ${totalPrice}`;
+        document.querySelector('.total-popup').innerHTML = `${totalPrice} €`;
+        inpSenior.value = counterS;
+    } else if (selectIndex === 1) {
+        totalPrice += 12.5;
+        counterS += 1;
+        basicValue = counterB * 25;
+        seniorValue = counterS * 12.5;
+        total.innerHTML = `Total € ${totalPrice}`;
+        document.querySelector('.total-popup').innerHTML = `${totalPrice} €`;
+        inpSenior.value = counterS;
     } else {
-        typeWithPrice.totalPrice += 20;
-        typeWithPrice.counterS += 1;
-        basicValue = typeWithPrice.counterB * 40;
-        seniorValue = typeWithPrice.counterS * 20;
-        total.innerHTML = `Total € ${typeWithPrice.totalPrice}`;
-        document.querySelector('.total-popup').innerHTML = `${typeWithPrice.totalPrice} €`;
-        inpSenior.value = typeWithPrice.counterS;
+        totalPrice += 20;
+        counterS += 1;
+        basicValue = counterB * 40;
+        seniorValue = counterS * 20;
+        total.innerHTML = `Total € ${totalPrice}`;
+        document.querySelector('.total-popup').innerHTML = `${totalPrice} €`;
+        inpSenior.value = counterS;
     }
     priceBasic.innerHTML = `${basicValue} €`;
     priceSenior.innerHTML = `${seniorValue} €`;
-    quantityBasic.innerHTML = `${typeWithPrice.counterB}`;
-    quantitySenior.innerHTML = `${typeWithPrice.counterS}`;
-    localStorage.setItem('valuesOfprice', JSON.stringify(typeWithPrice))
+    quantityBasic.innerHTML = `${counterB}`;
+    quantitySenior.innerHTML = `${counterS}`;
 }
 
 function formMinusB() {
     let basicValue = 0;
     let seniorValue = 0;
-    if (typeWithPrice.counterB === 0) {
+    if (counterB === 0) {
         return false
     }
-    if (typeWithPrice.selectIndex === 0) {
-        typeWithPrice.totalPrice -= 20;
-        typeWithPrice.counterB -= 1;
-        basicValue = typeWithPrice.counterB * 20;
-        seniorValue = typeWithPrice.counterS * 10;
-        total.innerHTML = `Total € ${typeWithPrice.totalPrice}`;
-        document.querySelector('.total-popup').innerHTML = `${typeWithPrice.totalPrice} €`;
-        inpBasic.value = typeWithPrice.counterB;
-    } else if (typeWithPrice.selectIndex === 1) {
-        typeWithPrice.totalPrice -= 25;
-        typeWithPrice.counterB -= 1;
-        basicValue = typeWithPrice.counterB * 25;
-        seniorValue = typeWithPrice.counterS * 12.5;
-        total.innerHTML = `Total € ${typeWithPrice.totalPrice} `;
-        document.querySelector('.total-popup').innerHTML = `${typeWithPrice.totalPrice} €`;
-        inpBasic.value = typeWithPrice.counterB;
+    if (selectIndex === 0) {
+        totalPrice -= 20;
+        counterB -= 1;
+        basicValue = counterB * 20;
+        seniorValue = counterS * 10;
+        total.innerHTML = `Total € ${totalPrice}`;
+        document.querySelector('.total-popup').innerHTML = `${totalPrice} €`;
+        inpBasic.value = counterB;
+    } else if (selectIndex === 1) {
+        totalPrice -= 25;
+        counterB -= 1;
+        basicValue = counterB * 25;
+        seniorValue = counterS * 12.5;
+        total.innerHTML = `Total € ${totalPrice} `;
+        document.querySelector('.total-popup').innerHTML = `${totalPrice} €`;
+        inpBasic.value = counterB;
     } else {
-        typeWithPrice.totalPrice -= 40;
-        typeWithPrice.counterB -= 1;
-        basicValue = typeWithPrice.counterB * 40;
-        seniorValue = typeWithPrice.counterS * 20;
-        total.innerHTML = `Total € ${typeWithPrice.totalPrice} `;
-        document.querySelector('.total-popup').innerHTML = `${typeWithPrice.totalPrice} €`;
-        inpBasic.value = typeWithPrice.counterB;
+        totalPrice -= 40;
+        counterB -= 1;
+        basicValue = counterB * 40;
+        seniorValue = counterS * 20;
+        total.innerHTML = `Total € ${totalPrice} `;
+        document.querySelector('.total-popup').innerHTML = `${totalPrice} €`;
+        inpBasic.value = counterB;
     }
     priceBasic.innerHTML = `${basicValue} €`;
     priceSenior.innerHTML = `${seniorValue} €`;
-    quantityBasic.innerHTML = `${typeWithPrice.counterB}`;
-    quantitySenior.innerHTML = `${typeWithPrice.counterS}`;
-    localStorage.setItem('valuesOfprice', JSON.stringify(typeWithPrice))
+    quantityBasic.innerHTML = `${counterB}`;
+    quantitySenior.innerHTML = `${counterS}`;
 }
 
 function formMinusS() {
     let basicValue = 0;
     let seniorValue = 0;
-    if (typeWithPrice.counterS === 0) {
+    if (counterS === 0) {
         return false
     }
-    if (typeWithPrice.selectIndex === 0) {
-        typeWithPrice.totalPrice -= 10;
-        typeWithPrice.counterS -= 1;
-        basicValue = typeWithPrice.counterB * 20;
-        seniorValue = typeWithPrice.counterS * 10;
-        total.innerHTML = `Total € ${typeWithPrice.totalPrice}`;
-        document.querySelector('.total-popup').innerHTML = `${typeWithPrice.totalPrice} €`;
-        inpSenior.value = typeWithPrice.counterS;
-    } else if (typeWithPrice.selectIndex === 1) {
-        typeWithPrice.totalPrice -= 12.5;
-        typeWithPrice.counterS -= 1;
-        basicValue = typeWithPrice.counterB * 25;
-        seniorValue = typeWithPrice.counterS * 12.5;
-        total.innerHTML = `Total € ${typeWithPrice.totalPrice}`;
-        document.querySelector('.total-popup').innerHTML = `${typeWithPrice.totalPrice} €`;
-        inpSenior.value = typeWithPrice.counterS;
+    if (selectIndex === 0) {
+        totalPrice -= 10;
+        counterS -= 1;
+        basicValue = counterB * 20;
+        seniorValue = counterS * 10;
+        total.innerHTML = `Total € ${totalPrice}`;
+        document.querySelector('.total-popup').innerHTML = `${totalPrice} €`;
+        inpSenior.value = counterS;
+    } else if (selectIndex === 1) {
+        totalPrice -= 12.5;
+        counterS -= 1;
+        basicValue = counterB * 25;
+        seniorValue = counterS * 12.5;
+        total.innerHTML = `Total € ${totalPrice}`;
+        document.querySelector('.total-popup').innerHTML = `${totalPrice} €`;
+        inpSenior.value = counterS;
     } else {
-        typeWithPrice.totalPrice -= 20;
-        typeWithPrice.counterS -= 1;
-        basicValue = typeWithPrice.counterB * 40;
-        seniorValue = typeWithPrice.counterS * 20;
-        total.innerHTML = `Total € ${typeWithPrice.totalPrice}`;
-        document.querySelector('.total-popup').innerHTML = `${typeWithPrice.totalPrice} €`;
-        inpSenior.value = typeWithPrice.counterS;
+        totalPrice -= 20;
+        counterS -= 1;
+        basicValue = counterB * 40;
+        seniorValue = counterS * 20;
+        total.innerHTML = `Total € ${totalPrice}`;
+        document.querySelector('.total-popup').innerHTML = `${totalPrice} €`;
+        inpSenior.value = counterS;
     }
     priceBasic.innerHTML = `${basicValue} €`;
     priceSenior.innerHTML = `${seniorValue} €`;
-    quantityBasic.innerHTML = `${typeWithPrice.counterB}`;
-    quantitySenior.innerHTML = `${typeWithPrice.counterS}`;
-    localStorage.setItem('valuesOfprice', JSON.stringify(typeWithPrice))
+    quantityBasic.innerHTML = `${counterB}`;
+    quantitySenior.innerHTML = `${counterS}`;
+
 }
 
 function changeExhib() {
     checkSelectedIndex()
-    console.log(typeWithPrice.selectIndex)
-    if (typeWithPrice.selectIndex === 0) {
-        typeWithPrice.totalPrice = typeWithPrice.counterB * 20 + typeWithPrice.counterS * 10;
+    console.log(selectIndex)
+    if (selectIndex === 0) {
+        totalPrice = counterB * 20 + counterS * 10;
         ticketCostBas.innerHTML = `Basic (20 €)`;
         ticketCostSen.innerHTML = `Senior (10 €)`;
-    } else if (typeWithPrice.selectIndex === 1) {
-        typeWithPrice.totalPrice = typeWithPrice.counterB * 25 + typeWithPrice.counterS * 12.5;
+    } else if (selectIndex === 1) {
+        totalPrice = counterB * 25 + counterS * 12.5;
         ticketCostBas.innerHTML = `Basic (25 €)`;
         ticketCostSen.innerHTML = `Senior (12.5 €)`;
-    } else if (typeWithPrice.selectIndex === 2) {
-        typeWithPrice.totalPrice = typeWithPrice.counterB * 40 + typeWithPrice.counterS * 20;
+    } else if (selectIndex === 2) {
+        totalPrice = counterB * 40 + counterS * 20;
         ticketCostBas.innerHTML = `Basic (40 €)`;
         ticketCostSen.innerHTML = `Senior (20 €)`;
     }
-    total.innerHTML = `Total € ${typeWithPrice.totalPrice}`;
+    total.innerHTML = `Total € ${totalPrice}`;
 
-    totalPopup.innerHTML = `${typeWithPrice.totalPrice} €`;
+    totalPopup.innerHTML = `${totalPrice} €`;
 }
