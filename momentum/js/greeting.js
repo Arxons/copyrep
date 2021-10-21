@@ -5,14 +5,14 @@ function showGretting() {
     const date = new Date();
     const takeHours = date.getHours();
     let dayTime = null;
-    console.log(takeHours)
 
-    takeHours >= 0 && takeHours < 6 ? dayTime = 'night' :
-        takeHours >= 6 && takeHours < 12 ? dayTime = 'mornig' :
-            takeHours >= 12 && takeHours < 18 ? dayTime = 'day' :
-                takeHours >= 18 ? dayTime = 'evening' : takeHours;
+    takeHours >= 0 && takeHours < 6 ? dayTime = 'Night' :
+        takeHours >= 6 && takeHours < 12 ? dayTime = 'Mornig' :
+            takeHours >= 12 && takeHours < 18 ? dayTime = 'Afternoon' :
+                takeHours >= 18 ? dayTime = 'Evening' : takeHours;
 
     greeting.textContent = `Good ${dayTime},`
+    return dayTime.toLowerCase();
 }
 
 function putUserName() {
