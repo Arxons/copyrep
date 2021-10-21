@@ -27,5 +27,4 @@ function getUserName() {
 
 window.addEventListener('beforeunload', putUserName);
 window.addEventListener('load', getUserName);
-userName.addEventListener('click', () => userName.placeholder = '');
 showGretting()
