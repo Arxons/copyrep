@@ -9,9 +9,9 @@ city.value = localStorage.getItem('cityValue')
 
 async function getWeather() {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=1a5d60d68f8efbc7da2cbc49ee745da3&units=metric`
-    const res = await fetch(url)
-    const data = await res.json();
-    if (res.ok) {
+    const response = await fetch(url)
+    const data = await response.json();
+    if (response.ok) {
         weatherIcon.classList.add(`owf-${data.weather[0].id}`)
         temperature.textContent = `${Math.floor(data.main.temp)}°C`;
         temperature.style.color = '#fff'
