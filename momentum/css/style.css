@@ -21,6 +21,68 @@ body {
   transition: background-image .8s ease-out;
 }
 
+.pro-player-btn {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  left: 50%;
+  top: 0%;
+  transform: translate(-50%) rotate(270deg);
+  background-image: url(../assets/svg/slider-prev.svg);  
+  background-position-x: 5px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: transparent;  
+  cursor: pointer;
+  opacity: .8;
+  transition: .3s;  
+}
+
+.pro-player-btn:hover {
+  transform: translate(-50%) rotate(270deg) scale(1.1);
+  opacity: 1;
+}
+
+.pro-player {
+  position: fixed;
+  width: 50%;
+  height: 5vh;
+  left: 50%;
+  top: -5%;
+  transform: translate(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  transition: .3s;    
+}
+
+.pro-play-prev {
+  background-image: url(../assets/svg/play-prev.svg);  
+  
+}
+
+.pro-play {
+  background-image: url(../assets/svg/play.svg);
+  
+}
+
+.pro-play-next {
+  background-image: url(../assets/svg/play-next.svg);
+  
+}
+
+.pro-volume {
+  background-image: url(../assets/svg/volume.png);
+  
+}
+
+.audio-length {
+  width: 40%;
+  
+}
+
+
 .header {
   display: flex;
   justify-content: space-between;

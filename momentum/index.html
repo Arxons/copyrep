@@ -11,6 +11,17 @@
 </head>
 
 <body>
+  <div class="pro-player">
+    <button class="pro-play-prev player-icon"></button>
+    <button class="pro-play player-icon"></button>
+    <button class="pro-play-next player-icon"></button>
+    <input type="range" name="audio-length" class="audio-length" value="0" min="0" max="100">
+    <p><span class="minutes">00</span>:<span class="secundes">00</span> - <span class="minutes-duration">00</span>:<span
+        class="secundes-duration">00</span></p>
+    <button class="pro-volume player-icon"></button>
+    <input type="range" name="volume-length" class="volume-length" value="0" min="0" max="100">
+  </div>
+  <div class="pro-player-btn"></div>
   <header class="header">
     <div class="player">
       <div class="player-controls">
@@ -18,7 +29,8 @@
         <button class="play player-icon"></button>
         <button class="play-next player-icon"></button>
       </div>
-      <ul class="play-list"></ul>
+      <ul class="play-list">
+      </ul>
     </div>
     <div class="weather">
       <input type="text" class="city" placeholder="[Enter city]" />
@@ -56,6 +68,7 @@
   <script src="js/sliderbg.js"></script>
   <script src="js/weather.js"></script>
   <script src="js/quotes.js"></script>
+  <script type="module" src="js/audioPlayer.js"></script>
 </body>
 
 </html>
