@@ -10,14 +10,17 @@ const playBtn = document.querySelector('.play'),
     proPlayNext = document.querySelector('.pro-play-next'),
     proPlayPrev = document.querySelector('.pro-play-prev'),
     audioLength = document.querySelector('.audio-length'),
+    volumeLength = document.querySelector('.volume-length'),
     minutes = document.querySelector('.minutes'),
     secundes = document.querySelector('.secundes'),
     minutesDuration = document.querySelector('.minutes-duration'),
     secundesDuration = document.querySelector('.secundes-duration'),
+    playerIcon = document.querySelector('.pro-volume'),
     audio = new Audio();
 
-
 let isPlay = false;
+let isVisible = false;
+let isVolume = true;
 let playNum = 0;
 
 playList.forEach((e, i) => {
@@ -45,7 +48,6 @@ function playAudio() {
 
 const liAll = document.querySelectorAll('.play-item')
 liAll[playNum].classList.add('item-active')
-console.log(liAll)
 
 function audioNext() {
     if (playNum != 3) {
@@ -71,10 +73,16 @@ function audioPrev() {
         playNum--
         liAll[playNum].classList.add('item-active')
         liAll[playNum + 1].classList.remove('item-active')
+        if (isPlay) {
+            playAudio()
+        }
     } else {
         playNum = 3
         liAll[playNum].classList.add('item-active')
         liAll[0].classList.remove('item-active')
+        if (isPlay) {
+            playAudio()
+        }
     }
 }
 
@@ -106,6 +114,7 @@ function audioTime() {
     if (audioLength.value == 100) {
         playAudio()
         audioNext()
+        playAudio()
 
     }
 
@@ -115,7 +124,7 @@ function rewind() {
     audio.currentTime = (audioLength.value * audio.duration) / 100
 }
 
-let isVisible = false;
+
 
 playBtn.addEventListener('click', () => {
     proPlayerBtn.style.top = "15%";
@@ -124,14 +133,6 @@ playBtn.addEventListener('click', () => {
     isVisible = true;
     playAudio()
 })
-playNext.addEventListener('click', audioNext)
-playPrev.addEventListener('click', audioPrev)
-proPlayBtn.addEventListener('click', playAudio)
-proPlayNext.addEventListener('click', audioNext)
-proPlayPrev.addEventListener('click', audioPrev)
-audio.addEventListener('timeupdate', audioTime)
-audioLength.addEventListener('input', rewind)
-proPlayerBtn.addEventListener('click', visiblePlayer)
 
 function visiblePlayer() {
     if (!isVisible) {
@@ -140,9 +141,39 @@ function visiblePlayer() {
         proPlayer.style.top = '8%';
         isVisible = true;
     } else {
-        proPlayerBtn.style.top = '0%';
+        proPlayerBtn.style.top = '2%';
         proPlayerBtn.style.transform = "translate(-50%) rotate(270deg)";
         proPlayer.style.top = '-5%';
         isVisible = false;
     }
 }
+
+function volume() {
+    audio.volume = volumeLength.value / 100
+}
+
+function volumeOnOff() {
+    if (isVolume) {
+        playerIcon.style.opacity = '.3';
+        audio.volume = 0;
+        volumeLength.value = 0;
+        isVolume = false;
+    } else {
+        playerIcon.style.opacity = '.8';
+        audio.volume = 0.5;
+        volumeLength.value = 50;
+        isVolume = true;
+    }
+}
+
+playNext.addEventListener('click', audioNext)
+playPrev.addEventListener('click', audioPrev)
+proPlayBtn.addEventListener('click', playAudio)
+proPlayNext.addEventListener('click', audioNext)
+proPlayPrev.addEventListener('click', audioPrev)
+audio.addEventListener('timeupdate', audioTime)
+audioLength.addEventListener('input', rewind)
+proPlayerBtn.addEventListener('click', visiblePlayer)
+volumeLength.addEventListener('input', volume)
+playerIcon.addEventListener('click', volumeOnOff)
+

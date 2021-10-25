@@ -1,7 +1,7 @@
 const greeting = document.querySelector('.greeting'),
     userName = document.querySelector('.name');
 
-function showGretting() {
+function showGretting(lang) {
     const date = new Date();
     const takeHours = date.getHours();
     let dayTime = null;
@@ -10,8 +10,13 @@ function showGretting() {
         takeHours >= 6 && takeHours < 12 ? dayTime = 'Mornig' :
             takeHours >= 12 && takeHours < 18 ? dayTime = 'Afternoon' :
                 takeHours >= 18 ? dayTime = 'Evening' : takeHours;
-
-    greeting.textContent = `Good ${dayTime},`
+    if (lang === 'ru') {
+        greeting.textContent = `${languages.ru.greeting},`
+        userName.placeholder = 'Введите Имя'
+    } else if (lang === 'en') {
+        greeting.textContent = `Good ${dayTime},`
+        userName.placeholder = 'Enter Name'
+    }
     return dayTime.toLowerCase();
 }
 
@@ -27,4 +32,6 @@ function getUserName() {
 
 window.addEventListener('beforeunload', putUserName);
 window.addEventListener('load', getUserName);
-showGretting()
+
+showGretting('en')
+

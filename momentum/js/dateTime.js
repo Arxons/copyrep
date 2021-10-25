@@ -9,10 +9,11 @@ function showTime() {
         day: 'numeric'
     }
     const currentTime = date.toLocaleTimeString();
-    const currentDate = date.toLocaleDateString('en-US', options);
+    const currentDate = date.toLocaleDateString(`${languages.dateTime}`, options);
     viewTime.textContent = currentTime;
     viewDate.textContent = currentDate;
     setTimeout(showTime, 1000);
+
 }
 
-showTime();
+showTime('ru');

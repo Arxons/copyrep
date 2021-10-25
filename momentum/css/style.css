@@ -26,7 +26,7 @@ body {
   width: 32px;
   height: 32px;
   left: 50%;
-  top: 0%;
+  top: 2%;
   transform: translate(-50%) rotate(270deg);
   background-image: url(../assets/svg/slider-prev.svg);  
   background-position-x: 5px;
@@ -73,8 +73,11 @@ body {
 }
 
 .pro-volume {
-  background-image: url(../assets/svg/volume.png);
-  
+  background-image: url(../assets/svg/volume.png);  
+}
+
+.pro-volume.player-icon {
+  opacity: .8;
 }
 
 .audio-length {
@@ -82,6 +85,98 @@ body {
   
 }
 
+.player {
+  transition: .8s;
+}
+
+.settings-btn {  
+  background-image: url(../assets/svg/settings.svg);
+  position: fixed;
+  width: 52px;
+  height: 52px;
+  left: 3%;
+  bottom: 5%;
+  transform: translate(-50%) rotate(270deg); 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: transparent;  
+  cursor: pointer;
+  opacity: .8;
+  transition: .3s;
+  z-index: 10;  
+}
+
+.settings-btn:hover {
+  transform: translate(-50%) rotate(90deg) scale(1.1);
+  opacity: 1;
+}
+
+.settings {
+  position: fixed;
+  width: 30vw;
+  height: 40vh;
+  left: 0;
+  bottom: -40%;
+  transition: .3s;
+  z-index: 10;    
+}
+
+.box-shadow {
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  opacity: .6;
+  position: relative;
+}
+
+.box-shadow .languages {
+  position: absolute;
+  font-size: 38px;
+  top: 3%;
+  left: 3%;
+  cursor: pointer;    
+}
+
+.box-shadow .pictures {
+  position: absolute;
+  font-size: 38px;
+  top: 13%;
+  left: 3%;
+  cursor: pointer; 
+}
+
+.box-shadow p span {
+  transition: .3s;
+}
+
+.box-shadow p span:hover {
+  color: yellow;
+  cursor: pointer;  
+}
+
+.en-lang {
+  color: yellow
+}
+
+.git {
+  color: yellow;
+}
+
+.box-shadow ul {
+  position: absolute;
+  font-size: 38px;
+  top: 23%;
+  left: 3%;
+  cursor: pointer;   
+}
+
+.box-shadow li {
+  text-align: left;
+}
+
+.box-shadow li:hover {
+  color: yellow;  
+}
 
 .header {
   display: flex;
@@ -189,6 +284,7 @@ body {
   width: 180px;
   min-height: 180px;  
   text-align: left;
+  transition: .8s;
 }
 
 .weather-error {
@@ -260,13 +356,15 @@ body {
   margin-bottom: 10px;
   font-family: 'Arial-MT';
   font-size: 100px;
-  letter-spacing: -4px;  
+  letter-spacing: -4px;
+  transition: .8s;  
 }
 
 .date {
   min-height: 28px;
   font-size: 24px;
   margin-bottom: 20px;
+  transition: .8s;
 }
 
 .greeting-container {
@@ -283,6 +381,7 @@ body {
   flex: 1;  
   padding: 10px;
   text-align: right;
+  transition: .8s;
 }
 
 .name {
@@ -295,6 +394,7 @@ body {
   background-color: transparent;
   border: 0;
   outline: 0;
+  transition: .8s;
 }
 
 .name::placeholder {
@@ -320,10 +420,12 @@ body {
 
 .quote {
   min-height: 32px;
+  transition: .8s;
 }
 
 .author {
   min-height: 20px;
+  transition: .8s;
 }
 
 @media (max-width: 768px) {

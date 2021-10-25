@@ -4,11 +4,11 @@ const quote = document.querySelector('.quote'),
 
 
 async function getQuote() {
-    const url = './js/quotes.json'
+    const url = `${languages.quotes}`
     const response = await fetch(url);
     if (response.ok) {
         const data = await response.json();
-        const randNum = getRandom(1, 100);
+        const randNum = getRandom(1, 11);
         quote.textContent = data.quotes[Number.parseInt(randNum)].quote;
         author.textContent = data.quotes[Number.parseInt(randNum)].author;
 

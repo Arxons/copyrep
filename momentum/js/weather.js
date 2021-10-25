@@ -8,7 +8,7 @@ const weatherIcon = document.querySelector('.weather-icon'),
 city.value = localStorage.getItem('cityValue')
 
 async function getWeather() {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=1a5d60d68f8efbc7da2cbc49ee745da3&units=metric`
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${languages.weather.lang}&appid=1a5d60d68f8efbc7da2cbc49ee745da3&units=metric`
     const response = await fetch(url)
     const data = await response.json();
     if (response.ok) {
@@ -16,8 +16,8 @@ async function getWeather() {
         temperature.textContent = `${Math.floor(data.main.temp)}°C`;
         temperature.style.color = '#fff'
         weatherDescription.textContent = data.weather[0].description;
-        wind.textContent = `Wind speed: ${Math.floor(data.wind.speed)} m/s`;
-        humidity.textContent = `Humidity: ${Math.floor(data.main.humidity)}%`
+        wind.textContent = `${languages.weather.windSpeed}: ${Math.floor(data.wind.speed)} ${languages.weather.units}`;
+        humidity.textContent = `${languages.weather.humidity}: ${Math.floor(data.main.humidity)}%`
         city.style.borderBottom = '1px solid #fff'
         localStorage.setItem('cityValue', city.value)
 
