@@ -7,7 +7,7 @@ function showGretting(lang) {
     let dayTime = null;
 
     takeHours >= 0 && takeHours < 6 ? dayTime = 'Night' :
-        takeHours >= 6 && takeHours < 12 ? dayTime = 'Mornig' :
+        takeHours >= 6 && takeHours < 12 ? dayTime = 'Morning' :
             takeHours >= 12 && takeHours < 18 ? dayTime = 'Afternoon' :
                 takeHours >= 18 ? dayTime = 'Evening' : takeHours;
     if (lang === 'ru') {
