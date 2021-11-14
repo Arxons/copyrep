@@ -3,7 +3,7 @@
 }
 
 body {
-    background-image: url(./assets/bg.jpg);
+    background-image: url(../assets/bg.jpg);
 }
 
 .shadow {
@@ -16,7 +16,7 @@ body {
 
 header {
     height: 15vh;
-    background-image: url(./assets/stylus.png);
+    background-image: url(../assets/stylus.png);
     background-repeat: no-repeat;
     background-position-x: right;
     position: relative;
@@ -42,7 +42,7 @@ footer {
 }
 
 .main-wrapper {
-    background-image: url(./assets/list.png);
+    background-image: url(../assets/list.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -57,8 +57,10 @@ footer {
     height: 85%;
     margin: 0 auto;
     padding-top: 10%;
-    font-size: 32px;
+    font-size: 26px;
     text-align: center;
+    transition: all .3s ease-in-out;
+    font-family: var(--family);
 }
 
 button {
@@ -72,6 +74,7 @@ button {
 
 button:hover {
     color: gold;
+    text-shadow: 2px 10px 10px black;
 }
 
 img {
@@ -90,6 +93,7 @@ button:hover img {
 .main-screen {
     height: 100%;
     overflow: scroll;
+    transition: .3s ease-out;
 }
 
 .main-screen::-webkit-scrollbar {
@@ -98,4 +102,52 @@ button:hover img {
 
 .main-screen::-webkit-scrollbar-corner {
     visibility: hidden;
+}
+
+.display-none {
+    display: none;
+}
+
+.categories {
+    height: 100%;
+    overflow: scroll;
+    transition: .3s ease-out;
+}
+
+.categories::-webkit-scrollbar {
+    visibility: hidden;
+}
+
+.categories::-webkit-scrollbar-corner {
+    visibility: hidden;
+}
+
+.categories h2 {
+    font-family: var(--family);
+    font-size: 28px;
+}
+
+.answers {
+    display: flex;
+    font-size: 24px;
+    gap: 20%;
+    flex-wrap: wrap;
+}
+
+.counter {
+    padding-top: 8%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.answers li:hover {
+    color: gold;
+    text-shadow: 2px 10px 10px black;
+    cursor: pointer;
+    transition: all .2s ease-out;
+}
+
+.quest-img:hover {
+ transform: scale(1.5);
 }
