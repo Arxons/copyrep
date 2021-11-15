@@ -50,6 +50,7 @@ footer {
     height: 90%;
     margin: 0 auto;
     position: relative;
+    transition: .1s ease-out;
 }
 
 .wrapper-work {
@@ -129,16 +130,21 @@ button:hover img {
 
 .answers {
     display: flex;
-    font-size: 24px;
-    gap: 20%;
+    font-size: 18px;
+    gap: 100%;
     flex-wrap: wrap;
+    text-align: left;
 }
 
 .counter {
-    padding-top: 8%;
+    padding-top: 2%;
     display: flex;
     justify-content: space-between;
     font-size: 20px;
+}
+
+.answers li {
+    margin-bottom: 5%;
 }
 
 .answers li:hover {
@@ -150,4 +156,15 @@ button:hover img {
 
 .quest-img:hover {
  transform: scale(1.5);
+ opacity: 1;
+}
+
+.image-with-res {
+    position: relative;
+}
+
+.res {
+    position: absolute;
+    top: 65%;
+    left: 20%;
 }
