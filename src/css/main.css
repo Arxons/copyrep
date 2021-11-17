@@ -82,9 +82,13 @@ img {
     width: 100%;    
     opacity: .9;
     margin-bottom: 5%;
-    box-shadow: 2px 10px 10px black;
+    box-shadow: 3px 15px 12px black;
     transform: scale(.8);
     transition: all .3s;
+}
+
+button:hover .image-with-res img {
+    transform: scale(.9);    
 }
 
 button:hover img {
@@ -167,4 +171,90 @@ button:hover img {
     position: absolute;
     top: 65%;
     left: 20%;
+}
+
+.popup {
+    position: fixed;
+    z-index: 100;
+    display: none;
+}
+
+/* .popup img {
+    opacity: 1;
+    box-shadow: none;
+    position: relative;
+    width: 100vw;
+    padding-top: 21%;
+} */
+
+.bgshadow {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: .6;
+    position: absolute;
+}
+
+.todo {
+    background-image: url(../assets/scrl.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    font-family: var(--family);
+    font-size: 20px;
+    transform: translate(0, 50%);
+    transition: .5s all ease;
+}
+
+.todo img {
+    opacity: 1;
+    width: 60%;
+    height: 25%;
+    margin-top: 48%;
+    margin-left: 20%;
+}
+
+.todo .cor-incor {
+    margin-left: 40%;
+    margin-top: -6%;
+}
+
+.todo .description {
+    margin-left: 21%;
+    padding-top: 2%;
+    font-size: 16px;
+}
+
+.todo .go-next {
+    margin-left: 21%;
+    padding-top: 5%;
+    cursor: pointer;
+}
+
+.todo .exit {
+    margin-top: -5.6%;
+    margin-left: 60%;
+    cursor: pointer;
+}
+
+.todo .descr-results {
+    margin-left: 21%;
+    font-size: 16px;
+    padding-top: 2%;
+}
+
+.go-next:hover {
+    color: gold;
+    text-shadow: 2px 10px 10px black;
+    cursor: pointer;
+    transition: all .2s ease-out;
+}
+
+.exit:hover {
+    color: gold;
+    text-shadow: 2px 10px 10px black;
+    cursor: pointer;
+    transition: all .2s ease-out;
 }

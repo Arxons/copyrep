@@ -1,5 +1,9 @@
 const artist = document.querySelector('.artist'),
-    workArea = document.querySelector('.wrapper-work');
+    workArea = document.querySelector('.wrapper-work'),
+    popup = document.querySelector('.popup'),
+    todo = document.querySelector('.todo');
+
+
 import images from './images.js';
 
 let counterCorrect = 0;
@@ -23,11 +27,11 @@ let currentCategorie = [];
 function changeContent() {
     workArea.innerHTML = `<div class="categories">
         <h2>Choose categorie</h2>
-        <button class="portrait" type="button">
+        <button class="portrait" type="button">  
         <div class="image-with-res" id="portrait">
             <img src="./assets/img/0.jpg" alt="" width="150" height="150">
             <p class="res">${corRes.portrait}/9</p> 
-            </div>            
+        </div>                  
             Portrait            
         </button>
         <button class="landscape" type="button">
@@ -111,7 +115,6 @@ function changeContent() {
     counterCorrect = 0;
     counterAllAnsw = 1
     chooseCategorie();
-    visCorRes()
 }
 
 artist.addEventListener('click', changeContent)
@@ -184,11 +187,38 @@ function correctAnswer(index) {
     const corAnsw = document.querySelector('.correct');
     const incorAnsw = document.querySelectorAll('.incorrect');
     let lowerIndex = 0;
+    currentCategorie.push(index);
     if (index >= 10) lowerIndex = index % 10;
+    todo.innerHTML = `<img src="./assets/img/${index}.jpg" alt="">
+        <p class="cor-incor">Верно!</p>
+        <p class="description">Автор: ${images[index].author}</p>
+        <p class="go-next">Продолжить</p>
+        <p class="exit">Выйти</p>`
     corAnsw.addEventListener('click', () => {
-        counterCorrect++
-        counterAllAnsw++
-        workArea.innerHTML = `<h2 class="question">Кто автор данной картины?</h2>
+        const goNext = document.querySelector('.go-next');
+        const exit = document.querySelector('.exit');
+        //     counterCorrect++
+        //     counterAllAnsw++
+        //     images[index].isCorrect = true;
+        //     workArea.innerHTML = `<h2 class="question">Кто автор данной картины?</h2>
+        //     <img class="quest-img" src="./assets/img/${index + 1}.jpg" alt="" width="150" height="150">
+        //     <ul class="answers">
+        //         ${getAnswers(index + 1)}
+        //     </ul>
+        //     <div class="counter">            
+        // <div class="correct-answers">Correct answers: ${counterCorrect}</div>
+        // <div class="all-answers">${counterAllAnsw}/9</div >
+        //     </div > `
+        //     correctAnswer(index + 1)
+        popup.style.display = 'block';
+        setTimeout(() => todo.style.transform = 'translate(0, 0)', 100)
+        goNext.addEventListener('click', () => {
+            popup.style.display = 'none';
+            todo.style.transform = 'translate(0, 50%)';
+            counterCorrect++
+            counterAllAnsw++
+            images[index].isCorrect = true;
+            workArea.innerHTML = `<h2 class="question">Кто автор данной картины?</h2>
         <img class="quest-img" src="./assets/img/${index + 1}.jpg" alt="" width="150" height="150">
         <ul class="answers">
             ${getAnswers(index + 1)}
@@ -197,52 +227,173 @@ function correctAnswer(index) {
     <div class="correct-answers">Correct answers: ${counterCorrect}</div>
     <div class="all-answers">${counterAllAnsw}/9</div >
         </div > `
-        correctAnswer(index + 1)
+            correctAnswer(index + 1)
+        })
+        exit.addEventListener('click', () => {
+            popup.style.display = 'none';
+            todo.style.transform = 'translate(0, 50%)';
+            countRight()
+            changeContent()
+        })
     })
     incorAnsw.forEach((el, i) => {
         incorAnsw[i].addEventListener('click', () => {
-            const main = document.querySelector('.main-wrapper')
-            incorAnsw[i].style.backgroundColor = 'darkred';
-            main.style.transform = 'translate(-5%)'
-            setTimeout(() => main.style.transform = 'translate(5%)', 100)
-            setTimeout(() => main.style.transform = 'translate(0)', 200)
-            setTimeout(() => {
+            const goNext = document.querySelector('.go-next');
+            const exit = document.querySelector('.exit');
+            const corIncor = document.querySelector('.cor-incor');
+            corIncor.innerHTML = `Неверно!`
+            //         const main = document.querySelector('.main-wrapper')
+            //         incorAnsw[i].style.backgroundColor = 'darkred';
+            //         main.style.transform = 'translate(-5%)'
+            //         setTimeout(() => main.style.transform = 'translate(5%)', 100)
+            //         setTimeout(() => main.style.transform = 'translate(0)', 200)
+            //         setTimeout(() => {
+            //             counterAllAnsw++
+            //             workArea.innerHTML = `<h2 class="question">Кто автор данной картины?</h2>
+            //     <img class="quest-img" src="./assets/img/${index + 1}.jpg" alt="" width="150" height="150">
+            //     <ul class="answers">
+            //         ${getAnswers(index + 1)}
+            //     </ul>
+            //     <div class="counter">            
+            // <div class="correct-answers">Correct answers: ${counterCorrect}</div>
+            // <div class="all-answers">${counterAllAnsw}/9</div >
+            //     </div > `
+            //             correctAnswer(index + 1)
+            //         }, 400)
+            //     })
+            // })
+            popup.style.display = 'block';
+            setTimeout(() => todo.style.transform = 'translate(0, 0)', 100)
+            goNext.addEventListener('click', () => {
+                popup.style.display = 'none';
+                todo.style.transform = 'translate(0, 50%)';
                 counterAllAnsw++
                 workArea.innerHTML = `<h2 class="question">Кто автор данной картины?</h2>
-        <img class="quest-img" src="./assets/img/${index + 1}.jpg" alt="" width="150" height="150">
-        <ul class="answers">
-            ${getAnswers(index + 1)}
-        </ul>
-        <div class="counter">            
-    <div class="correct-answers">Correct answers: ${counterCorrect}</div>
-    <div class="all-answers">${counterAllAnsw}/9</div >
-        </div > `
+                <img class="quest-img" src="./assets/img/${index + 1}.jpg" alt="" width="150" height="150">
+                <ul class="answers">
+                    ${getAnswers(index + 1)}
+                </ul>
+                <div class="counter">            
+            <div class="correct-answers">Correct answers: ${counterCorrect}</div>
+            <div class="all-answers">${counterAllAnsw}/9</div >
+                </div > `
                 correctAnswer(index + 1)
-            }, 400)
+            })
+            exit.addEventListener('click', () => {
+                popup.style.display = 'none';
+                todo.style.transform = 'translate(0, 50%)';
+                countRight()
+                changeContent()
+            })
         })
     })
-    if (counterAllAnsw > 9) {
-        currentCategorie.push(index - 9);
-        console.log(currentCategorie)
-        switch (visCorRes()) {
-            case 'portrait': corRes.portrait = counterCorrect; break;
-            case 'landscape': corRes.landscape = counterCorrect; break;
-            case 'stillLife': corRes.stillLife = counterCorrect; break;
-            case 'graphic': corRes.graphic = counterCorrect; break;
-            case 'antique': corRes.antique = counterCorrect; break;
-            case 'avantGarde': corRes.avantGarde = counterCorrect; break;
-            case 'renaissance': corRes.renaissance = counterCorrect; break;
-            case 'surrealism': corRes.surrealism = counterCorrect; break;
-            case 'kitsch': corRes.kitsch = counterCorrect; break;
-            case 'minimalism': corRes.minimalism = counterCorrect; break;
-            case 'avangard': corRes.avangard = counterCorrect; break;
-            case 'industrial': corRes.industrial = counterCorrect; break;
-        }
-        corAnsw.addEventListener('click', changeContent())
-        incorAnsw.forEach((el, i) => {
-            incorAnsw[i].addEventListener('click', changeContent())
+    if (counterAllAnsw == 9) {
+        corAnsw.addEventListener('click', () => {
+            counterCorrect++
+            todo.innerHTML = `<img src="./assets/img/${index}.jpg" alt="">
+                <p class="cor-incor">Верно!</p>
+                <p class="description">Автор: ${images[index].author}</p>
+                <p class="descr-results">Ваш результат ${counterCorrect} из 9</p>
+                <p class="go-next">Продолжить</p>
+                <p class="exit">Выйти</p>`;
+
+            popup.style.display = 'block';
+            setTimeout(() => todo.style.transform = 'translate(0, 0)', 100)
+
+            const goNext = document.querySelector('.go-next');
+            const exit = document.querySelector('.exit');
+
+            goNext.style.paddingTop = '2%';
+
+            goNext.addEventListener('click', () => {
+                popup.style.display = 'none';
+                todo.style.transform = 'translate(0, 50%)';
+                countRight()
+                changeContent()
+                currentCategorie = [];
+            })
+            exit.addEventListener('click', () => {
+                popup.style.display = 'none';
+                todo.style.transform = 'translate(0, 50%)';
+                countRight()
+                changeContent()
+                currentCategorie = [];
+            })
         })
-        currentCategorie = [];
+        incorAnsw.forEach((el, i) => {
+            incorAnsw[i].addEventListener('click', () => {
+                todo.innerHTML = `<img src="./assets/img/${index}.jpg" alt="">
+                <p class="cor-incor">Неверно!</p>
+                <p class="description">Автор: ${images[index].author}</p>
+                <p class="descr-results">Ваш результат ${counterCorrect} из 9</p>
+                <p class="go-next">Продолжить</p>
+                <p class="exit">Выйти</p>`;
+
+                popup.style.display = 'block';
+                setTimeout(() => todo.style.transform = 'translate(0, 0)', 100)
+
+                const goNext = document.querySelector('.go-next');
+                const exit = document.querySelector('.exit');
+
+                goNext.style.paddingTop = '2%';
+
+                goNext.addEventListener('click', () => {
+                    popup.style.display = 'none';
+                    todo.style.transform = 'translate(0, 50%)';
+                    countRight()
+                    changeContent()
+                    currentCategorie = [];
+                })
+                exit.addEventListener('click', () => {
+                    popup.style.display = 'none';
+                    todo.style.transform = 'translate(0, 50%)';
+                    countRight()
+                    changeContent()
+                    currentCategorie = [];
+                })
+            })
+        })
+    }
+}
+
+function countRight() {
+    switch (visCorRes()) {
+        case 'portrait':
+            if (counterCorrect > corRes.portrait) corRes.portrait = counterCorrect;
+            break;
+        case 'landscape':
+            if (counterCorrect > corRes.landscape) corRes.landscape = counterCorrect;
+            break;
+        case 'stillLife':
+            if (counterCorrect > corRes.stillLife) corRes.stillLife = counterCorrect;
+            break;
+        case 'graphic':
+            if (counterCorrect > corRes.graphic) corRes.graphic = counterCorrect;
+            break;
+        case 'antique':
+            if (counterCorrect > corRes.antique) corRes.antique = counterCorrect;
+            break;
+        case 'avantGarde':
+            if (counterCorrect > corRes.avantGarde) corRes.avantGarde = counterCorrect;
+            break;
+        case 'renaissance':
+            if (counterCorrect > corRes.renaissance) corRes.renaissance = counterCorrect;
+            break;
+        case 'surrealism':
+            if (counterCorrect > corRes.surrealism) corRes.surrealism = counterCorrect;
+            break;
+        case 'kitsch':
+            if (counterCorrect > corRes.kitsch) corRes.kitsch = counterCorrect;
+            break;
+        case 'minimalism':
+            if (counterCorrect > corRes.minimalism) corRes.minimalism = counterCorrect;
+            break;
+        case 'avangard':
+            if (counterCorrect > corRes.avangard) corRes.avangard = counterCorrect;
+            break;
+        case 'industrial':
+            if (counterCorrect > corRes.industrial) corRes.industrial = counterCorrect;
+            break;
     }
 }
 
