@@ -1,31 +1,38 @@
-const artist = document.querySelector('.artist'),
-    workArea = document.querySelector('.wrapper-work'),
-    popup = document.querySelector('.popup'),
-    todo = document.querySelector('.todo');
-
-
 import images from './images.js';
 
-let counterCorrect = 0;
-let counterAllAnsw = 1;
-let corRes = {
-    portrait: 0,
-    landscape: 0,
-    stillLife: 0,
-    graphic: 0,
-    antique: 0,
-    avantGarde: 0,
-    renaissance: 0,
-    surrealism: 0,
-    kitsch: 0,
-    minimalism: 0,
-    avangard: 0,
-    industrial: 0
-};
-let currentCategorie = [];
+function init() {
+    const artist = document.querySelector('.artist'),
+        workArea = document.querySelector('.wrapper-work'),
+        popup = document.querySelector('.popup'),
+        todo = document.querySelector('.todo'),
+        nav = document.querySelector('.nav__arrow');
 
-function changeContent() {
-    workArea.innerHTML = `<div class="categories">
+    let counterCorrect = 0;
+    let counterAllAnsw = 1;
+    let corRes = {
+        portrait: 0,
+        landscape: 0,
+        stillLife: 0,
+        graphic: 0,
+        antique: 0,
+        avantGarde: 0,
+        renaissance: 0,
+        surrealism: 0,
+        kitsch: 0,
+        minimalism: 0,
+        avangard: 0,
+        industrial: 0
+    };
+    let currentCategorie = [];
+    let isMainScreen = true;
+
+    function changeContent() {
+        isMainScreen = false;
+        navArrow();
+        const mainScreen = document.querySelector('.main-screen')
+        // mainScreen.style.opacity = '0'
+        setTimeout(() => {
+            workArea.innerHTML = `<div class="categories">
         <h2>Choose categorie</h2>
         <button class="portrait" type="button">  
         <div class="image-with-res" id="portrait">
@@ -111,20 +118,27 @@ function changeContent() {
             </div>
             Industrial
         </button>
-    </div>`;
-    counterCorrect = 0;
-    counterAllAnsw = 1
-    chooseCategorie();
-}
+    </div>`
+            chooseCategorie()
+            counterCorrect = 0;
+            counterAllAnsw = 1
+        }, 100)
+        setTimeout(() => {
+            const categories = document.querySelector('.categories');
+            categories.style.opacity = '1'
+        }, 200)
+    }
 
-artist.addEventListener('click', changeContent)
+    artist.addEventListener('click', changeContent)
 
-function chooseCategorie() {
-    const allBtns = document.querySelectorAll('button');
-    allBtns.forEach((el, i) => {
-        allBtns[i].addEventListener('click', () => {
-            if (i == 0) {
-                workArea.innerHTML = `<h2 class="question">Кто автор данной картины?</h2>
+    function chooseCategorie() {
+        isMainScreen = false;
+        navArrow();
+        const allBtns = document.querySelectorAll('button');
+        allBtns.forEach((el, i) => {
+            allBtns[i].addEventListener('click', () => {
+                if (i == 0) {
+                    workArea.innerHTML = `<h2 class="question">Кто автор данной картины?</h2>
                 <img class="quest-img" src="./assets/img/${0}.jpg" alt="" width="150" height="150">
                 <ul class="answers">
                     ${getAnswers(i)}
@@ -133,9 +147,9 @@ function chooseCategorie() {
                     <div class="correct-answers">Correct answers: 0</div>
                     <div class="all-answers">1/9</div>
                 </div>`;
-                correctAnswer(i + 1)
-            } else {
-                workArea.innerHTML = `<h2 class="question">Кто автор данной картины?</h2>
+                    correctAnswer(i + 1)
+                } else {
+                    workArea.innerHTML = `<h2 class="question">Кто автор данной картины?</h2>
                 <img class="quest-img" src="./assets/img/${i}0.jpg" alt="" width="150" height="150">
                 <ul class="answers">
                     ${getAnswers(i * 10)}
@@ -144,81 +158,69 @@ function chooseCategorie() {
                     <div class="correct-answers">Correct answers: 0</div>
                     <div class="all-answers">1/9</div>
                 </div>`;
-                correctAnswer(i * 10)
-            }
+                    correctAnswer(i * 10)
+                }
+            })
         })
-    })
-}
+    }
 
-function getRandom(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
-}
+    function getRandom(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
+    }
 
-function getAnswers(i) {
-    let answers = null;
-    const random = getRandom(1, 4)
-    if (random === 1) {
-        answers = `<li class="correct">${images[i].author}</li>
+    function getAnswers(i) {
+        let answers = null;
+        const random = getRandom(1, 4)
+        if (random === 1) {
+            answers = `<li class="correct">${images[i].author}</li>
         <li class="incorrect">${images[i + 1].author}</li>
         <li class="incorrect">${images[i + 2].author}</li>
         <li class="incorrect">${images[i + 3].author}</li>`
-    } else if (random === 2) {
-        answers = `<li class="incorrect">${images[i + 1].author}</li>
+        } else if (random === 2) {
+            answers = `<li class="incorrect">${images[i + 1].author}</li>
         <li class="correct">${images[i].author}</li>
         <li class="incorrect">${images[i + 2].author}</li>
         <li class="incorrect">${images[i + 3].author}</li>`
-    } else if (random === 3) {
-        answers = `<li class="incorrect">${images[i + 1].author}</li>
+        } else if (random === 3) {
+            answers = `<li class="incorrect">${images[i + 1].author}</li>
         <li class="incorrect">${images[i + 2].author}</li>
         <li class="correct">${images[i].author}</li>
         <li class="incorrect">${images[i + 3].author}</li>`
-    } else if (random === 4) {
-        answers = `<li class="incorrect">${images[i + 1].author}</li>
+        } else if (random === 4) {
+            answers = `<li class="incorrect">${images[i + 1].author}</li>
         <li class="incorrect">${images[i + 2].author}</li>
         <li class="incorrect">${images[i + 3].author}</li>
         <li class="correct">${images[i].author}</li>`
+        }
+        return answers;
     }
-    return answers;
-}
 
 
 
-function correctAnswer(index) {
-    const corAnsw = document.querySelector('.correct');
-    const incorAnsw = document.querySelectorAll('.incorrect');
-    let lowerIndex = 0;
-    currentCategorie.push(index);
-    if (index >= 10) lowerIndex = index % 10;
-    todo.innerHTML = `<img src="./assets/img/${index}.jpg" alt="">
+    function correctAnswer(index) {
+        const corAnsw = document.querySelector('.correct');
+        const incorAnsw = document.querySelectorAll('.incorrect');
+        let lowerIndex = 0;
+        currentCategorie.push(index);
+        if (index >= 10) lowerIndex = index % 10;
+        todo.innerHTML = `<img src="./assets/img/${index}.jpg" alt="">
         <p class="cor-incor">Верно!</p>
         <p class="description">Автор: ${images[index].author}</p>
         <p class="go-next">Продолжить</p>
         <p class="exit">Выйти</p>`
-    corAnsw.addEventListener('click', () => {
-        const goNext = document.querySelector('.go-next');
-        const exit = document.querySelector('.exit');
-        //     counterCorrect++
-        //     counterAllAnsw++
-        //     images[index].isCorrect = true;
-        //     workArea.innerHTML = `<h2 class="question">Кто автор данной картины?</h2>
-        //     <img class="quest-img" src="./assets/img/${index + 1}.jpg" alt="" width="150" height="150">
-        //     <ul class="answers">
-        //         ${getAnswers(index + 1)}
-        //     </ul>
-        //     <div class="counter">            
-        // <div class="correct-answers">Correct answers: ${counterCorrect}</div>
-        // <div class="all-answers">${counterAllAnsw}/9</div >
-        //     </div > `
-        //     correctAnswer(index + 1)
-        popup.style.display = 'block';
-        setTimeout(() => todo.style.transform = 'translate(0, 0)', 100)
-        goNext.addEventListener('click', () => {
-            popup.style.display = 'none';
-            todo.style.transform = 'translate(0, 50%)';
-            counterCorrect++
-            counterAllAnsw++
-            images[index].isCorrect = true;
-            workArea.innerHTML = `<h2 class="question">Кто автор данной картины?</h2>
+        corAnsw.addEventListener('click', () => {
+            const popup = document.querySelector('.popup');
+            const goNext = document.querySelector('.go-next');
+            const exit = document.querySelector('.exit');
+            popup.style.display = 'block';
+            setTimeout(() => todo.style.transform = 'translate(0, 0)', 100)
+            goNext.addEventListener('click', () => {
+                popup.style.display = 'none';
+                todo.style.transform = 'translate(0, 100%)';
+                counterCorrect++
+                counterAllAnsw++
+                images[index].isCorrect = true;
+                workArea.innerHTML = `<h2 class="question">Кто автор данной картины?</h2>
         <img class="quest-img" src="./assets/img/${index + 1}.jpg" alt="" width="150" height="150">
         <ul class="answers">
             ${getAnswers(index + 1)}
@@ -227,48 +229,29 @@ function correctAnswer(index) {
     <div class="correct-answers">Correct answers: ${counterCorrect}</div>
     <div class="all-answers">${counterAllAnsw}/9</div >
         </div > `
-            correctAnswer(index + 1)
-        })
-        exit.addEventListener('click', () => {
-            popup.style.display = 'none';
-            todo.style.transform = 'translate(0, 50%)';
-            countRight()
-            changeContent()
-        })
-    })
-    incorAnsw.forEach((el, i) => {
-        incorAnsw[i].addEventListener('click', () => {
-            const goNext = document.querySelector('.go-next');
-            const exit = document.querySelector('.exit');
-            const corIncor = document.querySelector('.cor-incor');
-            corIncor.innerHTML = `Неверно!`
-            //         const main = document.querySelector('.main-wrapper')
-            //         incorAnsw[i].style.backgroundColor = 'darkred';
-            //         main.style.transform = 'translate(-5%)'
-            //         setTimeout(() => main.style.transform = 'translate(5%)', 100)
-            //         setTimeout(() => main.style.transform = 'translate(0)', 200)
-            //         setTimeout(() => {
-            //             counterAllAnsw++
-            //             workArea.innerHTML = `<h2 class="question">Кто автор данной картины?</h2>
-            //     <img class="quest-img" src="./assets/img/${index + 1}.jpg" alt="" width="150" height="150">
-            //     <ul class="answers">
-            //         ${getAnswers(index + 1)}
-            //     </ul>
-            //     <div class="counter">            
-            // <div class="correct-answers">Correct answers: ${counterCorrect}</div>
-            // <div class="all-answers">${counterAllAnsw}/9</div >
-            //     </div > `
-            //             correctAnswer(index + 1)
-            //         }, 400)
-            //     })
-            // })
-            popup.style.display = 'block';
-            setTimeout(() => todo.style.transform = 'translate(0, 0)', 100)
-            goNext.addEventListener('click', () => {
+                correctAnswer(index + 1)
+            })
+            exit.addEventListener('click', () => {
                 popup.style.display = 'none';
-                todo.style.transform = 'translate(0, 50%)';
-                counterAllAnsw++
-                workArea.innerHTML = `<h2 class="question">Кто автор данной картины?</h2>
+                todo.style.transform = 'translate(0, 100%)';
+                countRight()
+                changeContent()
+            })
+        })
+        incorAnsw.forEach((el, i) => {
+            incorAnsw[i].addEventListener('click', () => {
+                const popup = document.querySelector('.popup');
+                const goNext = document.querySelector('.go-next');
+                const exit = document.querySelector('.exit');
+                const corIncor = document.querySelector('.cor-incor');
+                corIncor.innerHTML = `Неверно!`
+                popup.style.display = 'block';
+                setTimeout(() => todo.style.transform = 'translate(0, 0)', 100)
+                goNext.addEventListener('click', () => {
+                    popup.style.display = 'none';
+                    todo.style.transform = 'translate(0, 100%)';
+                    counterAllAnsw++
+                    workArea.innerHTML = `<h2 class="question">Кто автор данной картины?</h2>
                 <img class="quest-img" src="./assets/img/${index + 1}.jpg" alt="" width="150" height="150">
                 <ul class="answers">
                     ${getAnswers(index + 1)}
@@ -277,53 +260,21 @@ function correctAnswer(index) {
             <div class="correct-answers">Correct answers: ${counterCorrect}</div>
             <div class="all-answers">${counterAllAnsw}/9</div >
                 </div > `
-                correctAnswer(index + 1)
-            })
-            exit.addEventListener('click', () => {
-                popup.style.display = 'none';
-                todo.style.transform = 'translate(0, 50%)';
-                countRight()
-                changeContent()
-            })
-        })
-    })
-    if (counterAllAnsw == 9) {
-        corAnsw.addEventListener('click', () => {
-            counterCorrect++
-            todo.innerHTML = `<img src="./assets/img/${index}.jpg" alt="">
-                <p class="cor-incor">Верно!</p>
-                <p class="description">Автор: ${images[index].author}</p>
-                <p class="descr-results">Ваш результат ${counterCorrect} из 9</p>
-                <p class="go-next">Продолжить</p>
-                <p class="exit">Выйти</p>`;
-
-            popup.style.display = 'block';
-            setTimeout(() => todo.style.transform = 'translate(0, 0)', 100)
-
-            const goNext = document.querySelector('.go-next');
-            const exit = document.querySelector('.exit');
-
-            goNext.style.paddingTop = '2%';
-
-            goNext.addEventListener('click', () => {
-                popup.style.display = 'none';
-                todo.style.transform = 'translate(0, 50%)';
-                countRight()
-                changeContent()
-                currentCategorie = [];
-            })
-            exit.addEventListener('click', () => {
-                popup.style.display = 'none';
-                todo.style.transform = 'translate(0, 50%)';
-                countRight()
-                changeContent()
-                currentCategorie = [];
+                    correctAnswer(index + 1)
+                })
+                exit.addEventListener('click', () => {
+                    popup.style.display = 'none';
+                    todo.style.transform = 'translate(0, 100%)';
+                    countRight()
+                    changeContent()
+                })
             })
         })
-        incorAnsw.forEach((el, i) => {
-            incorAnsw[i].addEventListener('click', () => {
+        if (counterAllAnsw == 9) {
+            corAnsw.addEventListener('click', () => {
+                counterCorrect++
                 todo.innerHTML = `<img src="./assets/img/${index}.jpg" alt="">
-                <p class="cor-incor">Неверно!</p>
+                <p class="cor-incor">Верно!</p>
                 <p class="description">Автор: ${images[index].author}</p>
                 <p class="descr-results">Ваш результат ${counterCorrect} из 9</p>
                 <p class="go-next">Продолжить</p>
@@ -339,77 +290,137 @@ function correctAnswer(index) {
 
                 goNext.addEventListener('click', () => {
                     popup.style.display = 'none';
-                    todo.style.transform = 'translate(0, 50%)';
+                    todo.style.transform = 'translate(0, 100%)';
                     countRight()
                     changeContent()
                     currentCategorie = [];
                 })
                 exit.addEventListener('click', () => {
                     popup.style.display = 'none';
-                    todo.style.transform = 'translate(0, 50%)';
+                    todo.style.transform = 'translate(0, 100%)';
                     countRight()
                     changeContent()
                     currentCategorie = [];
                 })
             })
-        })
+            incorAnsw.forEach((el, i) => {
+                incorAnsw[i].addEventListener('click', () => {
+                    todo.innerHTML = `<img src="./assets/img/${index}.jpg" alt="">
+                <p class="cor-incor">Неверно!</p>
+                <p class="description">Автор: ${images[index].author}</p>
+                <p class="descr-results">Ваш результат ${counterCorrect} из 9</p>
+                <p class="go-next">Продолжить</p>
+                <p class="exit">Выйти</p>`;
+
+                    popup.style.display = 'block';
+                    setTimeout(() => todo.style.transform = 'translate(0, 0)', 100)
+
+                    const goNext = document.querySelector('.go-next');
+                    const exit = document.querySelector('.exit');
+
+                    goNext.style.paddingTop = '2%';
+
+                    goNext.addEventListener('click', () => {
+                        popup.style.display = 'none';
+                        todo.style.transform = 'translate(0, 100%)';
+                        countRight()
+                        changeContent()
+                        currentCategorie = [];
+                    })
+                    exit.addEventListener('click', () => {
+                        popup.style.display = 'none';
+                        todo.style.transform = 'translate(0, 100%)';
+                        countRight()
+                        changeContent()
+                        currentCategorie = [];
+                    })
+                })
+            })
+        }
+    }
+
+    function countRight() {
+        switch (visCorRes()) {
+            case 'portrait':
+                if (counterCorrect > corRes.portrait) corRes.portrait = counterCorrect;
+                break;
+            case 'landscape':
+                if (counterCorrect > corRes.landscape) corRes.landscape = counterCorrect;
+                break;
+            case 'stillLife':
+                if (counterCorrect > corRes.stillLife) corRes.stillLife = counterCorrect;
+                break;
+            case 'graphic':
+                if (counterCorrect > corRes.graphic) corRes.graphic = counterCorrect;
+                break;
+            case 'antique':
+                if (counterCorrect > corRes.antique) corRes.antique = counterCorrect;
+                break;
+            case 'avantGarde':
+                if (counterCorrect > corRes.avantGarde) corRes.avantGarde = counterCorrect;
+                break;
+            case 'renaissance':
+                if (counterCorrect > corRes.renaissance) corRes.renaissance = counterCorrect;
+                break;
+            case 'surrealism':
+                if (counterCorrect > corRes.surrealism) corRes.surrealism = counterCorrect;
+                break;
+            case 'kitsch':
+                if (counterCorrect > corRes.kitsch) corRes.kitsch = counterCorrect;
+                break;
+            case 'minimalism':
+                if (counterCorrect > corRes.minimalism) corRes.minimalism = counterCorrect;
+                break;
+            case 'avangard':
+                if (counterCorrect > corRes.avangard) corRes.avangard = counterCorrect;
+                break;
+            case 'industrial':
+                if (counterCorrect > corRes.industrial) corRes.industrial = counterCorrect;
+                break;
+        }
+    }
+
+    function visCorRes() {
+        switch (currentCategorie[0]) {
+            case 1: return 'portrait';
+            case 10: return 'landscape';
+            case 20: return 'stillLife';
+            case 30: return 'graphic';
+            case 40: return 'antique';
+            case 50: return 'avantGarde';
+            case 60: return 'renaissance';
+            case 70: return 'surrealism';
+            case 80: return 'kitsch';
+            case 90: return 'minimalism';
+            case 100: return 'avangard';
+            case 110: return 'industrial';
+        }
+    }
+
+    function navArrow() {
+        if (isMainScreen) {
+            nav.style.opacity = '0';
+        } else {
+            nav.style.opacity = '1';
+            nav.addEventListener('click', () => {
+                workArea.innerHTML = `<div class="main-screen">
+            <button class="artist" type="button">
+                <img src="./assets/img/1.jpg" alt="pic" width="150" height="150">
+                Start artist quiz
+            </button>
+            <button class="pictures" type="button">
+                <img src="./assets/img/2.jpg" alt="pic" width="150" height="150">
+                Start pictures quiz
+            </button>
+            <button type="button">Settings</button>
+        </div>`
+                init()
+                nav.style.opacity = '0';
+                isMainScreen = true
+
+            })
+        }
     }
 }
 
-function countRight() {
-    switch (visCorRes()) {
-        case 'portrait':
-            if (counterCorrect > corRes.portrait) corRes.portrait = counterCorrect;
-            break;
-        case 'landscape':
-            if (counterCorrect > corRes.landscape) corRes.landscape = counterCorrect;
-            break;
-        case 'stillLife':
-            if (counterCorrect > corRes.stillLife) corRes.stillLife = counterCorrect;
-            break;
-        case 'graphic':
-            if (counterCorrect > corRes.graphic) corRes.graphic = counterCorrect;
-            break;
-        case 'antique':
-            if (counterCorrect > corRes.antique) corRes.antique = counterCorrect;
-            break;
-        case 'avantGarde':
-            if (counterCorrect > corRes.avantGarde) corRes.avantGarde = counterCorrect;
-            break;
-        case 'renaissance':
-            if (counterCorrect > corRes.renaissance) corRes.renaissance = counterCorrect;
-            break;
-        case 'surrealism':
-            if (counterCorrect > corRes.surrealism) corRes.surrealism = counterCorrect;
-            break;
-        case 'kitsch':
-            if (counterCorrect > corRes.kitsch) corRes.kitsch = counterCorrect;
-            break;
-        case 'minimalism':
-            if (counterCorrect > corRes.minimalism) corRes.minimalism = counterCorrect;
-            break;
-        case 'avangard':
-            if (counterCorrect > corRes.avangard) corRes.avangard = counterCorrect;
-            break;
-        case 'industrial':
-            if (counterCorrect > corRes.industrial) corRes.industrial = counterCorrect;
-            break;
-    }
-}
-
-function visCorRes() {
-    switch (currentCategorie[0]) {
-        case 1: return 'portrait';
-        case 10: return 'landscape';
-        case 20: return 'stillLife';
-        case 30: return 'graphic';
-        case 40: return 'antique';
-        case 50: return 'avantGarde';
-        case 60: return 'renaissance';
-        case 70: return 'surrealism';
-        case 80: return 'kitsch';
-        case 90: return 'minimalism';
-        case 100: return 'avangard';
-        case 110: return 'industrial';
-    }
-}
+init()

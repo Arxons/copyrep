@@ -24,12 +24,21 @@ header {
     align-items: center;
 }
 
+.nav__arrow {
+    box-shadow: none;
+    margin-top: 6%;
+    width: 25%;
+    height: 80%;
+    opacity: 0;
+    transition: .3s all ease-out;
+    cursor: pointer;
+}
+
 header h1 {
     font-family: var(--family);
     font-size: 48px;
     text-align: center;
-    margin-left: 50%;
-    transform: translate(-50%);
+    margin-left: 4%;
     color: black;
 }
 
@@ -62,6 +71,7 @@ footer {
     text-align: center;
     transition: all .3s ease-in-out;
     font-family: var(--family);
+    transition: opacity .5s ease-in-out;
 }
 
 button {
@@ -117,6 +127,7 @@ button:hover img {
     height: 100%;
     overflow: scroll;
     transition: .3s ease-out;
+    opacity: 0;
 }
 
 .categories::-webkit-scrollbar {
@@ -204,7 +215,7 @@ button:hover img {
     position: relative;
     font-family: var(--family);
     font-size: 20px;
-    transform: translate(0, 50%);
+    transform: translate(0, 100%);
     transition: .5s all ease;
 }
 
@@ -258,3 +269,4 @@ button:hover img {
     cursor: pointer;
     transition: all .2s ease-out;
 }
+
