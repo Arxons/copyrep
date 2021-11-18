@@ -145,7 +145,7 @@ function init() {
                 </ul>
                 <div class="counter">                    
                     <div class="correct-answers">Correct answers: 0</div>
-                    <div class="all-answers">1/9</div>
+                    <div class="all-answers">Question: 1/9</div>
                 </div>`;
                     correctAnswer(i + 1)
                 } else {
@@ -156,7 +156,7 @@ function init() {
                 </ul>
                 <div class="counter">                    
                     <div class="correct-answers">Correct answers: 0</div>
-                    <div class="all-answers">1/9</div>
+                    <div class="all-answers">Question: 1/9</div>
                 </div>`;
                     correctAnswer(i * 10)
                 }
@@ -213,10 +213,10 @@ function init() {
             const goNext = document.querySelector('.go-next');
             const exit = document.querySelector('.exit');
             popup.style.display = 'block';
-            setTimeout(() => todo.style.transform = 'translate(0, 0)', 100)
+            setTimeout(() => todo.style.transform = 'translate(0, 43%)', 100)
             goNext.addEventListener('click', () => {
                 popup.style.display = 'none';
-                todo.style.transform = 'translate(0, 100%)';
+                todo.style.transform = 'translate(0, 145%)';
                 counterCorrect++
                 counterAllAnsw++
                 images[index].isCorrect = true;
@@ -227,13 +227,13 @@ function init() {
         </ul>
         <div class="counter">            
     <div class="correct-answers">Correct answers: ${counterCorrect}</div>
-    <div class="all-answers">${counterAllAnsw}/9</div >
+    <div class="all-answers">Question: ${counterAllAnsw}/9</div >
         </div > `
                 correctAnswer(index + 1)
             })
             exit.addEventListener('click', () => {
                 popup.style.display = 'none';
-                todo.style.transform = 'translate(0, 100%)';
+                todo.style.transform = 'translate(0, 145%)';
                 countRight()
                 changeContent()
             })
@@ -246,10 +246,10 @@ function init() {
                 const corIncor = document.querySelector('.cor-incor');
                 corIncor.innerHTML = `Неверно!`
                 popup.style.display = 'block';
-                setTimeout(() => todo.style.transform = 'translate(0, 0)', 100)
+                setTimeout(() => todo.style.transform = 'translate(0, 43%)', 100)
                 goNext.addEventListener('click', () => {
                     popup.style.display = 'none';
-                    todo.style.transform = 'translate(0, 100%)';
+                    todo.style.transform = 'translate(0, 145%)';
                     counterAllAnsw++
                     workArea.innerHTML = `<h2 class="question">Кто автор данной картины?</h2>
                 <img class="quest-img" src="./assets/img/${index + 1}.jpg" alt="" width="150" height="150">
@@ -258,13 +258,13 @@ function init() {
                 </ul>
                 <div class="counter">            
             <div class="correct-answers">Correct answers: ${counterCorrect}</div>
-            <div class="all-answers">${counterAllAnsw}/9</div >
+            <div class="all-answers">Question: ${counterAllAnsw}/9</div >
                 </div > `
                     correctAnswer(index + 1)
                 })
                 exit.addEventListener('click', () => {
                     popup.style.display = 'none';
-                    todo.style.transform = 'translate(0, 100%)';
+                    todo.style.transform = 'translate(0, 145%)';
                     countRight()
                     changeContent()
                 })
@@ -281,23 +281,24 @@ function init() {
                 <p class="exit">Выйти</p>`;
 
                 popup.style.display = 'block';
-                setTimeout(() => todo.style.transform = 'translate(0, 0)', 100)
+                setTimeout(() => todo.style.transform = 'translate(0, 43%)', 100)
 
                 const goNext = document.querySelector('.go-next');
                 const exit = document.querySelector('.exit');
 
-                goNext.style.paddingTop = '2%';
+                goNext.style.marginTop = '2%';
+                goNext.style.marginLeft = '11%';
 
                 goNext.addEventListener('click', () => {
                     popup.style.display = 'none';
-                    todo.style.transform = 'translate(0, 100%)';
+                    todo.style.transform = 'translate(0, 145%)';
                     countRight()
                     changeContent()
                     currentCategorie = [];
                 })
                 exit.addEventListener('click', () => {
                     popup.style.display = 'none';
-                    todo.style.transform = 'translate(0, 100%)';
+                    todo.style.transform = 'translate(0, 145%)';
                     countRight()
                     changeContent()
                     currentCategorie = [];
@@ -313,23 +314,24 @@ function init() {
                 <p class="exit">Выйти</p>`;
 
                     popup.style.display = 'block';
-                    setTimeout(() => todo.style.transform = 'translate(0, 0)', 100)
+                    setTimeout(() => todo.style.transform = 'translate(0, 43%)', 100)
 
                     const goNext = document.querySelector('.go-next');
                     const exit = document.querySelector('.exit');
 
-                    goNext.style.paddingTop = '2%';
+                    goNext.style.marginTop = '2%';
+                    goNext.style.marginLeft = '11%';
 
                     goNext.addEventListener('click', () => {
                         popup.style.display = 'none';
-                        todo.style.transform = 'translate(0, 100%)';
+                        todo.style.transform = 'translate(0, 145%)';
                         countRight()
                         changeContent()
                         currentCategorie = [];
                     })
                     exit.addEventListener('click', () => {
                         popup.style.display = 'none';
-                        todo.style.transform = 'translate(0, 100%)';
+                        todo.style.transform = 'translate(0, 145%)';
                         countRight()
                         changeContent()
                         currentCategorie = [];
@@ -404,16 +406,22 @@ function init() {
             nav.style.opacity = '1';
             nav.addEventListener('click', () => {
                 workArea.innerHTML = `<div class="main-screen">
-            <button class="artist" type="button">
-                <img src="./assets/img/1.jpg" alt="pic" width="150" height="150">
-                Start artist quiz
-            </button>
-            <button class="pictures" type="button">
-                <img src="./assets/img/2.jpg" alt="pic" width="150" height="150">
-                Start pictures quiz
-            </button>
-            <button type="button">Settings</button>
-        </div>`
+                <ul class="main-categories">
+                    <li class="first-li">
+                        <button class="artist" type="button">                            
+                            Start artist quiz
+                        </button>
+                    </li>
+                    <li>
+                        <button class="pictures" type="button">
+                            Start pictures quiz
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="settings">Settings</button>
+                    </li>
+                </ul>
+            </div>`
                 init()
                 nav.style.opacity = '0';
                 isMainScreen = true
