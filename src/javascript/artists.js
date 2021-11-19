@@ -1,36 +1,43 @@
 import images from './images.js';
+import { initPic } from './pictures.js';
+
+let corRes = {
+    portrait: 0,
+    landscape: 0,
+    stillLife: 0,
+    graphic: 0,
+    antique: 0,
+    avantGarde: 0,
+    renaissance: 0,
+    surrealism: 0,
+    kitsch: 0,
+    minimalism: 0,
+    avangard: 0,
+    industrial: 0
+};
+
 
 function init() {
+
+    corRes = JSON.parse(localStorage.getItem('corRes'))
+
     const artist = document.querySelector('.artist'),
         workArea = document.querySelector('.wrapper-work'),
         popup = document.querySelector('.popup'),
         todo = document.querySelector('.todo'),
-        nav = document.querySelector('.nav__arrow');
+        toMenu = document.getElementById('menu'),
+        toArtQuiz = document.getElementById('art-quiz'),
+        toPicQuiz = document.getElementById('pic-quiz'),
+        toSettings = document.getElementById('sett'),
+        menuCheckBox = document.getElementById('menu__toggle')
+
+    artist.addEventListener('click', changeContent)
 
     let counterCorrect = 0;
     let counterAllAnsw = 1;
-    let corRes = {
-        portrait: 0,
-        landscape: 0,
-        stillLife: 0,
-        graphic: 0,
-        antique: 0,
-        avantGarde: 0,
-        renaissance: 0,
-        surrealism: 0,
-        kitsch: 0,
-        minimalism: 0,
-        avangard: 0,
-        industrial: 0
-    };
     let currentCategorie = [];
-    let isMainScreen = true;
 
     function changeContent() {
-        isMainScreen = false;
-        navArrow();
-        const mainScreen = document.querySelector('.main-screen')
-        // mainScreen.style.opacity = '0'
         setTimeout(() => {
             workArea.innerHTML = `<div class="categories">
         <h2>Choose categorie</h2>
@@ -129,11 +136,7 @@ function init() {
         }, 200)
     }
 
-    artist.addEventListener('click', changeContent)
-
     function chooseCategorie() {
-        isMainScreen = false;
-        navArrow();
         const allBtns = document.querySelectorAll('button');
         allBtns.forEach((el, i) => {
             allBtns[i].addEventListener('click', () => {
@@ -380,6 +383,7 @@ function init() {
                 if (counterCorrect > corRes.industrial) corRes.industrial = counterCorrect;
                 break;
         }
+        localStorage.setItem('corRes', JSON.stringify(corRes))
     }
 
     function visCorRes() {
@@ -399,36 +403,36 @@ function init() {
         }
     }
 
-    function navArrow() {
-        if (isMainScreen) {
-            nav.style.opacity = '0';
-        } else {
-            nav.style.opacity = '1';
-            nav.addEventListener('click', () => {
-                workArea.innerHTML = `<div class="main-screen">
-                <ul class="main-categories">
-                    <li class="first-li">
-                        <button class="artist" type="button">                            
-                            Start artist quiz
-                        </button>
-                    </li>
-                    <li>
-                        <button class="pictures" type="button">
-                            Start pictures quiz
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="settings">Settings</button>
-                    </li>
-                </ul>
-            </div>`
-                init()
-                nav.style.opacity = '0';
-                isMainScreen = true
+    function burgerMenu() {
+        toMenu.addEventListener('click', () => {
+            workArea.innerHTML = `<div class="main-screen">
+                    <ul class="main-categories">
+                        <li class="first-li">
+                            <button class="artist" type="button">                            
+                                Start artist quiz
+                            </button>
+                        </li>
+                        <li>
+                            <button class="pictures" type="button">
+                                Start pictures quiz
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="settings">Settings</button>
+                        </li>
+                    </ul>
+                </div>`
+            menuCheckBox.checked = false
+            init()
+        })
 
-            })
-        }
+        toArtQuiz.addEventListener('click', () => {
+            changeContent()
+            menuCheckBox.checked = false
+        })
     }
+    burgerMenu()
+    initPic()
 }
-
 init()
+
