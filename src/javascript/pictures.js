@@ -28,6 +28,8 @@ export function initPic() {
         industrial: 0
     };
 
+    corResPic = JSON.parse(localStorage.getItem('corResPic'))
+
     let currentCategoriePic = [];
 
     function changeContent() {
@@ -135,6 +137,7 @@ export function initPic() {
         const allBtns = document.querySelectorAll('button');
         allBtns.forEach((el, i) => {
             allBtns[i].addEventListener('click', () => {
+                currentCategoriePic.push(i);
                 if (i < 8) {
                     workArea.innerHTML = `<div class="pic-questions">
                     <ul class="pic-answers">
@@ -146,7 +149,7 @@ export function initPic() {
                         <div class="all-answers">Question: 1/9</div>
                     </div>;
                 </div>`;
-                    correctAnswer(i + 1)
+                    correctAnswer(Number.parseInt(`1${i + 2}0`))
                 } else {
                     workArea.innerHTML = `<div class="pic-questions">
                     <ul class="pic-answers">
@@ -158,6 +161,7 @@ export function initPic() {
                         <div class="all-answers">Question: 1/9</div>
                     </div>;
                 </div>`;
+                    correctAnswer(Number.parseInt(`2${i - 8}0`))
                 }
             })
         })
@@ -218,14 +222,40 @@ export function initPic() {
         return answers;
     }
 
-
+    function getAnswersNext(i) {
+        let answers = null;
+        const random = getRandom(1, 4)
+        if (random === 1) {
+            answers = `<li class="correct"><img class="pic-quest-img" src="./assets/img/${i}.jpg" alt="pic" width="150" height="150"></li>
+        <li class="incorrect">><img class="pic-quest-img" src="./assets/img/${checkAuthorNext(i)}.jpg" alt="pic" width="150" height="150"></li>
+        <li class="incorrect"><img class="pic-quest-img" src="./assets/img/${checkAuthorNext(i)}.jpg" alt="pic" width="150" height="150"></li>
+        <li class="incorrect"><img class="pic-quest-img" src="./assets/img/${checkAuthorNext(i)}.jpg" alt="pic" width="150" height="150"></li>`
+        } else if (random === 2) {
+            answers = `<li class="incorrect"><img class="pic-quest-img" src="./assets/img/${checkAuthorNext(i)}.jpg" alt="pic" width="150" height="150"></li>
+        <li class="correct"><img class="pic-quest-img" src="./assets/img/${i}.jpg" alt="pic" width="150" height="150"></li>
+        <li class="incorrect"><img class="pic-quest-img" src="./assets/img/${checkAuthorNext(i)}.jpg" alt="pic" width="150" height="150"></li>
+        <li class="incorrect"><img class="pic-quest-img" src="./assets/img/${checkAuthorNext(i)}.jpg" alt="pic" width="150" height="150"></li>`
+        } else if (random === 3) {
+            answers = `<li class="incorrect"><img class="pic-quest-img" src="./assets/img/${checkAuthorNext(i)}.jpg" alt="pic" width="150" height="150"></li>
+        <li class="incorrect"><img class="pic-quest-img" src="./assets/img/${checkAuthorNext(i)}.jpg" alt="pic" width="150" height="150"></li>
+        <li class="correct"><img class="pic-quest-img" src="./assets/img/${i}.jpg" alt="pic" width="150" height="150"></li>
+        <li class="incorrect"><img class="pic-quest-img" src="./assets/img/${checkAuthorNext(i)}.jpg" alt="pic" width="150" height="150"></li>`
+        } else if (random === 4) {
+            answers = `<li class="incorrect"><img class="pic-quest-img" src="./assets/img/${checkAuthorNext(i)}.jpg" alt="pic" width="150" height="150"></li>
+        <li class="incorrect"><img class="pic-quest-img" src="./assets/img/${checkAuthorNext(i)}.jpg" alt="pic" width="150" height="150"></li>
+        <li class="incorrect"><img class="pic-quest-img" src="./assets/img/${checkAuthorNext(i)}.jpg" alt="pic" width="150" height="150"></li>
+        <li class="correct"><img class="pic-quest-img" src="./assets/img/${i}.jpg" alt="pic" width="150" height="150"></li>`
+        }
+        return answers;
+    }
 
     function correctAnswer(index) {
         const corAnsw = document.querySelector('.correct');
         const incorAnsw = document.querySelectorAll('.incorrect');
-        let lowerIndex = 0;
-        currentCategoriePic.push(index);
-        if (index >= 10) lowerIndex = index % 10;
+        let indexForGetAnswers = null;
+        // if (index < 200) {
+        //     indexForGetAnswers = Number.parseInt(JSON.stringify(index).split('')[1] - 2);
+        // } else indexForGetAnswers = Number.parseInt(JSON.stringify(index).split('')[1] + 8);        
         todo.innerHTML = `<img src="./assets/img/${index}.jpg" alt="">
         <p class="cor-incor">Верно!</p>
         <p class="description">Автор: ${images[index].author}</p>
@@ -243,15 +273,16 @@ export function initPic() {
                 counterCorrectPic++
                 counterAllAnswPic++
                 images[index].isCorrect = true;
-                workArea.innerHTML = `<h2 class="question">Кто автор данной картины?</h2>
-        <img class="quest-img" src="./assets/img/${index + 1}.jpg" alt="" width="150" height="150">
-        <ul class="answers">
-            ${getAnswers(index + 1)}
-        </ul>
-        <div class="counter">            
-    <div class="correct-answers">Correct answers: ${counterCorrectPic}</div>
-    <div class="all-answers">Question: ${counterAllAnswPic}/9</div >
-        </div > `
+                workArea.innerHTML = `<div class="pic-questions">
+                <ul class="pic-answers">
+                    <h2 class="pic-question question">Какую картину написал ${images[index + 1].author}?</h2>
+                    ${getAnswersNext(index + 1)}
+                </ul>
+                <div class="pic-counter counter">
+                    <div class="correct-answers">Correct answers: ${counterCorrectPic}</div>
+                    <div class="all-answers">Question: ${counterAllAnswPic}/9</div>
+                </div>;
+            </div>`;
                 correctAnswer(index + 1)
             })
             exit.addEventListener('click', () => {
@@ -259,6 +290,7 @@ export function initPic() {
                 todo.style.transform = 'translate(0, 145%)';
                 countRight()
                 changeContent()
+                currentCategoriePic = []
             })
         })
         incorAnsw.forEach((el, i) => {
@@ -274,15 +306,16 @@ export function initPic() {
                     popup.style.display = 'none';
                     todo.style.transform = 'translate(0, 145%)';
                     counterAllAnswPic++
-                    workArea.innerHTML = `<h2 class="question">Кто автор данной картины?</h2>
-                <img class="quest-img" src="./assets/img/${index + 1}.jpg" alt="" width="150" height="150">
-                <ul class="answers">
-                    ${getAnswers(index + 1)}
-                </ul>
-                <div class="counter">            
-            <div class="correct-answers">Correct answers: ${counterCorrectPic}</div>
-            <div class="all-answers">Question: ${counterAllAnswPic}/9</div >
-                </div > `
+                    workArea.innerHTML = `<div class="pic-questions">
+                    <ul class="pic-answers">
+                        <h2 class="pic-question question">Какую картину написал ${images[index + 1].author}?</h2>
+                        ${getAnswersNext(index + 1)}
+                    </ul>
+                    <div class="pic-counter counter">
+                        <div class="correct-answers">Correct answers: ${counterCorrectPic}</div>
+                        <div class="all-answers">Question: ${counterAllAnswPic}/9</div>
+                    </div>;
+                </div>`;
                     correctAnswer(index + 1)
                 })
                 exit.addEventListener('click', () => {
@@ -290,6 +323,7 @@ export function initPic() {
                     todo.style.transform = 'translate(0, 145%)';
                     countRight()
                     changeContent()
+                    currentCategoriePic = []
                 })
             })
         })
@@ -376,4 +410,79 @@ export function initPic() {
             } else return randNum;
         }
     }
+
+    function checkAuthorNext(index) {
+        const randNum = getRandom(130, 220);
+        if (images[randNum].author === images[index].author) {
+            checkAuthorNext(index + 1);
+        } else return randNum;
+    }
+
+    function countRight() {
+        switch (visCorRes()) {
+            case 'portrait':
+                if (counterCorrectPic > corResPic.portrait) corResPic.portrait = counterCorrectPic;
+                break;
+            case 'landscape':
+                if (counterCorrectPic > corResPic.landscape) corResPic.landscape = counterCorrectPic;
+                break;
+            case 'stillLife':
+                if (counterCorrectPic > corResPic.stillLife) corResPic.stillLife = counterCorrectPic;
+                break;
+            case 'graphic':
+                if (counterCorrectPic > corResPic.graphic) corResPic.graphic = counterCorrectPic;
+                break;
+            case 'antique':
+                if (counterCorrectPic > corResPic.antique) corResPic.antique = counterCorrectPic;
+                break;
+            case 'avantGarde':
+                if (counterCorrectPic > corResPic.avantGarde) corResPic.avantGarde = counterCorrectPic;
+                break;
+            case 'renaissance':
+                if (counterCorrectPic > corResPic.renaissance) corResPic.renaissance = counterCorrectPic;
+                break;
+            case 'surrealism':
+                if (counterCorrectPic > corResPic.surrealism) corResPic.surrealism = counterCorrectPic;
+                break;
+            case 'kitsch':
+                if (counterCorrectPic > corResPic.kitsch) corResPic.kitsch = counterCorrectPic;
+                break;
+            case 'minimalism':
+                if (counterCorrectPic > corResPic.minimalism) corResPic.minimalism = counterCorrectPic;
+                break;
+            case 'avangard':
+                if (counterCorrectPic > corResPic.avangard) corResPic.avangard = counterCorrectPic;
+                break;
+            case 'industrial':
+                if (counterCorrectPic > corResPic.industrial) corResPic.industrial = counterCorrectPic;
+                break;
+        }
+        localStorage.setItem('corResPic', JSON.stringify(corResPic))
+    }
+
+    function visCorRes() {
+        console.log(currentCategoriePic[0])
+        switch (currentCategoriePic[0]) {
+            case 0: return 'portrait';
+            case 1: return 'landscape';
+            case 2: return 'stillLife';
+            case 3: return 'graphic';
+            case 4: return 'antique';
+            case 5: return 'avantGarde';
+            case 6: return 'renaissance';
+            case 7: return 'surrealism';
+            case 8: return 'kitsch';
+            case 9: return 'minimalism';
+            case 10: return 'avangard';
+            case 11: return 'industrial';
+        }
+    }
+
+    function burgerMenu() {
+        toPicQuiz.addEventListener('click', () => {
+            changeContent();
+            menuCheckBox.checked = false;
+        })
+    }
+    burgerMenu()
 }

@@ -18,7 +18,6 @@ let corRes = {
 
 
 function init() {
-
     corRes = JSON.parse(localStorage.getItem('corRes'))
 
     const artist = document.querySelector('.artist'),
@@ -434,5 +433,6 @@ function init() {
     burgerMenu()
     initPic()
 }
-init()
 
+
+init()
