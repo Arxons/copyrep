@@ -16,9 +16,28 @@ let corRes = {
     industrial: 0
 };
 
+let isPlayed = {
+    portrait: false,
+    landscape: false,
+    stillLife: false,
+    graphic: false,
+    antique: false,
+    avantGarde: false,
+    renaissance: false,
+    surrealism: false,
+    kitsch: false,
+    minimalism: false,
+    avangard: false,
+    industrial: false
+}
+
+let corImages = []
 
 function init() {
     corRes = JSON.parse(localStorage.getItem('corRes'))
+    if (JSON.parse(localStorage.getItem('isPlayed')) != null) {
+        isPlayed = JSON.parse(localStorage.getItem('isPlayed'))
+    }
 
     const artist = document.querySelector('.artist'),
         workArea = document.querySelector('.wrapper-work'),
@@ -28,7 +47,9 @@ function init() {
         toArtQuiz = document.getElementById('art-quiz'),
         toPicQuiz = document.getElementById('pic-quiz'),
         toSettings = document.getElementById('sett'),
-        menuCheckBox = document.getElementById('menu__toggle')
+        toResults = document.getElementById('results'),
+        menuCheckBox = document.getElementById('menu__toggle'),
+        resultsBtn = document.querySelector('.results')
 
     artist.addEventListener('click', changeContent)
 
@@ -41,84 +62,84 @@ function init() {
             workArea.innerHTML = `<div class="categories">
         <h2>Choose categorie</h2>
         <button class="portrait" type="button">  
-        <div class="image-with-res" id="portrait">
+        <div class="image-with-res ${isPlayed.portrait === true ? 'played' : ''}" id="portrait">
             <img src="./assets/img/0.jpg" alt="" width="150" height="150">
             <p class="res">${corRes.portrait}/9</p> 
         </div>                  
             Portrait            
         </button>
         <button class="landscape" type="button">
-        <div class="image-with-res" id="landscape">
+        <div class="image-with-res ${isPlayed.landscape === true ? 'played' : ''}" id="landscape">
             <img src="./assets/img/10.jpg" alt="" width="150" height="150">
             <p class="res">${corRes.landscape}/9</p> 
             </div>
             Landscape
         </button>
         <button class="still-life" type="button">
-        <div class="image-with-res" id="still">
+        <div class="image-with-res ${isPlayed.stillLife === true ? 'played' : ''}" id="still">
             <img src="./assets/img/20.jpg" alt="" width="150" height="150">
             <p class="res">${corRes.stillLife}/9</p> 
             </div>
             Still Life
         </button>
         <button class="graphic" type="button">
-        <div class="image-with-res" id="graphic">
+        <div class="image-with-res ${isPlayed.graphic === true ? 'played' : ''}" id="graphic">
             <img src="./assets/img/30.jpg" alt="" width="150" height="150">
             <p class="res">${corRes.graphic}/9</p> 
             </div>
             Graphic
         </button>
         <button class="antique" type="button">
-        <div class="image-with-res" id="antique">
+        <div class="image-with-res ${isPlayed.antique === true ? 'played' : ''}" id="antique">
             <img src="./assets/img/40.jpg" alt="" width="150" height="150">
             <p class="res">${corRes.antique}/9</p> 
             </div>
             Antique
         </button>
         <button class="avant-garde" type="button">
-        <div class="image-with-res" id="avant">
+        <div class="image-with-res ${isPlayed.avantGarde === true ? 'played' : ''}" id="avant">
             <img src="./assets/img/50.jpg" alt="" width="150" height="150">
             <p class="res">${corRes.avantGarde}/9</p> 
             </div>
             Avant-Garde
         </button>
         <button class="renaissance" type="button">
-        <div class="image-with-res" id="renaissance">
+        <div class="image-with-res ${isPlayed.renaissance === true ? 'played' : ''}" id="renaissance">
             <img src="./assets/img/60.jpg" alt="" width="150" height="150">
             <p class="res">${corRes.renaissance}/9</p> 
             </div>
             Renaissance
         </button>
         <button class="surrealism" type="button">
-        <div class="image-with-res" id="surrealism">
+        <div class="image-with-res ${isPlayed.surrealism === true ? 'played' : ''}" id="surrealism">
             <img src="./assets/img/70.jpg" alt="" width="150" height="150">
             <p class="res">${corRes.surrealism}/9</p> 
             </div>
             Surrealism
         </button>
         <button class="kitsch" type="button">
-        <div class="image-with-res" id="kitsch">
+        <div class="image-with-res ${isPlayed.kitsch === true ? 'played' : ''}" id="kitsch">
             <img src="./assets/img/80.jpg" alt="" width="150" height="150">
             <p class="res">${corRes.kitsch}/9</p> 
             </div>
             Kitsch
         </button>
         <button class="minimalism" type="button">
-        <div class="image-with-res" id="minimalism">
+        <div class="image-with-res ${isPlayed.minimalism === true ? 'played' : ''}" id="minimalism">
             <img src="./assets/img/90.jpg" alt="" width="150" height="150">
             <p class="res">${corRes.minimalism}/9</p> 
             </div>
             Minimalism
         </button>
         <button class="avangard" type="button">
-        <div class="image-with-res" id="avangard">
+        <div class="image-with-res ${isPlayed.avangard === true ? 'played' : ''}" id="avangard">
             <img src="./assets/img/100.jpg" alt="" width="150" height="150">
             <p class="res">${corRes.avangard}/9</p> 
             </div>
             Avangard
         </button>
         <button class="industrial" type="button">
-        <div class="image-with-res" id="industrial">
+        <div class="image-with-res ${isPlayed.industrial === true ? 'played' : ''}" id="industrial">
             <img src="./assets/img/110.jpg" alt="" width="150" height="150">
             <p class="res">${corRes.industrial}/9</p> 
             </div>
@@ -137,6 +158,7 @@ function init() {
 
     function chooseCategorie() {
         const allBtns = document.querySelectorAll('button');
+        currentCategorie = [];
         allBtns.forEach((el, i) => {
             allBtns[i].addEventListener('click', () => {
                 if (i == 0) {
@@ -222,6 +244,7 @@ function init() {
                 counterCorrect++
                 counterAllAnsw++
                 images[index].isCorrect = true;
+                corImages.push(images[index])
                 workArea.innerHTML = `<h2 class="question">Кто автор данной картины?</h2>
         <img class="quest-img" src="./assets/img/${index + 1}.jpg" alt="" width="150" height="150">
         <ul class="answers">
@@ -232,6 +255,7 @@ function init() {
     <div class="all-answers">Question: ${counterAllAnsw}/9</div >
         </div > `
                 correctAnswer(index + 1)
+                countRight()
             })
             exit.addEventListener('click', () => {
                 popup.style.display = 'none';
@@ -263,6 +287,7 @@ function init() {
             <div class="all-answers">Question: ${counterAllAnsw}/9</div >
                 </div > `
                     correctAnswer(index + 1)
+                    countRight()
                 })
                 exit.addEventListener('click', () => {
                     popup.style.display = 'none';
@@ -346,43 +371,56 @@ function init() {
     function countRight() {
         switch (visCorRes()) {
             case 'portrait':
+                isPlayed.portrait = true;
                 if (counterCorrect > corRes.portrait) corRes.portrait = counterCorrect;
                 break;
             case 'landscape':
+                isPlayed.landscape = true;
                 if (counterCorrect > corRes.landscape) corRes.landscape = counterCorrect;
                 break;
             case 'stillLife':
+                isPlayed.stillLife = true;
                 if (counterCorrect > corRes.stillLife) corRes.stillLife = counterCorrect;
                 break;
             case 'graphic':
+                isPlayed.graphic = true;
                 if (counterCorrect > corRes.graphic) corRes.graphic = counterCorrect;
                 break;
             case 'antique':
+                isPlayed.antique = true;
                 if (counterCorrect > corRes.antique) corRes.antique = counterCorrect;
                 break;
             case 'avantGarde':
+                isPlayed.avantGarde = true;
                 if (counterCorrect > corRes.avantGarde) corRes.avantGarde = counterCorrect;
                 break;
             case 'renaissance':
+                isPlayed.renaissance = true;
                 if (counterCorrect > corRes.renaissance) corRes.renaissance = counterCorrect;
                 break;
             case 'surrealism':
+                isPlayed.surrealism = true;
                 if (counterCorrect > corRes.surrealism) corRes.surrealism = counterCorrect;
                 break;
             case 'kitsch':
+                isPlayed.kitsch = true;
                 if (counterCorrect > corRes.kitsch) corRes.kitsch = counterCorrect;
                 break;
             case 'minimalism':
+                isPlayed.minimalism = true;
                 if (counterCorrect > corRes.minimalism) corRes.minimalism = counterCorrect;
                 break;
             case 'avangard':
+                isPlayed.avangard = true;
                 if (counterCorrect > corRes.avangard) corRes.avangard = counterCorrect;
                 break;
             case 'industrial':
+                isPlayed.industrial = true;
                 if (counterCorrect > corRes.industrial) corRes.industrial = counterCorrect;
                 break;
         }
         localStorage.setItem('corRes', JSON.stringify(corRes))
+        localStorage.setItem('isPlayed', JSON.stringify(isPlayed))
     }
 
     function visCorRes() {
@@ -417,21 +455,213 @@ function init() {
                             </button>
                         </li>
                         <li>
+                            <button type="button" class="results">Results</button>
+                        </li>
+                        <li>
                             <button type="button" class="settings">Settings</button>
                         </li>
                     </ul>
                 </div>`
-            menuCheckBox.checked = false
+            menuCheckBox.checked = false;
             init()
         })
 
         toArtQuiz.addEventListener('click', () => {
             changeContent()
-            menuCheckBox.checked = false
+            menuCheckBox.checked = false;
+        })
+
+        toResults.addEventListener('click', () => {
+            workArea.innerHTML = `<div class="main-screen">
+            <ul class="main-categories">
+                <li class="first-li">
+                    <button class="artist-results" type="button">                            
+                        Artist quiz results
+                    </button>
+                </li>
+                <li>
+                    <button class="pictures-results" type="button">
+                        Pictures quiz results
+                    </button>
+                </li>`
+            getArtistsCategorieRes()
+            menuCheckBox.checked = false;
         })
     }
+
+    function checkResults() {
+        resultsBtn.addEventListener('click', () => {
+            workArea.innerHTML = `<div class="main-screen">
+            <ul class="main-categories">
+                <li class="first-li">
+                    <button class="artist-results" type="button">                            
+                        Artist quiz results
+                    </button>
+                </li>
+                <li>
+                    <button class="pictures-results" type="button">
+                        Pictures quiz results
+                    </button>
+                </li>`
+            getArtistsCategorieRes()
+        })
+    }
+
+    function getArtistsCategorieRes() {
+        const artistsResBtn = document.querySelector('.artist-results')
+        const picturesResBtn = document.querySelector('.pictures-results')
+
+        artistsResBtn.addEventListener('click', () => {
+            setTimeout(() => {
+                workArea.innerHTML = `<div class="categories">
+            <h2>Choose categorie</h2>
+            <button class="portrait" type="button">  
+            <div class="image-with-res ${isPlayed.portrait === true ? 'played' : ''}" id="portrait">
+                <img src="./assets/img/0.jpg" alt="" width="150" height="150">
+                <p class="res">${corRes.portrait}/9</p> 
+            </div>                  
+                Portrait            
+            </button>
+            <button class="landscape" type="button">
+            <div class="image-with-res ${isPlayed.landscape === true ? 'played' : ''}" id="landscape">
+                <img src="./assets/img/10.jpg" alt="" width="150" height="150">
+                <p class="res">${corRes.landscape}/9</p> 
+                </div>
+                Landscape
+            </button>
+            <button class="still-life" type="button">
+            <div class="image-with-res ${isPlayed.stillLife === true ? 'played' : ''}" id="still">
+                <img src="./assets/img/20.jpg" alt="" width="150" height="150">
+                <p class="res">${corRes.stillLife}/9</p> 
+                </div>
+                Still Life
+            </button>
+            <button class="graphic" type="button">
+            <div class="image-with-res ${isPlayed.graphic === true ? 'played' : ''}" id="graphic">
+                <img src="./assets/img/30.jpg" alt="" width="150" height="150">
+                <p class="res">${corRes.graphic}/9</p> 
+                </div>
+                Graphic
+            </button>
+            <button class="antique" type="button">
+            <div class="image-with-res ${isPlayed.antique === true ? 'played' : ''}" id="antique">
+                <img src="./assets/img/40.jpg" alt="" width="150" height="150">
+                <p class="res">${corRes.antique}/9</p> 
+                </div>
+                Antique
+            </button>
+            <button class="avant-garde" type="button">
+            <div class="image-with-res ${isPlayed.avantGarde === true ? 'played' : ''}" id="avant">
+                <img src="./assets/img/50.jpg" alt="" width="150" height="150">
+                <p class="res">${corRes.avantGarde}/9</p> 
+                </div>
+                Avant-Garde
+            </button>
+            <button class="renaissance" type="button">
+            <div class="image-with-res ${isPlayed.renaissance === true ? 'played' : ''}" id="renaissance">
+                <img src="./assets/img/60.jpg" alt="" width="150" height="150">
+                <p class="res">${corRes.renaissance}/9</p> 
+                </div>
+                Renaissance
+            </button>
+            <button class="surrealism" type="button">
+            <div class="image-with-res ${isPlayed.surrealism === true ? 'played' : ''}" id="surrealism">
+                <img src="./assets/img/70.jpg" alt="" width="150" height="150">
+                <p class="res">${corRes.surrealism}/9</p> 
+                </div>
+                Surrealism
+            </button>
+            <button class="kitsch" type="button">
+            <div class="image-with-res ${isPlayed.kitsch === true ? 'played' : ''}" id="kitsch">
+                <img src="./assets/img/80.jpg" alt="" width="150" height="150">
+                <p class="res">${corRes.kitsch}/9</p> 
+                </div>
+                Kitsch
+            </button>
+            <button class="minimalism" type="button">
+            <div class="image-with-res ${isPlayed.minimalism === true ? 'played' : ''}" id="minimalism">
+                <img src="./assets/img/90.jpg" alt="" width="150" height="150">
+                <p class="res">${corRes.minimalism}/9</p> 
+                </div>
+                Minimalism
+            </button>
+            <button class="avangard" type="button">
+            <div class="image-with-res ${isPlayed.avangard === true ? 'played' : ''}" id="avangard">
+                <img src="./assets/img/100.jpg" alt="" width="150" height="150">
+                <p class="res">${corRes.avangard}/9</p> 
+                </div>
+                Avangard
+            </button>
+            <button class="industrial" type="button">
+            <div class="image-with-res ${isPlayed.industrial === true ? 'played' : ''}" id="industrial">
+                <img src="./assets/img/110.jpg" alt="" width="150" height="150">
+                <p class="res">${corRes.industrial}/9</p> 
+                </div>
+                Industrial
+            </button>
+        </div>`
+                getArtistsRes()
+            }, 100)
+            setTimeout(() => {
+                const categories = document.querySelector('.categories');
+                categories.style.opacity = '1'
+            }, 200)
+        })
+    }
+
+    function getArtistsRes() {
+        const allBtns = document.querySelectorAll('button');
+        allBtns.forEach((el, i) => {
+            allBtns[i].addEventListener('click', () => {
+                if (i == 0) {
+                    workArea.innerHTML = `<div class="art-res-images">                    
+                </div>`;
+                    const artResImg = document.querySelector('.art-res-images');
+                    for (let ind = 0; ind < 10; ind++) {
+                        const artWithDescr = document.createElement('div')
+                        const image = document.createElement('img');
+                        const author = document.createElement('p')
+                        const nameArt = document.createElement('p')
+                        artWithDescr.classList.add('art-with-descr')
+                        author.innerHTML = `Автор: ${images[ind].author}`
+                        nameArt.innerHTML = `Название: ${images[ind].name}`
+                        image.src = `./assets/img/${ind}.jpg`;
+                        image.classList.add('res-img')
+                        artWithDescr.appendChild(image)
+                        artWithDescr.appendChild(author)
+                        artWithDescr.appendChild(nameArt)
+                        artResImg.appendChild(artWithDescr);
+                        if (images[ind].isCorrect) image.classList.add('played')
+                    }
+
+                } else {
+                    workArea.innerHTML = `<div class="art-res-images">                    
+                    </div>`;
+                    const artResImg = document.querySelector('.art-res-images');
+                    for (let ind = 0; ind < 10; ind++) {
+                        const artWithDescr = document.createElement('div');
+                        const image = document.createElement('img');
+                        const author = document.createElement('p')
+                        const nameArt = document.createElement('p')
+                        artWithDescr.classList.add('art-with-descr');
+                        author.innerHTML = `Автор: ${images[Number.parseInt(`${i}${ind}`)].author}`
+                        nameArt.innerHTML = `Название: ${images[Number.parseInt(`${i}${ind}`)].name}`
+                        image.src = `./assets/img/${i}${ind}.jpg`;
+                        image.classList.add('res-img')
+                        artWithDescr.appendChild(image)
+                        artWithDescr.appendChild(author)
+                        artWithDescr.appendChild(nameArt)
+                        artResImg.appendChild(artWithDescr);
+                        if (images[Number.parseInt(`${i}${ind}`)].isCorrect) image.classList.add('played')
+                    }
+                }
+            })
+        })
+    }
+
     burgerMenu()
     initPic()
+    checkResults()
 }
 
 

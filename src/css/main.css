@@ -106,7 +106,7 @@ button {
     color: rgb(222,209,203);
 }
 
-.artist, .pictures, .settings {
+.artist, .pictures, .settings, .results {
     width: 90%;
     background-color: rgb(222,209,203);
     color: rgb(25, 38, 56);
@@ -224,6 +224,11 @@ button:hover img {
 
 .image-with-res {
     position: relative;
+    filter: invert(0%) sepia(46%) saturate(0%) hue-rotate(73deg) brightness(92%) contrast(103%);
+}
+
+.played {
+    filter: none
 }
 
 .res {
@@ -429,4 +434,25 @@ button:hover img {
 
   .pic-counter {
       margin-top: 1%;
+  }
+
+  .art-res-images {
+      height: 100%;
+      overflow: scroll;
+  }
+
+  .res-img {
+    filter: invert(0%) sepia(46%) saturate(0%) hue-rotate(73deg) brightness(92%) contrast(103%);
+  }
+
+  .res-img.played {
+      filter: none;
+  }
+
+  .art-with-descr {
+      width: 90%;
+      background-color: rgb(222,209,203);
+      margin: 0 auto;
+      margin-bottom: 5%;
+      border-radius: 10px;
   }
