@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <title>Art Quiz</title>
+</head>
+
+<body>
+    <div class="burger-menu">
+        <input id="menu__toggle" type="checkbox" />
+        <label class="menu__btn" for="menu__toggle">
+            <span></span>
+        </label>
+
+        <ul class="menu__box">
+            <li class="menu__item" id="menu">Menu</li>
+            <li class="menu__item" id="art-quiz">Artists Quiz</li>
+            <li class="menu__item" id="pic-quiz">Pictures Quiz</li>
+            <li class="menu__item" id="results">Results</li>
+        </ul>
+    </div>
+    <div class="popup">
+        <div class="bgshadow"></div>
+        <div class="todo">
+            <img src="./assets/img/0.jpg" alt="scroll">
+            <p class="cor-incor">Верно!</p>
+            <p class="description">Автор: Павел Федотов</p>
+            <div class="next-exit-wrapper">
+                <p class="go-next">Продолжить</p>
+                <p class="exit">Выйти</p>
+            </div>
+        </div>
+    </div>
+    <header>
+        <h1>Art Quiz</h1>
+    </header>
+    <main>
+        <div class="main-wrapper">
+            <div class="wrapper-work">
+                <div class="main-screen">
+                    <ul class="main-categories">
+                        <li class="first-li">
+                            <button class="artist" type="button">
+                                Start artist quiz
+                            </button>
+                        </li>
+                        <li>
+                            <button class="pictures" type="button">
+                                Start pictures quiz
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="results">Results</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="foot">
+            <a href="https://github.com/Arxons" target="_blank">Arxons</a>
+            <h2>©2021</h2>
+            <a href="https://rs.school" target="_blank"><img src="./assets/rss.png" alt="rs"></a>
+        </div>
+    </footer>
+    <script src="./bundle.js"></script>
+</body>
+
+</html>
