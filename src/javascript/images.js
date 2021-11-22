@@ -1,4 +1,4 @@
-const images = [
+let images = [
     {
         author: 'Павел Федотов',
         name: 'Сватовство майора',
@@ -1687,5 +1687,5 @@ const images = [
         isCorrect: false,
     },
 ];
-
+images = JSON.parse(localStorage.getItem('images'))
 export default images;

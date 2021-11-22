@@ -17,7 +17,7 @@ body {
 }
 
 header {
-    height: 15vh;
+    height: 12vh;
     /* background-image: url(../assets/stylus.png); */
     background-repeat: no-repeat;
     background-position-x: right;
@@ -47,7 +47,7 @@ header h1 {
 }
 
 main {
-    height: 75vh;
+    height: 78vh;
 }
 
 footer {
@@ -72,7 +72,7 @@ footer {
     width: 100%;
     height: 100%;
     margin: 0 auto;
-    padding-top: 10%;
+    padding-top: 5%;
     font-size: 26px;
     text-align: center;
     transition: all .3s ease-in-out;
@@ -175,13 +175,14 @@ button:hover img {
 }
 
 .question {
+    margin-bottom: 5%;
     font-size: 24px;
     color: rgb(222,209,203); 
 }
 
 .quest-img {
     width: 90%;
-    height: 55%;
+    height: 52%;
 }
 
 .quest-img:hover {
@@ -213,7 +214,9 @@ button:hover img {
     transition: all .2s ease-out;
     cursor: pointer;
     border-radius: 10px;
-    text-align: center;  
+    display: flex;
+    justify-content: center;  
+    align-items: center;
 }
 
 .answers li:hover {
@@ -241,6 +244,8 @@ button:hover img {
     position: fixed;
     z-index: 100;
     display: none;
+    width: 100%;
+    height: 100%;
 }
 
 /* .popup img {
@@ -265,7 +270,8 @@ button:hover img {
     position: relative;
     font-family: var(--family);
     font-size: 20px;
-    transform: translate(0, 145%);
+    transform: translate(0%, 145%);
+    margin: 0 auto;
     transition: .5s all ease;
     background-color: rgb(222,209,203);
 }
@@ -291,15 +297,11 @@ button:hover img {
 
 .todo .go-next {
     font-size: 22px;
-    margin-left: 12%;
-    margin-top: 7%;
     cursor: pointer;
 }
 
 .todo .exit {
     font-size: 22px;
-    margin-top: -5.6%;
-    margin-left: 68%;
     cursor: pointer;
 }
 
@@ -307,6 +309,13 @@ button:hover img {
     margin-left: 11%;
     font-size: 22px;
     padding-top: 2%;
+}
+
+.next-exit-wrapper {
+    display: flex;
+    margin-top: 7%;
+    margin-left: 12%;
+    gap: 25%;
 }
 
 .go-next:hover {
@@ -401,9 +410,9 @@ button:hover img {
   
     color: rgb(222,209,203);
   
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--family);
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 400;
   
     text-decoration: none;
   
@@ -441,6 +450,13 @@ button:hover img {
       overflow: scroll;
   }
 
+  .art-res-images::-webkit-scrollbar {
+      visibility: hidden;
+  }
+  .art-res-images::-webkit-scrollbar-corner {
+      visibility: hidden;
+  }
+
   .res-img {
     filter: invert(0%) sepia(46%) saturate(0%) hue-rotate(73deg) brightness(92%) contrast(103%);
   }
@@ -456,3 +472,394 @@ button:hover img {
       margin-bottom: 5%;
       border-radius: 10px;
   }
+
+  .artist-results, .pictures-results {
+      background-color: rgb(222,209,203);
+      color: rgb(25, 38, 56);
+  }
+
+  .timer {
+      color: rgb(222,209,203);
+      text-align: right;    
+  }
+
+  .timer p {
+    font-size: 24px;
+    transform: translate(-5%, -50%);
+  }
+
+  .time-settings {
+      background-color: rgb(222,209,203);
+      width: 90%;
+      height: 50%;
+      margin: 0 auto;
+      border-radius: 10px;
+  }
+
+  .time-settings h2 {
+    padding-top: 5%
+  }
+
+  .input-wrapper {
+      padding-top: 10%;
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 10%;
+  }
+
+  .timer-range {
+      width: 80%;
+      opacity: .3;
+}
+
+.bg-picture {
+    position: fixed;
+    width: 30%;
+    height: 20%;
+    border-radius: 50%;    
+}
+
+.foot {
+    display: flex;
+    justify-content: space-around;
+    color: rgb(222,209,203);
+    font-family: var(--family);
+    font-size: 36px;
+    width: 100%;
+    height: 100%;
+}
+
+.foot a {
+    text-decoration: none;
+    color: rgb(222,209,203);
+}
+
+.foot a img {
+    width: 100%;
+    height: 80%;    
+}
+
+@media (min-width: 440px) {
+
+    header h1 {
+        padding-top: 7%;
+    }
+
+    .wrapper-work {
+        width: 80%;
+    }
+}
+
+@media (min-width: 550px) {
+
+    .wrapper-work {
+        width: 70%;
+    }
+    
+    .question {
+        margin-bottom: 0;
+    }
+
+    .menu__box {
+        width: 50%;
+    }
+
+    .menu__item {
+        font-size: 28px;
+    }
+
+    .pic-quest-img {
+        width: 55%;
+    }
+
+    .todo {
+        width: 550px;
+    }
+
+    .next-exit-wrapper {
+        margin-top: 5%;
+        gap: 45%;
+    }
+}
+
+@media (min-width: 660px) {
+    
+    header h1 {
+        padding-top: 5%;
+        font-size: 72px;
+        padding-top: 3%;
+    }
+
+    button {
+        font-size: 34px;
+    }
+
+    .wrapper-work {
+        width: 60%;
+    }
+
+    .question {
+        font-size: 27px;
+        margin-bottom: 0;
+    }
+
+    .quest-img {
+        width: 100%
+    }
+
+    .answers {
+        font-size: 100%;
+    }
+
+    .answers li {
+        margin-bottom: 4%;
+    }
+
+    .counter {
+        font-size: 23px;
+    }
+
+    .pic-answers {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .pic-answers li {
+        width: 50%;
+        height: 30vh;
+    }
+
+    .pic-quest-img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media (min-width: 760px) {
+    
+    header h1 {
+        padding-top: 3%;
+    }
+
+    .wrapper-work {
+        width: 50%;
+    }
+}
+
+@media (min-width: 930px) {
+    
+    header h1 {
+        padding-top: 1%;
+    }
+
+    .menu__btn {
+        top: 6%;
+    }
+
+    .wrapper-work {
+        width: 90%;
+    }
+
+    .main-categories {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .main-categories li {
+        width: 50%;
+        height: 10%;
+        margin-bottom: 0;
+        margin-top: 10%;
+    }
+
+    .first-li {
+        margin-top: 0;
+    }
+
+    .results {
+        margin-left: 55%;
+    }
+
+    img {
+        width: 100%;
+        margin-bottom: 5%;
+    }
+
+    .res {
+        top: 69%;
+        left: 20%;
+        font-size: 26px;
+    }
+
+    .categories {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .categories h2 {
+        position: fixed;
+        top: 13%;
+        left: 39%;
+        font-size: 36px;
+    }
+
+    button {
+        width: 30%;
+        height: 5%;
+        margin-bottom: 30%;
+        border-radius: 33px;
+    }
+    
+    .artist, .pictures {
+        margin-bottom: 0;
+    }
+
+    .answers {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0;
+        height: 25%;
+    }
+    
+    .answers li {
+        width: 45%;
+    }
+
+    .quest-img {
+        width: 60%;
+        height: 70%;
+        margin-bottom: 0;
+    }
+
+    .quest-img:hover {
+        transform: scale(1.3);
+    }
+
+    .question {
+        font-size: 36px;
+    }
+
+    .answers li {
+        font-size: 32px;
+    }
+
+    .counter {
+        font-size: 28px;
+    }
+
+    .todo .cor-incor {
+        font-size: 36px;
+    }
+
+    .todo .description {
+        font-size: 36px;
+    }
+
+    .todo .go-next {
+        font-size: 32px;
+    }
+
+    .todo .exit {
+        font-size: 32px;
+    }
+
+    .next-exit-wrapper {        
+        gap: 29%;
+    }
+
+    .pictures-results, .artist-results {
+        width: 90%;
+        margin-top: 20%;
+    }
+
+    .art-res-images {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .art-with-descr {
+        width: 45%;
+    }
+}
+
+@media (min-width: 1024px) {
+    header h1 {
+        font-size: 86px;
+    }
+
+    button {
+        font-size: 44px;
+    }
+
+    .main-categories {
+        margin-top: 5%;
+    }
+
+    .menu__btn {
+        width: 56px;
+        height: 56px;
+    }
+
+    .menu__btn > span {
+        height: 4px;
+    }
+    .menu__btn > span::before {
+        top: -16px;
+        height: 4px;
+    }
+    .menu__btn > span::after {
+        top: 16px;
+        height: 4px;
+    }
+
+    .question {
+        font-size: 46px;
+    }
+
+    .answers li {
+        font-size: 36px;
+    }
+
+    .counter {
+        font-size: 36px;
+    }
+}
+
+@media (min-width: 1440px) {
+
+    header h1 {
+        padding-top: 1%;
+    }
+
+    .main-categories {
+        margin-top: 0%;
+    }
+
+    .categories h2 {
+
+        left: 41%;
+        font-size: 42px;
+    }
+
+    .answers li {
+        font-size: 42px;
+    }
+}
+
+@media (min-width: 1920px) {
+    button {
+        font-size: 56px;
+    }
+
+    .res {
+        font-size: 42px;
+    }
+
+    .categories h2 {
+        left: 42%;
+        font-size: 46px;
+    }
+}

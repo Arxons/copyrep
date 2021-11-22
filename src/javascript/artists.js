@@ -1,5 +1,6 @@
 import images from './images.js';
 import { initPic } from './pictures.js';
+import { corResPic, isPlayedPic } from './pictures.js';
 
 let corRes = {
     portrait: 0,
@@ -38,7 +39,6 @@ function init() {
     if (JSON.parse(localStorage.getItem('isPlayed')) != null) {
         isPlayed = JSON.parse(localStorage.getItem('isPlayed'))
     }
-
     const artist = document.querySelector('.artist'),
         workArea = document.querySelector('.wrapper-work'),
         popup = document.querySelector('.popup'),
@@ -49,7 +49,9 @@ function init() {
         toSettings = document.getElementById('sett'),
         toResults = document.getElementById('results'),
         menuCheckBox = document.getElementById('menu__toggle'),
-        resultsBtn = document.querySelector('.results')
+        resultsBtn = document.querySelector('.results'),
+        settingsBtn = document.querySelector('.settings'),
+        footer = document.querySelector('.foot')
 
     artist.addEventListener('click', changeContent)
 
@@ -58,90 +60,91 @@ function init() {
     let currentCategorie = [];
 
     function changeContent() {
+        footer.style.display = 'none';
         setTimeout(() => {
             workArea.innerHTML = `<div class="categories">
         <h2>Choose categorie</h2>
         <button class="portrait" type="button">  
         <div class="image-with-res ${isPlayed.portrait === true ? 'played' : ''}" id="portrait">
             <img src="./assets/img/0.jpg" alt="" width="150" height="150">
-            <p class="res">${corRes.portrait}/9</p> 
+            <p class="res">${corRes.portrait}/10</p> 
         </div>                  
             Portrait            
         </button>
         <button class="landscape" type="button">
         <div class="image-with-res ${isPlayed.landscape === true ? 'played' : ''}" id="landscape">
             <img src="./assets/img/10.jpg" alt="" width="150" height="150">
-            <p class="res">${corRes.landscape}/9</p> 
+            <p class="res">${corRes.landscape}/10</p> 
             </div>
             Landscape
         </button>
         <button class="still-life" type="button">
         <div class="image-with-res ${isPlayed.stillLife === true ? 'played' : ''}" id="still">
             <img src="./assets/img/20.jpg" alt="" width="150" height="150">
-            <p class="res">${corRes.stillLife}/9</p> 
+            <p class="res">${corRes.stillLife}/10</p> 
             </div>
             Still Life
         </button>
         <button class="graphic" type="button">
         <div class="image-with-res ${isPlayed.graphic === true ? 'played' : ''}" id="graphic">
             <img src="./assets/img/30.jpg" alt="" width="150" height="150">
-            <p class="res">${corRes.graphic}/9</p> 
+            <p class="res">${corRes.graphic}/10</p> 
             </div>
             Graphic
         </button>
         <button class="antique" type="button">
         <div class="image-with-res ${isPlayed.antique === true ? 'played' : ''}" id="antique">
             <img src="./assets/img/40.jpg" alt="" width="150" height="150">
-            <p class="res">${corRes.antique}/9</p> 
+            <p class="res">${corRes.antique}/10</p> 
             </div>
             Antique
         </button>
         <button class="avant-garde" type="button">
         <div class="image-with-res ${isPlayed.avantGarde === true ? 'played' : ''}" id="avant">
             <img src="./assets/img/50.jpg" alt="" width="150" height="150">
-            <p class="res">${corRes.avantGarde}/9</p> 
+            <p class="res">${corRes.avantGarde}/10</p> 
             </div>
             Avant-Garde
         </button>
         <button class="renaissance" type="button">
         <div class="image-with-res ${isPlayed.renaissance === true ? 'played' : ''}" id="renaissance">
             <img src="./assets/img/60.jpg" alt="" width="150" height="150">
-            <p class="res">${corRes.renaissance}/9</p> 
+            <p class="res">${corRes.renaissance}/10</p> 
             </div>
             Renaissance
         </button>
         <button class="surrealism" type="button">
         <div class="image-with-res ${isPlayed.surrealism === true ? 'played' : ''}" id="surrealism">
             <img src="./assets/img/70.jpg" alt="" width="150" height="150">
-            <p class="res">${corRes.surrealism}/9</p> 
+            <p class="res">${corRes.surrealism}/10</p> 
             </div>
             Surrealism
         </button>
         <button class="kitsch" type="button">
         <div class="image-with-res ${isPlayed.kitsch === true ? 'played' : ''}" id="kitsch">
             <img src="./assets/img/80.jpg" alt="" width="150" height="150">
-            <p class="res">${corRes.kitsch}/9</p> 
+            <p class="res">${corRes.kitsch}/10</p> 
             </div>
             Kitsch
         </button>
         <button class="minimalism" type="button">
         <div class="image-with-res ${isPlayed.minimalism === true ? 'played' : ''}" id="minimalism">
-            <img src="./assets/img/90.jpg" alt="" width="150" height="150">
-            <p class="res">${corRes.minimalism}/9</p> 
+            <img src="./assets/img/100.jpg" alt="" width="150" height="150">
+            <p class="res">${corRes.minimalism}/10</p> 
             </div>
             Minimalism
         </button>
         <button class="avangard" type="button">
         <div class="image-with-res ${isPlayed.avangard === true ? 'played' : ''}" id="avangard">
             <img src="./assets/img/100.jpg" alt="" width="150" height="150">
-            <p class="res">${corRes.avangard}/9</p> 
+            <p class="res">${corRes.avangard}/10</p> 
             </div>
             Avangard
         </button>
         <button class="industrial" type="button">
         <div class="image-with-res ${isPlayed.industrial === true ? 'played' : ''}" id="industrial">
             <img src="./assets/img/110.jpg" alt="" width="150" height="150">
-            <p class="res">${corRes.industrial}/9</p> 
+            <p class="res">${corRes.industrial}/10</p> 
             </div>
             Industrial
         </button>
@@ -169,9 +172,9 @@ function init() {
                 </ul>
                 <div class="counter">                    
                     <div class="correct-answers">Correct answers: 0</div>
-                    <div class="all-answers">Question: 1/9</div>
+                    <div class="all-answers">Question: 1/10</div>
                 </div>`;
-                    correctAnswer(i + 1)
+                    correctAnswer(i)
                 } else {
                     workArea.innerHTML = `<h2 class="question">Кто автор данной картины?</h2>
                 <img class="quest-img" src="./assets/img/${i}0.jpg" alt="" width="150" height="150">
@@ -180,7 +183,7 @@ function init() {
                 </ul>
                 <div class="counter">                    
                     <div class="correct-answers">Correct answers: 0</div>
-                    <div class="all-answers">Question: 1/9</div>
+                    <div class="all-answers">Question: 1/10</div>
                 </div>`;
                     correctAnswer(i * 10)
                 }
@@ -230,8 +233,10 @@ function init() {
         todo.innerHTML = `<img src="./assets/img/${index}.jpg" alt="">
         <p class="cor-incor">Верно!</p>
         <p class="description">Автор: ${images[index].author}</p>
-        <p class="go-next">Продолжить</p>
-        <p class="exit">Выйти</p>`
+        <div class="next-exit-wrapper">
+            <p class="go-next">Продолжить</p>
+            <p class="exit">Выйти</p>
+        </div>`
         corAnsw.addEventListener('click', () => {
             const popup = document.querySelector('.popup');
             const goNext = document.querySelector('.go-next');
@@ -244,6 +249,7 @@ function init() {
                 counterCorrect++
                 counterAllAnsw++
                 images[index].isCorrect = true;
+                localStorage.setItem('images', JSON.stringify(images))
                 corImages.push(images[index])
                 workArea.innerHTML = `<h2 class="question">Кто автор данной картины?</h2>
         <img class="quest-img" src="./assets/img/${index + 1}.jpg" alt="" width="150" height="150">
@@ -252,7 +258,7 @@ function init() {
         </ul>
         <div class="counter">            
     <div class="correct-answers">Correct answers: ${counterCorrect}</div>
-    <div class="all-answers">Question: ${counterAllAnsw}/9</div >
+    <div class="all-answers">Question: ${counterAllAnsw}/10</div >
         </div > `
                 correctAnswer(index + 1)
                 countRight()
@@ -284,7 +290,7 @@ function init() {
                 </ul>
                 <div class="counter">            
             <div class="correct-answers">Correct answers: ${counterCorrect}</div>
-            <div class="all-answers">Question: ${counterAllAnsw}/9</div >
+            <div class="all-answers">Question: ${counterAllAnsw}/10</div >
                 </div > `
                     correctAnswer(index + 1)
                     countRight()
@@ -297,15 +303,17 @@ function init() {
                 })
             })
         })
-        if (counterAllAnsw == 9) {
+        if (counterAllAnsw > 9) {
             corAnsw.addEventListener('click', () => {
                 counterCorrect++
                 todo.innerHTML = `<img src="./assets/img/${index}.jpg" alt="">
                 <p class="cor-incor">Верно!</p>
                 <p class="description">Автор: ${images[index].author}</p>
-                <p class="descr-results">Ваш результат ${counterCorrect} из 9</p>
-                <p class="go-next">Продолжить</p>
-                <p class="exit">Выйти</p>`;
+                <p class="descr-results">Ваш результат ${counterCorrect} из 10</p>
+                <div class="next-exit-wrapper">
+                    <p class="go-next">Продолжить</p>
+                    <p class="exit">Выйти</p>
+                </div>`;
 
                 popup.style.display = 'block';
                 setTimeout(() => todo.style.transform = 'translate(0, 43%)', 100)
@@ -336,9 +344,11 @@ function init() {
                     todo.innerHTML = `<img src="./assets/img/${index}.jpg" alt="">
                 <p class="cor-incor">Неверно!</p>
                 <p class="description">Автор: ${images[index].author}</p>
-                <p class="descr-results">Ваш результат ${counterCorrect} из 9</p>
-                <p class="go-next">Продолжить</p>
-                <p class="exit">Выйти</p>`;
+                <p class="descr-results">Ваш результат ${counterCorrect} из 10</p>
+                <div class="next-exit-wrapper">
+                    <p class="go-next">Продолжить</p>
+                    <p class="exit">Выйти</p>
+                </div>`;
 
                     popup.style.display = 'block';
                     setTimeout(() => todo.style.transform = 'translate(0, 43%)', 100)
@@ -442,6 +452,7 @@ function init() {
 
     function burgerMenu() {
         toMenu.addEventListener('click', () => {
+            footer.style.display = 'flex';
             workArea.innerHTML = `<div class="main-screen">
                     <ul class="main-categories">
                         <li class="first-li">
@@ -456,9 +467,6 @@ function init() {
                         </li>
                         <li>
                             <button type="button" class="results">Results</button>
-                        </li>
-                        <li>
-                            <button type="button" class="settings">Settings</button>
                         </li>
                     </ul>
                 </div>`
@@ -518,89 +526,185 @@ function init() {
             <button class="portrait" type="button">  
             <div class="image-with-res ${isPlayed.portrait === true ? 'played' : ''}" id="portrait">
                 <img src="./assets/img/0.jpg" alt="" width="150" height="150">
-                <p class="res">${corRes.portrait}/9</p> 
+                <p class="res">${corRes.portrait}/10</p> 
             </div>                  
                 Portrait            
             </button>
             <button class="landscape" type="button">
             <div class="image-with-res ${isPlayed.landscape === true ? 'played' : ''}" id="landscape">
                 <img src="./assets/img/10.jpg" alt="" width="150" height="150">
-                <p class="res">${corRes.landscape}/9</p> 
+                <p class="res">${corRes.landscape}/10</p> 
                 </div>
                 Landscape
             </button>
             <button class="still-life" type="button">
             <div class="image-with-res ${isPlayed.stillLife === true ? 'played' : ''}" id="still">
                 <img src="./assets/img/20.jpg" alt="" width="150" height="150">
-                <p class="res">${corRes.stillLife}/9</p> 
+                <p class="res">${corRes.stillLife}/10</p> 
                 </div>
                 Still Life
             </button>
             <button class="graphic" type="button">
             <div class="image-with-res ${isPlayed.graphic === true ? 'played' : ''}" id="graphic">
                 <img src="./assets/img/30.jpg" alt="" width="150" height="150">
-                <p class="res">${corRes.graphic}/9</p> 
+                <p class="res">${corRes.graphic}/10</p> 
                 </div>
                 Graphic
             </button>
             <button class="antique" type="button">
             <div class="image-with-res ${isPlayed.antique === true ? 'played' : ''}" id="antique">
                 <img src="./assets/img/40.jpg" alt="" width="150" height="150">
-                <p class="res">${corRes.antique}/9</p> 
+                <p class="res">${corRes.antique}/10</p> 
                 </div>
                 Antique
             </button>
             <button class="avant-garde" type="button">
             <div class="image-with-res ${isPlayed.avantGarde === true ? 'played' : ''}" id="avant">
                 <img src="./assets/img/50.jpg" alt="" width="150" height="150">
-                <p class="res">${corRes.avantGarde}/9</p> 
+                <p class="res">${corRes.avantGarde}/10</p> 
                 </div>
                 Avant-Garde
             </button>
             <button class="renaissance" type="button">
             <div class="image-with-res ${isPlayed.renaissance === true ? 'played' : ''}" id="renaissance">
                 <img src="./assets/img/60.jpg" alt="" width="150" height="150">
-                <p class="res">${corRes.renaissance}/9</p> 
+                <p class="res">${corRes.renaissance}/10</p> 
                 </div>
                 Renaissance
             </button>
             <button class="surrealism" type="button">
             <div class="image-with-res ${isPlayed.surrealism === true ? 'played' : ''}" id="surrealism">
                 <img src="./assets/img/70.jpg" alt="" width="150" height="150">
-                <p class="res">${corRes.surrealism}/9</p> 
+                <p class="res">${corRes.surrealism}/10</p> 
                 </div>
                 Surrealism
             </button>
             <button class="kitsch" type="button">
             <div class="image-with-res ${isPlayed.kitsch === true ? 'played' : ''}" id="kitsch">
                 <img src="./assets/img/80.jpg" alt="" width="150" height="150">
-                <p class="res">${corRes.kitsch}/9</p> 
+                <p class="res">${corRes.kitsch}/10</p> 
                 </div>
                 Kitsch
             </button>
             <button class="minimalism" type="button">
             <div class="image-with-res ${isPlayed.minimalism === true ? 'played' : ''}" id="minimalism">
-                <img src="./assets/img/90.jpg" alt="" width="150" height="150">
-                <p class="res">${corRes.minimalism}/9</p> 
+                <img src="./assets/img/100.jpg" alt="" width="150" height="150">
+                <p class="res">${corRes.minimalism}/10</p> 
                 </div>
                 Minimalism
             </button>
             <button class="avangard" type="button">
             <div class="image-with-res ${isPlayed.avangard === true ? 'played' : ''}" id="avangard">
                 <img src="./assets/img/100.jpg" alt="" width="150" height="150">
-                <p class="res">${corRes.avangard}/9</p> 
+                <p class="res">${corRes.avangard}/10</p> 
                 </div>
                 Avangard
             </button>
             <button class="industrial" type="button">
             <div class="image-with-res ${isPlayed.industrial === true ? 'played' : ''}" id="industrial">
                 <img src="./assets/img/110.jpg" alt="" width="150" height="150">
-                <p class="res">${corRes.industrial}/9</p> 
+                <p class="res">${corRes.industrial}/10</p> 
                 </div>
                 Industrial
             </button>
         </div>`
                 getArtistsRes()
+            }, 100)
+            setTimeout(() => {
+                const categories = document.querySelector('.categories');
+                categories.style.opacity = '1'
+            }, 200)
+        })
+        picturesResBtn.addEventListener('click', () => {
+            setTimeout(() => {
+                workArea.innerHTML = `<div class="categories">
+                <h2>Choose categorie</h2>
+                <button class="portrait" type="button">  
+                <div class="image-with-res ${isPlayedPic.portrait === true ? 'played' : ''}" id="portrait">
+                    <img src="./assets/img/120.jpg" alt="" width="150" height="150">
+                    <p class="res">${corResPic.portrait}/10</p> 
+                </div>                  
+                    Portrait            
+                </button>
+                <button class="landscape" type="button">
+                <div class="image-with-res ${isPlayedPic.landscape === true ? 'played' : ''}" id="landscape">
+                    <img src="./assets/img/130.jpg" alt="" width="150" height="150">
+                    <p class="res">${corResPic.landscape}/10</p> 
+                    </div>
+                    Landscape
+                </button>
+                <button class="still-life" type="button">
+                <div class="image-with-res ${isPlayedPic.stillLife === true ? 'played' : ''}" id="still">
+                    <img src="./assets/img/140.jpg" alt="" width="150" height="150">
+                    <p class="res">${corResPic.stillLife}/10</p> 
+                    </div>
+                    Still Life
+                </button>
+                <button class="graphic" type="button">
+                <div class="image-with-res ${isPlayedPic.graphic === true ? 'played' : ''}" id="graphic">
+                    <img src="./assets/img/150.jpg" alt="" width="150" height="150">
+                    <p class="res">${corResPic.graphic}/10</p> 
+                    </div>
+                    Graphic
+                </button>
+                <button class="antique" type="button">
+                <div class="image-with-res ${isPlayedPic.antique === true ? 'played' : ''}" id="antique">
+                    <img src="./assets/img/160.jpg" alt="" width="150" height="150">
+                    <p class="res">${corResPic.antique}/10</p> 
+                    </div>
+                    Antique
+                </button>
+                <button class="avant-garde" type="button">
+                <div class="image-with-res ${isPlayedPic.avantGarde === true ? 'played' : ''}" id="avant">
+                    <img src="./assets/img/170.jpg" alt="" width="150" height="150">
+                    <p class="res">${corResPic.avantGarde}/10</p> 
+                    </div>
+                    Avant-Garde
+                </button>
+                <button class="renaissance" type="button">
+                <div class="image-with-res ${isPlayedPic.renaissance === true ? 'played' : ''}" id="renaissance">
+                    <img src="./assets/img/180.jpg" alt="" width="150" height="150">
+                    <p class="res">${corResPic.renaissance}/10</p> 
+                    </div>
+                    Renaissance
+                </button>
+                <button class="surrealism" type="button">
+                <div class="image-with-res ${isPlayedPic.surrealism === true ? 'played' : ''}" id="surrealism">
+                    <img src="./assets/img/190.jpg" alt="" width="150" height="150">
+                    <p class="res">${corResPic.surrealism}/10</p> 
+                    </div>
+                    Surrealism
+                </button>
+                <button class="kitsch" type="button">
+                <div class="image-with-res" id="kitsch">
+                    <img src="./assets/img/200.jpg ${isPlayedPic.kitsch === true ? 'played' : ''}" alt="" width="150" height="150">
+                    <p class="res">${corResPic.kitsch}/10</p> 
+                    </div>
+                    Kitsch
+                </button>
+                <button class="minimalism" type="button">
+                <div class="image-with-res ${isPlayedPic.minimalism === true ? 'played' : ''}" id="minimalism">
+                    <img src="./assets/img/210.jpg" alt="" width="150" height="150">
+                    <p class="res">${corResPic.minimalism}/10</p> 
+                    </div>
+                    Minimalism
+                </button>
+                <button class="avangard" type="button">
+                <div class="image-with-res ${isPlayedPic.avangard === true ? 'played' : ''}" id="avangard">
+                    <img src="./assets/img/220.jpg" alt="" width="150" height="150">
+                    <p class="res">${corResPic.avangard}/10</p> 
+                    </div>
+                    Avangard
+                </button>
+                <button class="industrial" type="button">
+                <div class="image-with-res ${isPlayedPic.industrial === true ? 'played' : ''}" id="industrial">
+                    <img src="./assets/img/230.jpg" alt="" width="150" height="150">
+                    <p class="res">${corResPic.industrial}/10</p> 
+                    </div>
+                    Industrial
+                </button>
+            </div>`
+                getPicturesRes()
             }, 100)
             setTimeout(() => {
                 const categories = document.querySelector('.categories');
@@ -659,10 +763,58 @@ function init() {
         })
     }
 
+    function getPicturesRes() {
+        const allBtns = document.querySelectorAll('button');
+        allBtns.forEach((el, i) => {
+            allBtns[i].addEventListener('click', () => {
+                if (i < 8) {
+                    workArea.innerHTML = `<div class="art-res-images">                    
+                </div>`;
+                    const artResImg = document.querySelector('.art-res-images');
+                    for (let ind = 0; ind < 10; ind++) {
+                        const artWithDescr = document.createElement('div')
+                        const image = document.createElement('img');
+                        const author = document.createElement('p')
+                        const nameArt = document.createElement('p')
+                        artWithDescr.classList.add('art-with-descr')
+                        author.innerHTML = `Автор: ${images[Number.parseInt(`1${i + 2}${ind}`)].author}`
+                        nameArt.innerHTML = `Название: ${images[Number.parseInt(`1${i + 2}${ind}`)].name}`
+                        image.src = `./assets/img/1${i + 2}${ind}.jpg`;
+                        image.classList.add('res-img')
+                        artWithDescr.appendChild(image)
+                        artWithDescr.appendChild(author)
+                        artWithDescr.appendChild(nameArt)
+                        artResImg.appendChild(artWithDescr);
+                        if (images[Number.parseInt(`1${i + 2}${ind}`)].isCorrect) image.classList.add('played')
+                    }
+
+                } else {
+                    workArea.innerHTML = `<div class="art-res-images">                    
+                    </div>`;
+                    const artResImg = document.querySelector('.art-res-images');
+                    for (let ind = 0; ind < 10; ind++) {
+                        const artWithDescr = document.createElement('div');
+                        const image = document.createElement('img');
+                        const author = document.createElement('p')
+                        const nameArt = document.createElement('p')
+                        artWithDescr.classList.add('art-with-descr');
+                        author.innerHTML = `Автор: ${images[Number.parseInt(`2${i - 8}${ind}`)].author}`
+                        nameArt.innerHTML = `Название: ${images[Number.parseInt(`2${i - 8}${ind}`)].name}`
+                        image.src = `./assets/img/2${i - 8}${ind}.jpg`;
+                        image.classList.add('res-img')
+                        artWithDescr.appendChild(image)
+                        artWithDescr.appendChild(author)
+                        artWithDescr.appendChild(nameArt)
+                        artResImg.appendChild(artWithDescr);
+                        if (images[Number.parseInt(`2${i - 8}${ind}`)].isCorrect) image.classList.add('played')
+                    }
+                }
+            })
+        })
+    }
+
     burgerMenu()
     initPic()
     checkResults()
 }
-
-
 init()
