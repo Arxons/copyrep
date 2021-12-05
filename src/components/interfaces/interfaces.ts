@@ -10,7 +10,7 @@ export interface IResponse {
 }
 
 export interface IGetSources extends IResponse {
-    sources: Array<object>
+    sources?: Array<object>
 }
 
 export interface IGetSourcesData {
@@ -24,8 +24,8 @@ export interface IGetSourcesData {
 }
 
 export interface IGetNews extends IResponse {
-    totalResults: number;
-    articles: Array<object>;
+    totalResults?: number;
+    articles?: Array<object>;
 }
 
 export interface IGetNewsData {
@@ -41,26 +41,22 @@ export interface IGetNewsData {
 
 export interface ILoader {
     baseLink: string;
-    options: IOptions;
+    options: IOptions<string>;
 
     getResp(arg0: object, arg1: () => void): void;
     errorHandler(arg0: object): object
     makeUrl(options: object, endpoint: string): string;
-    load(method: string, endpoint: string, callback: voidCallback, options: IOptions): void;
+    load(method: string, endpoint: string, callback: voidCallback, options: IOptions<string>): void;
 }
 
 export interface IUrlOptions {
     options: string;
 }
 
-export interface IOptions {
-    [apiKey: string]: string
+export interface IOptions<T> {
+    [apiKey: string]: T
 }
 
-export interface MouseEvent {
-    currentTarget: EventTarget;
-}
+export type getData = IGetSources | IGetNews
 
-export type getData = IGetSourcesData | IGetNewsData
-
-export type voidCallback = (data: IGetSources | IGetNews) => void
+export type voidCallback = (data: getData) => void

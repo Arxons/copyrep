@@ -7,7 +7,7 @@ class Loader implements ILoader {
     options
 
 
-    constructor(baseLink: string, options: IOptions) {
+    constructor(baseLink: string, options: IOptions<string>) {
         this.baseLink = baseLink;
         this.options = options;
     }
@@ -16,7 +16,7 @@ class Loader implements ILoader {
         { endpoint, options = {} }:
             {
                 endpoint: string,
-                options?: IOptions
+                options?: IOptions<string>
             },
         callback: voidCallback = () => {
             console.error('No callback for GET response');
@@ -35,8 +35,8 @@ class Loader implements ILoader {
         return res;
     }
 
-    makeUrl(options: IOptions, endpoint: string) {
-        const urlOptions: IOptions = { ...this.options, ...options };
+    makeUrl(options: IOptions<string>, endpoint: string) {
+        const urlOptions: IOptions<string> = { ...this.options, ...options };
         let url: string = `${this.baseLink}${endpoint}?`;
 
         const keys: string[] = Object.keys(urlOptions)
@@ -48,7 +48,7 @@ class Loader implements ILoader {
         return url.slice(0, -1);
     }
 
-    load(method: string, endpoint: string, callback: voidCallback, options: IOptions = {}) {
+    load(method: string, endpoint: string, callback: voidCallback, options: IOptions<string> = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json<IGetSources | IGetNews>())

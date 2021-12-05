@@ -1,6 +1,5 @@
 import { voidCallback } from '../interfaces/interfaces';
 import AppLoader from './appLoader';
-import { } from '../interfaces/interfaces';
 
 class AppController extends AppLoader {
     getSources(callback: voidCallback) {
@@ -13,7 +12,7 @@ class AppController extends AppLoader {
         );
     }
 
-    getNews(e: MouseEvent, callback: voidCallback) {
+    getNews(e: Event, callback: voidCallback) {
         let target = e.target;
         const newsContainer = e.currentTarget;
 
