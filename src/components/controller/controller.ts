@@ -14,18 +14,21 @@ class AppController extends AppLoader {
     }
 
     getNews(e: MouseEvent, callback: voidCallback) {
-        let target: any = e.target;
-        const newsContainer: any = e.currentTarget;
-        console.log(target)
-        console.log(newsContainer)
+        let target = e.target;
+        const newsContainer = e.currentTarget;
 
+        this._isFullTargetClasses(target as HTMLSpanElement, newsContainer as HTMLDivElement, callback)
 
-        while (target !== newsContainer) {
-            if (target != null) {
-                if (target.classList.contains('source__item')) {
-                    const sourceId = target.getAttribute('data-source-id');
-                    if (newsContainer.getAttribute('data-source') !== sourceId) {
-                        newsContainer.setAttribute('data-source', sourceId);
+    }
+
+    private _isFullTargetClasses(target: HTMLSpanElement, targetNewsContainer: HTMLDivElement, callback: voidCallback) {
+        while (target !== targetNewsContainer) {
+            if (target.classList.contains('source__item')) {
+                const sourceId = target.getAttribute('data-source-id');
+                if (targetNewsContainer.getAttribute('data-source') !== sourceId) {
+                    if (sourceId != null) {
+                        targetNewsContainer.setAttribute('data-source', sourceId);
+
                         super.getResp(
                             {
                                 endpoint: 'everything',
@@ -36,10 +39,16 @@ class AppController extends AppLoader {
                             callback
                         );
                     }
-                    return;
                 }
-                target = target.parentNode;
+                return;
             }
+            this.changeTarget(target as HTMLSpanElement)
+        }
+    }
+
+    private changeTarget(target: ParentNode) {
+        if (target.parentNode != null) {
+            target = target.parentNode;
         }
     }
 }
