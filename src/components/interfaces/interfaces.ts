@@ -9,8 +9,9 @@ export interface IResponse {
     json<T>(): Promise<T>;
 }
 
-export interface IGetSources extends IResponse {
-    sources?: Array<object>
+export interface IGetSources extends Array<object> {
+    sources?: Array<object>;
+    length: number;
 }
 
 export interface IGetSourcesData {
@@ -23,9 +24,10 @@ export interface IGetSourcesData {
     url: string;
 }
 
-export interface IGetNews extends IResponse {
+export interface IGetNews extends Array<object> {
     totalResults?: number;
     articles?: Array<object>;
+    lenght?: number;
 }
 
 export interface IGetNewsData {
@@ -33,17 +35,22 @@ export interface IGetNewsData {
     content: string;
     description: string;
     publishedAt: string;
-    source: object;
+    source: NewsSources;
     title: string;
     url: string;
     urlToImage: string;
+}
+
+interface NewsSources {
+    id: string;
+    name: string;
 }
 
 export interface ILoader {
     baseLink: string;
     options: IOptions<string>;
 
-    getResp(arg0: object, arg1: () => void): void;
+    getResp(arg0: object, callback: () => void): void;
     errorHandler(arg0: object): object
     makeUrl(options: object, endpoint: string): string;
     load(method: string, endpoint: string, callback: voidCallback, options: IOptions<string>): void;
@@ -55,6 +62,10 @@ export interface IUrlOptions {
 
 export interface IOptions<T> {
     [apiKey: string]: T
+}
+
+export interface GetQuery<T> extends HTMLTemplateElement {
+    querySelector<T>(selector: string): Element | HTMLStyleElement
 }
 
 export type getData = IGetSources | IGetNews

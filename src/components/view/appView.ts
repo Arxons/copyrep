@@ -1,4 +1,4 @@
-import { IGetNews, IGetSources } from '../interfaces/interfaces';
+import { IGetNews, IGetNewsData, IGetSources } from '../interfaces/interfaces';
 import News from './news/news';
 import Sources from './sources/sources';
 
@@ -12,12 +12,12 @@ export class AppView {
     }
 
     drawNews(data: IGetNews) {
-        const values = data?.articles ? data?.articles : [];
+        const values: IGetNews['articles'] = data?.articles ? data?.articles : [];
         this.news.draw(values);
     }
 
     drawSources(data: IGetSources) {
-        const values = data?.sources ? data?.sources : [];
+        const values: IGetSources['sources'] = data?.sources ? data?.sources : [];
         this.sources.draw(values);
     }
 }

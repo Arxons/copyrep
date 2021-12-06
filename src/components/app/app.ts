@@ -4,16 +4,16 @@ import { AppView } from '../view/appView';
 class App {
     controller: AppController;
     view: AppView;
-    sources: Element | null;
+    sources: Element;
 
     constructor() {
         this.controller = new AppController();
         this.view = new AppView();
-        this.sources = document.querySelector('.sources')
+        this.sources = document.querySelector('.sources') as Element;
     }
 
-    start(sources: Element) {
-        sources.addEventListener('click', (e) => {
+    start() {
+        this.sources.addEventListener('click', (e) => {
             console.log(e)
             this.controller.getNews(e, (data) => this.view.drawNews(data))
         });
