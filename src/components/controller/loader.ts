@@ -3,14 +3,11 @@ import { IGetNews, IResponse, IGetSources, IOptions, ILoader, voidCallback } fro
 
 
 class Loader implements ILoader {
-    baseLink
-    options
 
-
-    constructor(baseLink: string, options: IOptions<string>) {
-        this.baseLink = baseLink;
-        this.options = options;
-    }
+    constructor(
+        public baseLink: string,
+        public options: IOptions<string>
+    ) { }
 
     getResp(
         { endpoint, options = {} }:
