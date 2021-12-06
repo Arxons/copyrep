@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="assets/favicon.ico" rel="shortcut icon" />
+  <link rel="stylesheet" href="css/owfont-regular.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>momentum</title>
+</head>
+
+<body>
+  <div class="pro-player">
+    <button class="pro-play-prev player-icon"></button>
+    <button class="pro-play player-icon"></button>
+    <button class="pro-play-next player-icon"></button>
+    <input type="range" name="audio-length" class="audio-length" value="0" min="0" max="100">
+    <p><span class="minutes">00</span>:<span class="secundes">00</span> - <span class="minutes-duration">00</span>:<span
+        class="secundes-duration">00</span></p>
+    <button class="pro-volume player-icon"></button>
+    <input type="range" name="volume-length" class="volume-length" value="100" min="0" max="100">
+  </div>
+  <div class="pro-player-btn"></div>
+  <div class="settings">
+    <div class="box-shadow">
+      <p class="languages">Language: <span class="en-lang">En</span> <span class="ru-lang">Ru</span></p>
+      <p class="pictures">Pictures Puth: <span class="git">Git</span> <span class="unsplash">Unsplash</span> <span
+          class="flickr">Flickr</span></p>
+      <ul>
+        <li class="time-hide">Hide time</li>
+        <li class="date-hide">Hide date</li>
+        <li class="greeting-hide">Hide greeting</li>
+        <li class="quote-hide">Hide quote</li>
+        <li class="weather-hide">Hide weather</li>
+        <li class="player-hide">Hide player</li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="settings-btn"></div>
+  <header class="header">
+    <div class="player">
+      <div class="player-controls">
+        <button class="play-prev player-icon"></button>
+        <button class="play player-icon"></button>
+        <button class="play-next player-icon"></button>
+      </div>
+      <ul class="play-list">
+      </ul>
+    </div>
+    <div class="weather">
+      <input type="text" class="city" placeholder="[Enter city]" />
+      <i class="weather-icon owf"></i>
+      <div class="weather-error"></div>
+      <div class="description-container">
+        <span class="temperature"></span>
+        <span class="weather-description"></span>
+      </div>
+      <div class="wind"></div>
+      <div class="humidity"></div>
+    </div>
+  </header>
+  <main class="main">
+    <div class="slider-icons">
+      <button class="slide-prev slider-icon"></button>
+      <button class="slide-next slider-icon"></button>
+    </div>
+    <time class="time"></time>
+    <date class="date"></date>
+    <div class="greeting-container">
+      <span class="greeting"></span>
+      <input type="text" class="name" placeholder="[Enter name]" />
+    </div>
+  </main>
+  <footer class="footer">
+    <button class="change-quote"></button>
+    <div>
+      <div class="quote"></div>
+      <div class="author"></div>
+    </div>
+  </footer>
+  <script src="./js/translation.js"></script>
+  <script src="./js/dateTime.js"></script>
+  <script src="./js/greeting.js"></script>
+  <script src="./js/sliderbg.js"></script>
+  <script src="./js/weather.js"></script>
+  <script src="./js/quotes.js"></script>
+  <script type="module" src="./js/audioPlayer.js"></script>
+  <script src="./js/settings.js"></script>
+  <script src="./js/console.js"></script>
+</body>
+
+</html>
