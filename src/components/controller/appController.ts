@@ -12,17 +12,23 @@ class AppController extends AppLoader {
   }
 
   getNews(e: Event, callback: VoidCallback): void {
-    let target: EventTarget | null = e.target;
-    const newsContainer: EventTarget | null = e.currentTarget;
+    // let target: EventTarget | null = e.target;
+    // const newsContainer: EventTarget | null = e.currentTarget;
+    let { target }: { target: EventTarget | null } = e;
+    const { currentTarget: newsContainer }: { currentTarget: EventTarget | null } = e;
 
     while (target !== newsContainer) {
-      const isFull: boolean = (target as HTMLSpanElement).classList.contains('source_item');
-      if (!isFull) {
-        const sourceId = (target as HTMLSpanElement).getAttribute('data-source-id');
-        const newsContainerAttribute: string | null = (newsContainer as HTMLDivElement).getAttribute('data-source');
-        if (newsContainerAttribute !== sourceId) {
+      const targetAsSpanEl = target as HTMLSpanElement;
+      const isSourceItemEl = targetAsSpanEl.classList.contains('source_item');
+
+      if (!isSourceItemEl) {
+        const sourceId = targetAsSpanEl.getAttribute('data-source-id');
+        const newsContainerDivEl = newsContainer as HTMLDivElement
+        const dataSourceAttribute = newsContainerDivEl.getAttribute('data-source');
+
+        if (dataSourceAttribute !== sourceId) {
           if (sourceId !== null) {
-            (newsContainer as HTMLDivElement).setAttribute('data-source', sourceId);
+            newsContainerDivEl.setAttribute('data-source', sourceId);
 
             super.getResp(
               {
@@ -37,7 +43,7 @@ class AppController extends AppLoader {
         }
         return;
       }
-      target = (target as HTMLSpanElement).parentNode;
+      target = targetAsSpanEl.parentNode;
     }
   }
 }
