@@ -1,4 +1,4 @@
-import { IGetNews, IResponse, IGetSources, IOptions, ILoader, voidCallback } from '../interfaces/interfaces';
+import { IGetNews, IResponse, IGetSources, IOptions, ILoader, voidCallback } from '../interfaces/appInterfaces';
 
 
 

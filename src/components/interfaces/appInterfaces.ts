@@ -68,6 +68,13 @@ export interface GetQuery<T> extends HTMLTemplateElement {
   querySelector<T>(selector: string): Element | HTMLStyleElement
 }
 
+export enum optionsConfigValues {
+  sources = 'sources',
+  everything = 'everything',
+  apiKey = '941849fcc9764954b763e931ab561316',
+  baseLink = 'https://newsapi.org/v2/'
+}
+
 export type getData = IGetSources | IGetNews
 
 export type voidCallback = (data: getData) => void

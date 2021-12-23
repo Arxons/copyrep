@@ -1,4 +1,4 @@
-import { voidCallback } from '../interfaces/interfaces';
+import { optionsConfigValues, voidCallback } from '../interfaces/appInterfaces';
 import AppLoader from './appLoader';
 
 class AppController extends AppLoader {
@@ -6,7 +6,7 @@ class AppController extends AppLoader {
     console.log(callback)
     super.getResp(
       {
-        endpoint: 'sources',
+        endpoint: optionsConfigValues.sources,
       },
       callback
     );
@@ -16,16 +16,18 @@ class AppController extends AppLoader {
     let target: EventTarget | null = e.target;
     const newsContainer: EventTarget | null = e.currentTarget;
 
-    while (target as EventTarget !== newsContainer) {
-      if ((target as HTMLSpanElement).classList.contains('source__item')) {
+    while (target !== newsContainer) {
+      const isFull: boolean = (target as HTMLSpanElement).classList.contains('source_item');
+      if (isFull) {
         const sourceId = (target as HTMLSpanElement).getAttribute('data-source-id');
-        if ((newsContainer as HTMLDivElement).getAttribute('data-source') !== sourceId) {
+        const newsContainerAttribute: string | null = (newsContainer as HTMLDivElement).getAttribute('data-source');
+        if (newsContainerAttribute !== sourceId) {
           if (sourceId != null) {
             (newsContainer as HTMLDivElement).setAttribute('data-source', sourceId);
 
             super.getResp(
               {
-                endpoint: 'everything',
+                endpoint: optionsConfigValues.everything,
                 options: {
                   sources: sourceId,
                 },
