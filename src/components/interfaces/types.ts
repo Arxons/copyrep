@@ -9,8 +9,8 @@ export interface IResponse {
   json<T>(): Promise<T>;
 }
 
-export interface IGetSources extends Array<object> {
-  sources?: Array<object>;
+export interface IGetSources {
+  sources?: Array<IGetSourcesData>;
   length: number;
 }
 
@@ -24,9 +24,9 @@ export interface IGetSourcesData {
   url: string;
 }
 
-export interface IGetNews extends Array<object> {
+export interface IGetNews {
   totalResults?: number;
-  articles?: Array<object>;
+  articles?: Array<IGetNewsData>;
   lenght?: number;
 }
 
@@ -50,14 +50,10 @@ export interface ILoader {
   baseLink: string;
   options: IOptions<string>;
 
-  getResp(arg0: object, callback: () => void): void;
-  errorHandler(arg0: object): object
-  makeUrl(options: object, endpoint: string): string;
+  getResp(config: LoaderConfig, callback: () => void): void;
+  errorHandler(res: IResponse): object
+  makeUrl(options: IOptions<string>, endpoint: string): string;
   load(method: string, endpoint: string, callback: VoidCallback, options: IOptions<string>): void;
-}
-
-export interface IUrlOptions {
-  options: string;
 }
 
 export interface IOptions<T> {
@@ -65,16 +61,21 @@ export interface IOptions<T> {
 }
 
 export interface GetQuery<T> extends HTMLTemplateElement {
-  querySelector<T>(selector: string): Element | HTMLStyleElement
+  querySelector<T>(selector: string): HTMLStyleElement
+}
+
+export interface LoaderConfig {
+  endpoint: string;
+  options?: IOptions<string>;
 }
 
 export enum OptionsConfigValues {
   sources = 'sources',
   everything = 'everything',
-  apiKey = '941849fcc9764954b763e931ab561316',
+  apiKey = 'c7269a97bfc94b9884bb8e305ed67763',
   baseLink = 'https://newsapi.org/v2/'
 }
 
-export type GetData = IGetSources | IGetNews
+export type Data = IGetSources | IGetNews
 
-export type VoidCallback = (data: GetData) => void
+export type VoidCallback = (data: Data) => void

@@ -1,4 +1,4 @@
-import { OptionsConfigValues } from '../interfaces/appInterfaces';
+import { OptionsConfigValues } from '../interfaces/types';
 import Loader from './loader';
 
 class AppLoader extends Loader {

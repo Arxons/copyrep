@@ -1,5 +1,5 @@
 import AppController from '../controller/appController';
-import { GetData } from '../interfaces/appInterfaces';
+import { Data, IGetNews, IGetSources } from '../interfaces/types';
 import { AppView } from '../view/appView';
 
 class App {
@@ -15,9 +15,9 @@ class App {
 
   start(): void {
     this.sources.addEventListener('click', (e: Event) => {
-      this.controller.getNews(e, (data: GetData) => this.view.drawNews(data))
+      this.controller.getNews(e, (data: Data) => this.view.drawNews(data as IGetNews));
     });
-    this.controller.getSources((data: GetData) => this.view.drawSources(data));
+    this.controller.getSources((data: Data) => this.view.drawSources(data as IGetSources));
   }
 }
 

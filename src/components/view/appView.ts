@@ -1,6 +1,6 @@
-import { IGetNews, IGetSources } from '../interfaces/appInterfaces';
+import { IGetNews, IGetNewsData, IGetSources, IGetSourcesData } from '../interfaces/types';
 import News from './news/news';
-import Sources from './sources/sources';
+import Sources from './sources/appSources';
 
 export class AppView {
   news: News;
@@ -12,12 +12,12 @@ export class AppView {
   }
 
   drawNews(data: IGetNews) {
-    const values: IGetNews['articles'] = data?.articles ? data?.articles : [];
+    const values: Array<IGetNewsData> = data?.articles ? data?.articles : [];
     this.news.draw(values);
   }
 
   drawSources(data: IGetSources) {
-    const values: IGetSources['sources'] = data?.sources ? data?.sources : [];
+    const values: Array<IGetSourcesData> = data?.sources ? data?.sources : [];
     this.sources.draw(values);
   }
 }

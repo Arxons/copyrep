@@ -19,12 +19,15 @@ footer {
     align-items: center;
     justify-content: space-around;
 }
-footer .github, .rss {
+footer .github,
+ .rss {
     text-decoration: none;
     color: #555;
     transition: .1s ease;
 }
-footer .github:hover, .rss:hover {
+
+footer .github:hover,
+ .rss:hover {
     color: white;
 }
 footer .copyright {

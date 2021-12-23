@@ -1,8 +1,8 @@
-import { IGetNews, IResponse, IGetSources, IOptions, ILoader, VoidCallback } from '../interfaces/appInterfaces';
+import { IGetNews, IResponse, IGetSources, IOptions, ILoader, VoidCallback, LoaderConfig } from '../interfaces/types';
 
 class Loader implements ILoader {
-  public baseLink: string;
-  public options: IOptions<string>;
+  baseLink: string;
+  options: IOptions<string>;
 
   constructor(baseLink: string, options: IOptions<string>) {
     this.baseLink = baseLink;
@@ -10,14 +10,7 @@ class Loader implements ILoader {
   }
 
   getResp(
-    {
-      endpoint,
-      options = {}
-    }:
-      {
-        endpoint: string,
-        options?: IOptions<string>
-      },
+    { endpoint, options = {} }: LoaderConfig,
     callback: VoidCallback = () => {
       console.error('No callback for GET response');
     },

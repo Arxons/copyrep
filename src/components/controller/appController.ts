@@ -1,4 +1,4 @@
-import { OptionsConfigValues, VoidCallback } from '../interfaces/appInterfaces';
+import { OptionsConfigValues, VoidCallback } from '../interfaces/types';
 import AppLoader from './appLoader';
 
 class AppController extends AppLoader {
@@ -17,7 +17,7 @@ class AppController extends AppLoader {
 
     while (target !== newsContainer) {
       const isFull: boolean = (target as HTMLSpanElement).classList.contains('source_item');
-      if (isFull) {
+      if (!isFull) {
         const sourceId = (target as HTMLSpanElement).getAttribute('data-source-id');
         const newsContainerAttribute: string | null = (newsContainer as HTMLDivElement).getAttribute('data-source');
         if (newsContainerAttribute !== sourceId) {
@@ -37,7 +37,7 @@ class AppController extends AppLoader {
         }
         return;
       }
-      target = (target as HTMLSpanElement).parentNode
+      target = (target as HTMLSpanElement).parentNode;
     }
   }
 }
