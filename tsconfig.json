@@ -1,12 +1,12 @@
 {
-    "compilerOptions": {
-        "sourceMap": true,
-        "alwaysStrict": true,
-        "noImplicitAny": true,
-        "strictNullChecks": true,
-        "strictPropertyInitialization": true,
-        "strictFunctionTypes": true,
-        "noImplicitThis": true,
-        "strictBindCallApply": true,
-    }
+  "compilerOptions": {
+    "sourceMap": true,
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "strictBindCallApply": true,
+  }
 }
