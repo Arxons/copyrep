@@ -9,7 +9,6 @@ class News {
     const newsItemTemp: HTMLTemplateElement | null = document.querySelector('#newsItemTemp');
 
     news.forEach((item: object, idx: number) => {
-      console.log(10, item)
       const newsClone: Node = (newsItemTemp as HTMLTemplateElement).content.cloneNode(true);
 
       if (idx % 2) (newsClone as GetQuery<HTMLTemplateElement>).querySelector<HTMLTemplateElement>('.news__item')

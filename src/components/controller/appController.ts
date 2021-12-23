@@ -1,18 +1,17 @@
-import { optionsConfigValues, voidCallback } from '../interfaces/appInterfaces';
+import { OptionsConfigValues, VoidCallback } from '../interfaces/appInterfaces';
 import AppLoader from './appLoader';
 
 class AppController extends AppLoader {
-  getSources(callback: voidCallback): void {
-    console.log(callback)
+  getSources(callback: VoidCallback): void {
     super.getResp(
       {
-        endpoint: optionsConfigValues.sources,
+        endpoint: OptionsConfigValues.sources,
       },
       callback
     );
   }
 
-  getNews(e: Event, callback: voidCallback): void {
+  getNews(e: Event, callback: VoidCallback): void {
     let target: EventTarget | null = e.target;
     const newsContainer: EventTarget | null = e.currentTarget;
 
@@ -22,12 +21,12 @@ class AppController extends AppLoader {
         const sourceId = (target as HTMLSpanElement).getAttribute('data-source-id');
         const newsContainerAttribute: string | null = (newsContainer as HTMLDivElement).getAttribute('data-source');
         if (newsContainerAttribute !== sourceId) {
-          if (sourceId != null) {
+          if (sourceId !== null) {
             (newsContainer as HTMLDivElement).setAttribute('data-source', sourceId);
 
             super.getResp(
               {
-                endpoint: optionsConfigValues.everything,
+                endpoint: OptionsConfigValues.everything,
                 options: {
                   sources: sourceId,
                 },
@@ -40,7 +39,6 @@ class AppController extends AppLoader {
       }
       target = (target as HTMLSpanElement).parentNode
     }
-
   }
 }
 

@@ -1,4 +1,4 @@
-import { IGetNews, IGetNewsData, IGetSources } from '../interfaces/appInterfaces';
+import { IGetNews, IGetSources } from '../interfaces/appInterfaces';
 import News from './news/news';
 import Sources from './sources/sources';
 

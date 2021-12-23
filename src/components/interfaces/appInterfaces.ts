@@ -53,7 +53,7 @@ export interface ILoader {
   getResp(arg0: object, callback: () => void): void;
   errorHandler(arg0: object): object
   makeUrl(options: object, endpoint: string): string;
-  load(method: string, endpoint: string, callback: voidCallback, options: IOptions<string>): void;
+  load(method: string, endpoint: string, callback: VoidCallback, options: IOptions<string>): void;
 }
 
 export interface IUrlOptions {
@@ -68,13 +68,13 @@ export interface GetQuery<T> extends HTMLTemplateElement {
   querySelector<T>(selector: string): Element | HTMLStyleElement
 }
 
-export enum optionsConfigValues {
+export enum OptionsConfigValues {
   sources = 'sources',
   everything = 'everything',
   apiKey = '941849fcc9764954b763e931ab561316',
   baseLink = 'https://newsapi.org/v2/'
 }
 
-export type getData = IGetSources | IGetNews
+export type GetData = IGetSources | IGetNews
 
-export type voidCallback = (data: getData) => void
+export type VoidCallback = (data: GetData) => void
