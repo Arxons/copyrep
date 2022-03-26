@@ -1,0 +1,18 @@
+.about-title {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 4rem;
+}
+
+.info-container {
+  padding-top: 2rem;
+  display: flex;
+  gap: 10%;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.info-item {
+  font-size: 1.5rem;
+}

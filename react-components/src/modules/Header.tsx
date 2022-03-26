@@ -11,12 +11,26 @@ export default class Header extends React.Component {
               React Components
             </Link>
             <div className="header-links">
-              <Link className="header-link" to="/">
-                Main Page
-              </Link>
-              <Link className="header-link" to="/about">
-                About Us
-              </Link>
+              {document.location.pathname === '/' && (
+                <>
+                  <Link className="header-link active" to="/">
+                    Main Page
+                  </Link>
+                  <Link className="header-link" to="/about">
+                    About Us
+                  </Link>
+                </>
+              )}
+              {document.location.pathname === '/about' && (
+                <>
+                  <Link className="header-link" to="/">
+                    Main Page
+                  </Link>
+                  <Link className="header-link active" to="/about">
+                    About Us
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>
