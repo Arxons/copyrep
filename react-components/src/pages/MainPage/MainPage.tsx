@@ -1,5 +1,11 @@
 import React from 'react';
 
-export default function MainPage() {
-  return <div>init</div>;
+import Header from '../../modules/Header';
+
+import './mainPage.css';
+
+export default class MainPage extends React.Component {
+  render() {
+    return <Header />;
+  }
 }

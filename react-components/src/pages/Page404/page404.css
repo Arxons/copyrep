@@ -1,0 +1,40 @@
+main {
+  color: #fff;
+}
+
+.error-container {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 20vh;
+}
+
+.error-number {
+  font-size: 8rem;
+  font-weight: 400;
+}
+
+.error-message {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.error-message-descr {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+.home-link {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #1fa0fc;
+}
+
+.home-link span {
+  display: block;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+}
