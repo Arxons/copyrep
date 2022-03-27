@@ -6,13 +6,12 @@ export default class MovieCard extends React.Component<IMovieProps, IMoviesResul
   results: IMoviesResultsData;
   constructor(props: IMovieProps) {
     super(props);
-    console.log(props);
     this.results = props.movieDescr;
   }
 
   render() {
     return (
-      <li className="card-container">
+      <li className="card-container img-load">
         <div className="poster-container">
           <img
             src={`https://image.tmdb.org/t/p/original${this.results.poster_path}`}

@@ -165,3 +165,18 @@ body {
   display: inline-block;
   color: #fff;
 }
+
+.img-load {
+  animation-name: appearance;
+  animation-duration: 4.5s;
+  animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
+}
+
+@keyframes appearance {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
