@@ -103,3 +103,65 @@ body {
   color: #fff;
   font-size: 13px;
 }
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: space-evenly;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.card-container {
+  width: 15%;
+  transition: 0.2s ease-out;
+}
+
+.card-container:hover {
+  transform: scale(1.1);
+}
+
+.poster-container {
+  overflow: hidden;
+}
+
+.card-item__poster {
+  width: 100%;
+  transition: 0.4s ease-out;
+}
+
+.card-item__poster:hover {
+  transform: scale(1.2);
+}
+
+.card-item__title {
+  display: inline-block;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.card-item__release-date {
+  font-size: 0.8rem;
+  width: 100%;
+  display: inline-block;
+  color: #fff;
+}
+
+.card-item__original-language {
+  font-size: 0.8rem;
+  width: 100%;
+  display: inline-block;
+  color: #fff;
+}
+
+.card-item__rating {
+  font-size: 0.8rem;
+  width: 100%;
+  display: inline-block;
+  color: #fff;
+}
